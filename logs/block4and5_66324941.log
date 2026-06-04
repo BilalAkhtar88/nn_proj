@@ -1,0 +1,984 @@
+========================================================================
+DNS Block 4 + Block 5 — Enhancement and DNSMOS Evaluation
+========================================================================
+Job ID        : 66324941
+Node          : falcon2
+Project dir   : /gpfs/helios/home/etais/hpc_bilal/nn_proj
+Challenge dir : /gpfs/helios/home/etais/hpc_bilal/nn_proj
+Python file   : /gpfs/helios/home/etais/hpc_bilal/nn_proj/block4and5.py
+Started       : Wed Jun  3 20:22:34 EEST 2026
+========================================================================
+/gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+========================================================================
+DNS Block 4 + Block 5 — Enhancement and DNSMOS Evaluation
+========================================================================
+Project dir       : /gpfs/helios/home/etais/hpc_bilal/nn_proj
+Eval dir          : /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset
+Test pt dir       : /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/pt_files
+Test wav dir      : /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/wav_files  (not required for full scoring)
+Runs dir          : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train
+Results dir       : /gpfs/helios/home/etais/hpc_bilal/nn_proj/results
+Challenge dir     : /gpfs/helios/home/etais/hpc_bilal/nn_proj
+DNSMOS script     : /gpfs/helios/home/etais/hpc_bilal/nn_proj/dnsmos_local.py
+Baseline script   : /gpfs/helios/home/etais/hpc_bilal/nn_proj/baseline/enhance.py
+ONNX model        : /gpfs/helios/home/etais/hpc_bilal/nn_proj/baseline/dec-baseline-model-icassp2022.onnx
+N_SCORE           : 2000
+WAV_SAVE_COUNT    : 20
+========================================================================
+Found 2000 test .pt files; scoring 2000.
+Found 8 completed model run(s):
+  - lr5em03_samp1008_crn_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1008/crn_h161/best_model.pt)
+  - lr5em03_samp1008_gru_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1008/gru_h161/best_model.pt)
+  - lr5em03_samp1504_crn_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/best_model.pt)
+  - lr5em03_samp1504_gru_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/best_model.pt)
+  - lr5em03_samp2000_crn_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp2000/crn_h161/best_model.pt)
+  - lr5em03_samp2000_gru_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp2000/gru_h161/best_model.pt)
+  - lr5em03_samp512_crn_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp512/crn_h161/best_model.pt)
+  - lr5em03_samp512_gru_h161  (/gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp512/gru_h161/best_model.pt)
+Device            : cuda
+  GPU 0: Tesla V100-PCIE-32GB
+  GPU 1: Tesla V100-PCIE-32GB
+  GPU 2: Tesla V100-PCIE-32GB
+  GPU 3: Tesla V100-PCIE-32GB
+
+========================================================================
+Step 1: Score noisy input reconstructed from test .pt files
+========================================================================
+  Reconstructing noisy mic wavs from 2000 .pt files ...
+    reconstructed noisy 200 files
+    reconstructed noisy 400 files
+    reconstructed noisy 600 files
+    reconstructed noisy 800 files
+    reconstructed noisy 1000 files
+    reconstructed noisy 1200 files
+    reconstructed noisy 1400 files
+    reconstructed noisy 1600 files
+    reconstructed noisy 1800 files
+    reconstructed noisy 2000 files
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+37:35,  1.19it/s]
+1937it [37:36,  1.08s/it]
+1938it [37:39,  1.69s/it]
+1939it [37:40,  1.27s/it]
+1940it [37:42,  1.54s/it]
+1941it [37:42,  1.20s/it]
+1942it [37:43,  1.11s/it]
+1943it [37:44,  1.01s/it]
+1944it [37:45,  1.02s/it]
+1946it [37:47,  1.02s/it]
+1947it [37:48,  1.03it/s]
+1948it [37:52,  1.66s/it]
+1950it [37:52,  1.12s/it]
+1951it [37:53,  1.01it/s]
+1952it [37:53,  1.26it/s]
+1953it [37:55,  1.05s/it]
+1954it [37:55,  1.09it/s]
+1955it [37:56,  1.44it/s]
+1956it [37:57,  1.18it/s]
+1957it [37:59,  1.18s/it]
+1959it [37:59,  1.25it/s]
+1960it [38:02,  1.10s/it]
+1961it [38:04,  1.51s/it]
+1962it [38:08,  2.01s/it]
+1963it [38:08,  1.61s/it]
+1964it [38:08,  1.22s/it]
+1965it [38:11,  1.62s/it]
+1966it [38:12,  1.34s/it]
+1967it [38:13,  1.37s/it]
+1968it [38:15,  1.49s/it]
+1969it [38:15,  1.21s/it]
+1970it [38:16,  1.16s/it]
+1971it [38:17,  1.04it/s]
+1972it [38:18,  1.15it/s]
+1973it [38:18,  1.29it/s]
+1974it [38:18,  1.70it/s]
+1975it [38:19,  1.96it/s]
+1976it [38:20,  1.24it/s]
+1977it [38:22,  1.04s/it]
+1978it [38:24,  1.33s/it]
+1979it [38:24,  1.09s/it]
+1980it [38:25,  1.15it/s]
+1982it [38:25,  1.95it/s]
+1983it [38:25,  2.18it/s]
+1984it [38:26,  2.18it/s]
+1985it [38:26,  1.78it/s]
+1986it [38:27,  2.16it/s]
+1987it [38:27,  1.95it/s]
+1988it [38:27,  2.41it/s]
+1989it [38:28,  2.67it/s]
+1990it [38:28,  3.36it/s]
+1991it [38:28,  3.61it/s]
+1992it [38:29,  2.92it/s]
+1993it [38:29,  1.90it/s]
+1994it [38:31,  1.37it/s]
+1997it [38:31,  2.57it/s]
+1998it [38:31,  2.98it/s]
+2000it [38:31,  1.16s/it]
+
+  Noisy input: SIG=2.239  BAK=2.533  OVRL=1.876  P808=2.624  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+
+========================================================================
+Step 2: Score instructor ONNX baseline
+========================================================================
+  Preparing 2000 ONNX baseline input pairs ...
+  Far-end/lpb is silent zeros because this project is nearend-only.
+    ONNX input pairs 200/2000
+    ONNX input pairs 400/2000
+    ONNX input pairs 600/2000
+    ONNX input pairs 800/2000
+    ONNX input pairs 1000/2000
+    ONNX input pairs 1200/2000
+    ONNX input pairs 1400/2000
+    ONNX input pairs 1600/2000
+    ONNX input pairs 1800/2000
+    ONNX input pairs 2000/2000
+  Running instructor ONNX baseline enhance.py ...
+  ONNX baseline stderr:
+██████▊| 1973/2000 [16:17<00:12,  2.08it/s]
+ 99%|█████████▊| 1974/2000 [16:17<00:12,  2.08it/s]
+ 99%|█████████▉| 1975/2000 [16:18<00:12,  2.08it/s]
+ 99%|█████████▉| 1976/2000 [16:18<00:11,  2.08it/s]
+ 99%|█████████▉| 1977/2000 [16:19<00:11,  2.08it/s]
+ 99%|█████████▉| 1978/2000 [16:19<00:10,  2.08it/s]
+ 99%|█████████▉| 1979/2000 [16:20<00:10,  2.08it/s]
+ 99%|█████████▉| 1980/2000 [16:20<00:09,  2.08it/s]
+ 99%|█████████▉| 1981/2000 [16:21<00:09,  2.09it/s]
+ 99%|█████████▉| 1982/2000 [16:21<00:08,  2.08it/s]
+ 99%|█████████▉| 1983/2000 [16:22<00:08,  2.08it/s]
+ 99%|█████████▉| 1984/2000 [16:22<00:07,  2.08it/s]
+ 99%|█████████▉| 1985/2000 [16:23<00:07,  2.09it/s]
+ 99%|█████████▉| 1986/2000 [16:23<00:06,  2.09it/s]
+ 99%|█████████▉| 1987/2000 [16:24<00:06,  2.08it/s]
+ 99%|█████████▉| 1988/2000 [16:24<00:05,  2.08it/s]
+ 99%|█████████▉| 1989/2000 [16:25<00:05,  2.08it/s]
+100%|█████████▉| 1990/2000 [16:25<00:04,  2.08it/s]
+100%|█████████▉| 1991/2000 [16:26<00:04,  2.08it/s]
+100%|█████████▉| 1992/2000 [16:26<00:03,  2.08it/s]
+100%|█████████▉| 1993/2000 [16:27<00:03,  2.08it/s]
+100%|█████████▉| 1994/2000 [16:27<00:02,  2.08it/s]
+100%|█████████▉| 1995/2000 [16:28<00:02,  2.08it/s]
+100%|█████████▉| 1996/2000 [16:28<00:01,  2.08it/s]
+100%|█████████▉| 1997/2000 [16:28<00:01,  2.09it/s]
+100%|█████████▉| 1998/2000 [16:29<00:00,  2.09it/s]
+100%|█████████▉| 1999/2000 [16:29<00:00,  2.09it/s]
+100%|██████████| 2000/2000 [16:30<00:00,  2.09it/s]
+100%|██████████| 2000/2000 [16:30<00:00,  2.02it/s]
+
+  Resampling/copying 2000 ONNX outputs to 16 kHz for DNSMOS ...
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+37:22,  1.39s/it]
+1938it [37:22,  1.18s/it]
+1939it [37:23,  1.07s/it]
+1940it [37:25,  1.16s/it]
+1941it [37:25,  1.08s/it]
+1942it [37:26,  1.03s/it]
+1943it [37:27,  1.11it/s]
+1944it [37:28,  1.07s/it]
+1945it [37:29,  1.20it/s]
+1946it [37:30,  1.24it/s]
+1947it [37:30,  1.22it/s]
+1948it [37:31,  1.44it/s]
+1949it [37:31,  1.89it/s]
+1950it [37:32,  1.60it/s]
+1951it [37:32,  1.98it/s]
+1952it [37:35,  1.30s/it]
+1953it [37:37,  1.33s/it]
+1954it [37:39,  1.77s/it]
+1955it [37:40,  1.42s/it]
+1956it [37:41,  1.45s/it]
+1957it [37:44,  1.79s/it]
+1958it [37:45,  1.47s/it]
+1959it [37:45,  1.09s/it]
+1960it [37:46,  1.10s/it]
+1961it [37:48,  1.29s/it]
+1962it [37:48,  1.04it/s]
+1963it [37:49,  1.11it/s]
+1964it [37:51,  1.20s/it]
+1965it [37:51,  1.12it/s]
+1966it [37:53,  1.30s/it]
+1967it [37:55,  1.46s/it]
+1968it [37:57,  1.54s/it]
+1969it [37:57,  1.32s/it]
+1971it [37:58,  1.06it/s]
+1972it [38:02,  1.68s/it]
+1973it [38:04,  1.63s/it]
+1974it [38:04,  1.30s/it]
+1975it [38:05,  1.04s/it]
+1976it [38:05,  1.07it/s]
+1977it [38:06,  1.22it/s]
+1978it [38:06,  1.53it/s]
+1980it [38:06,  2.41it/s]
+1982it [38:07,  3.29it/s]
+1983it [38:07,  3.34it/s]
+1984it [38:08,  2.50it/s]
+1985it [38:10,  1.06it/s]
+1986it [38:11,  1.14it/s]
+1987it [38:11,  1.49it/s]
+1989it [38:11,  2.43it/s]
+1990it [38:11,  2.88it/s]
+1991it [38:12,  3.22it/s]
+1992it [38:13,  1.83it/s]
+1993it [38:13,  2.35it/s]
+1995it [38:14,  2.29it/s]
+1996it [38:14,  2.70it/s]
+1997it [38:14,  3.07it/s]
+2000it [38:15,  4.33it/s]
+2000it [38:15,  1.15s/it]
+
+  ONNX baseline: SIG=2.274  BAK=2.766  OVRL=1.937  P808=2.614  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+
+========================================================================
+Step 3: Evaluate lr5em03_samp1008_crn_h161
+========================================================================
+  Loading CRN h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1008/crn_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  17s
+    enhanced 400/2000  |  34s
+    enhanced 600/2000  |  53s
+    enhanced 800/2000  |  71s
+    enhanced 1000/2000  |  89s
+    enhanced 1200/2000  |  106s
+    enhanced 1400/2000  |  124s
+    enhanced 1600/2000  |  143s
+    enhanced 1800/2000  |  162s
+    enhanced 2000/2000  |  180s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+37:29,  1.50s/it]
+1939it [37:29,  1.29s/it]
+1940it [37:30,  1.07s/it]
+1941it [37:33,  1.68s/it]
+1942it [37:35,  1.85s/it]
+1943it [37:36,  1.60s/it]
+1944it [37:38,  1.66s/it]
+1945it [37:39,  1.40s/it]
+1946it [37:40,  1.45s/it]
+1947it [37:42,  1.35s/it]
+1948it [37:43,  1.26s/it]
+1949it [37:43,  1.01it/s]
+1950it [37:43,  1.38it/s]
+1951it [37:44,  1.51it/s]
+1952it [37:44,  2.02it/s]
+1953it [37:45,  1.67it/s]
+1954it [37:47,  1.01s/it]
+1955it [37:48,  1.16s/it]
+1956it [37:48,  1.18it/s]
+1957it [37:50,  1.17s/it]
+1958it [37:51,  1.03it/s]
+1959it [37:52,  1.15s/it]
+1960it [37:52,  1.13it/s]
+1961it [37:53,  1.16it/s]
+1962it [37:53,  1.52it/s]
+1963it [37:55,  1.28it/s]
+1964it [37:56,  1.02it/s]
+1965it [37:57,  1.09s/it]
+1966it [38:00,  1.49s/it]
+1967it [38:02,  1.82s/it]
+1969it [38:03,  1.09s/it]
+1970it [38:07,  1.80s/it]
+1971it [38:08,  1.61s/it]
+1972it [38:09,  1.40s/it]
+1973it [38:10,  1.44s/it]
+1974it [38:11,  1.35s/it]
+1975it [38:12,  1.30s/it]
+1976it [38:13,  1.17s/it]
+1977it [38:15,  1.27s/it]
+1979it [38:15,  1.33it/s]
+1980it [38:15,  1.53it/s]
+1982it [38:16,  2.30it/s]
+1983it [38:16,  2.28it/s]
+1984it [38:17,  2.30it/s]
+1985it [38:18,  1.77it/s]
+1986it [38:18,  2.05it/s]
+1987it [38:19,  1.57it/s]
+1988it [38:19,  1.85it/s]
+1989it [38:20,  1.96it/s]
+1990it [38:20,  2.04it/s]
+1991it [38:20,  2.36it/s]
+1992it [38:20,  2.96it/s]
+1994it [38:21,  4.56it/s]
+1996it [38:21,  6.46it/s]
+1998it [38:22,  3.37it/s]
+1999it [38:22,  3.77it/s]
+2000it [38:22,  4.10it/s]
+2000it [38:22,  1.15s/it]
+
+  lr5em03_samp1008_crn_h161: SIG=2.255  BAK=2.663  OVRL=1.932  P808=2.681  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+
+========================================================================
+Step 4: Evaluate lr5em03_samp1008_gru_h161
+========================================================================
+  Loading GRU h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1008/gru_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  15s
+    enhanced 400/2000  |  31s
+    enhanced 600/2000  |  48s
+    enhanced 800/2000  |  66s
+    enhanced 1000/2000  |  82s
+    enhanced 1200/2000  |  99s
+    enhanced 1400/2000  |  116s
+    enhanced 1600/2000  |  134s
+    enhanced 1800/2000  |  151s
+    enhanced 2000/2000  |  169s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+37:31,  1.10it/s]
+1935it [37:32,  1.25it/s]
+1936it [37:34,  1.27s/it]
+1937it [37:35,  1.08s/it]
+1938it [37:37,  1.26s/it]
+1939it [37:37,  1.05s/it]
+1940it [37:38,  1.01s/it]
+1941it [37:39,  1.08it/s]
+1942it [37:39,  1.16it/s]
+1943it [37:40,  1.17it/s]
+1944it [37:43,  1.33s/it]
+1945it [37:45,  1.47s/it]
+1946it [37:47,  1.79s/it]
+1947it [37:48,  1.58s/it]
+1948it [37:48,  1.15s/it]
+1949it [37:49,  1.15it/s]
+1951it [37:52,  1.18s/it]
+1952it [37:54,  1.57s/it]
+1953it [37:56,  1.65s/it]
+1954it [37:57,  1.52s/it]
+1955it [37:59,  1.48s/it]
+1956it [38:00,  1.36s/it]
+1957it [38:00,  1.06s/it]
+1958it [38:02,  1.21s/it]
+1959it [38:02,  1.11it/s]
+1960it [38:02,  1.33it/s]
+1961it [38:04,  1.07s/it]
+1962it [38:04,  1.21it/s]
+1963it [38:05,  1.53it/s]
+1965it [38:05,  2.48it/s]
+1966it [38:06,  1.51it/s]
+1967it [38:07,  1.50it/s]
+1968it [38:12,  1.78s/it]
+1969it [38:13,  1.69s/it]
+1970it [38:14,  1.34s/it]
+1973it [38:15,  1.23it/s]
+1974it [38:16,  1.23it/s]
+1975it [38:16,  1.27it/s]
+1976it [38:17,  1.35it/s]
+1977it [38:18,  1.11it/s]
+1978it [38:20,  1.12s/it]
+1979it [38:22,  1.49s/it]
+1980it [38:23,  1.10s/it]
+1982it [38:23,  1.53it/s]
+1984it [38:26,  1.03it/s]
+1985it [38:26,  1.11it/s]
+1986it [38:27,  1.08it/s]
+1987it [38:28,  1.22it/s]
+1988it [38:28,  1.35it/s]
+1989it [38:29,  1.68it/s]
+1990it [38:29,  1.90it/s]
+1991it [38:29,  2.45it/s]
+1992it [38:29,  3.04it/s]
+1995it [38:30,  4.97it/s]
+1997it [38:30,  6.21it/s]
+1998it [38:30,  6.61it/s]
+2000it [38:30,  6.27it/s]
+2000it [38:30,  1.16s/it]
+
+  lr5em03_samp1008_gru_h161: SIG=2.272  BAK=2.716  OVRL=1.959  P808=2.694  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+
+========================================================================
+Step 5: Evaluate lr5em03_samp1504_crn_h161
+========================================================================
+  Loading CRN h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  14s
+    enhanced 400/2000  |  29s
+    enhanced 600/2000  |  44s
+    enhanced 800/2000  |  59s
+    enhanced 1000/2000  |  74s
+    enhanced 1200/2000  |  89s
+    enhanced 1400/2000  |  104s
+    enhanced 1600/2000  |  120s
+    enhanced 1800/2000  |  134s
+    enhanced 2000/2000  |  149s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+37:39,  2.21s/it]
+1938it [37:39,  1.63s/it]
+1940it [37:41,  1.16s/it]
+1941it [37:41,  1.10s/it]
+1942it [37:42,  1.08it/s]
+1943it [37:43,  1.04s/it]
+1945it [37:44,  1.56it/s]
+1946it [37:45,  1.11it/s]
+1947it [37:46,  1.32it/s]
+1948it [37:46,  1.47it/s]
+1949it [37:46,  1.78it/s]
+1950it [37:47,  1.77it/s]
+1951it [37:48,  1.65it/s]
+1952it [37:48,  2.01it/s]
+1953it [37:49,  1.29it/s]
+1955it [37:52,  1.15s/it]
+1956it [37:56,  1.64s/it]
+1957it [37:58,  1.86s/it]
+1958it [37:59,  1.67s/it]
+1959it [38:02,  1.99s/it]
+1961it [38:02,  1.13s/it]
+1962it [38:02,  1.07it/s]
+1963it [38:05,  1.26s/it]
+1964it [38:05,  1.01s/it]
+1965it [38:09,  1.70s/it]
+1966it [38:10,  1.59s/it]
+1967it [38:10,  1.18s/it]
+1968it [38:10,  1.06it/s]
+1969it [38:14,  1.76s/it]
+1970it [38:15,  1.61s/it]
+1971it [38:17,  1.52s/it]
+1972it [38:17,  1.30s/it]
+1973it [38:18,  1.01it/s]
+1974it [38:18,  1.33it/s]
+1975it [38:18,  1.42it/s]
+1977it [38:19,  1.91it/s]
+1978it [38:19,  2.21it/s]
+1979it [38:20,  2.49it/s]
+1980it [38:21,  1.61it/s]
+1981it [38:22,  1.48it/s]
+1982it [38:22,  1.88it/s]
+1983it [38:22,  2.39it/s]
+1984it [38:22,  2.54it/s]
+1985it [38:22,  3.08it/s]
+1986it [38:24,  1.65it/s]
+1987it [38:24,  1.53it/s]
+1988it [38:25,  1.73it/s]
+1989it [38:26,  1.37it/s]
+1990it [38:27,  1.16it/s]
+1991it [38:27,  1.57it/s]
+1992it [38:27,  2.02it/s]
+1993it [38:28,  2.37it/s]
+1994it [38:28,  2.52it/s]
+1996it [38:28,  3.33it/s]
+1997it [38:28,  3.96it/s]
+1998it [38:29,  2.31it/s]
+2000it [38:30,  3.32it/s]
+2000it [38:30,  1.16s/it]
+
+  lr5em03_samp1504_crn_h161: SIG=2.285  BAK=2.708  OVRL=1.960  P808=2.685  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+
+========================================================================
+Step 6: Evaluate lr5em03_samp1504_gru_h161
+========================================================================
+  Loading GRU h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  13s
+    enhanced 400/2000  |  25s
+    enhanced 600/2000  |  38s
+    enhanced 800/2000  |  51s
+    enhanced 1000/2000  |  63s
+    enhanced 1200/2000  |  76s
+    enhanced 1400/2000  |  89s
+    enhanced 1600/2000  |  101s
+    enhanced 1800/2000  |  114s
+    enhanced 2000/2000  |  127s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+38:26,  1.20it/s]
+1933it [38:27,  1.01it/s]
+1934it [38:29,  1.16s/it]
+1935it [38:31,  1.61s/it]
+1936it [38:32,  1.34s/it]
+1937it [38:33,  1.28s/it]
+1938it [38:34,  1.03s/it]
+1939it [38:37,  1.67s/it]
+1940it [38:38,  1.59s/it]
+1941it [38:39,  1.31s/it]
+1942it [38:40,  1.26s/it]
+1943it [38:42,  1.37s/it]
+1944it [38:42,  1.05s/it]
+1946it [38:46,  1.46s/it]
+1947it [38:46,  1.17s/it]
+1948it [38:47,  1.10s/it]
+1950it [38:48,  1.25it/s]
+1951it [38:49,  1.00it/s]
+1952it [38:51,  1.14s/it]
+1954it [38:51,  1.29it/s]
+1955it [38:53,  1.19it/s]
+1956it [38:53,  1.22it/s]
+1957it [38:56,  1.23s/it]
+1958it [38:58,  1.47s/it]
+1959it [39:00,  1.67s/it]
+1960it [39:01,  1.42s/it]
+1961it [39:01,  1.09s/it]
+1962it [39:01,  1.18it/s]
+1963it [39:02,  1.39it/s]
+1964it [39:02,  1.48it/s]
+1965it [39:03,  1.61it/s]
+1966it [39:04,  1.10it/s]
+1967it [39:12,  2.78s/it]
+1968it [39:12,  2.06s/it]
+1969it [39:12,  1.53s/it]
+1970it [39:13,  1.34s/it]
+1971it [39:14,  1.29s/it]
+1972it [39:15,  1.16s/it]
+1974it [39:17,  1.03s/it]
+1975it [39:18,  1.08s/it]
+1976it [39:19,  1.11s/it]
+1977it [39:21,  1.22s/it]
+1979it [39:22,  1.19it/s]
+1980it [39:22,  1.32it/s]
+1981it [39:23,  1.27it/s]
+1982it [39:23,  1.60it/s]
+1983it [39:24,  1.45it/s]
+1986it [39:25,  2.39it/s]
+1987it [39:25,  1.95it/s]
+1988it [39:26,  2.30it/s]
+1989it [39:26,  2.72it/s]
+1990it [39:28,  1.37it/s]
+1991it [39:28,  1.55it/s]
+1994it [39:28,  3.14it/s]
+1997it [39:28,  4.96it/s]
+1999it [39:29,  3.07it/s]
+2000it [39:30,  3.32it/s]
+2000it [39:30,  1.19s/it]
+
+  lr5em03_samp1504_gru_h161: SIG=2.273  BAK=2.705  OVRL=1.951  P808=2.689  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+  lr5em03_samp1504_gru_h161                       2000  2.273  2.705  1.951  2.689
+
+========================================================================
+Step 7: Evaluate lr5em03_samp2000_crn_h161
+========================================================================
+  Loading CRN h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp2000/crn_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  15s
+    enhanced 400/2000  |  30s
+    enhanced 600/2000  |  45s
+    enhanced 800/2000  |  60s
+    enhanced 1000/2000  |  75s
+    enhanced 1200/2000  |  90s
+    enhanced 1400/2000  |  105s
+    enhanced 1600/2000  |  120s
+    enhanced 1800/2000  |  135s
+    enhanced 2000/2000  |  150s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+38:45,  1.66s/it]
+1938it [38:45,  1.42s/it]
+1939it [38:46,  1.07s/it]
+1940it [38:47,  1.00s/it]
+1941it [38:48,  1.25s/it]
+1942it [38:49,  1.14s/it]
+1943it [38:52,  1.50s/it]
+1944it [38:52,  1.19s/it]
+1945it [38:53,  1.01s/it]
+1946it [38:53,  1.11it/s]
+1947it [38:54,  1.37it/s]
+1948it [38:54,  1.45it/s]
+1949it [38:55,  1.43it/s]
+1950it [38:55,  1.62it/s]
+1951it [38:56,  1.83it/s]
+1952it [38:57,  1.62it/s]
+1953it [38:57,  2.14it/s]
+1954it [38:57,  2.42it/s]
+1955it [38:58,  1.65it/s]
+1956it [39:01,  1.47s/it]
+1957it [39:02,  1.11s/it]
+1958it [39:03,  1.12s/it]
+1959it [39:03,  1.20it/s]
+1960it [39:04,  1.20it/s]
+1961it [39:07,  1.66s/it]
+1962it [39:08,  1.33s/it]
+1963it [39:11,  1.70s/it]
+1964it [39:12,  1.51s/it]
+1965it [39:18,  2.82s/it]
+1966it [39:18,  2.04s/it]
+1967it [39:20,  2.04s/it]
+1968it [39:21,  1.76s/it]
+1969it [39:22,  1.53s/it]
+1970it [39:22,  1.19s/it]
+1971it [39:22,  1.15it/s]
+1972it [39:24,  1.03s/it]
+1973it [39:26,  1.25s/it]
+1974it [39:26,  1.09s/it]
+1975it [39:28,  1.22s/it]
+1977it [39:28,  1.31it/s]
+1978it [39:29,  1.34it/s]
+1979it [39:30,  1.36it/s]
+1980it [39:30,  1.53it/s]
+1981it [39:31,  1.66it/s]
+1982it [39:31,  2.17it/s]
+1986it [39:31,  4.64it/s]
+1987it [39:32,  2.34it/s]
+1988it [39:33,  2.22it/s]
+1989it [39:34,  1.97it/s]
+1990it [39:34,  2.26it/s]
+1991it [39:35,  1.77it/s]
+1992it [39:35,  1.86it/s]
+1994it [39:35,  2.92it/s]
+1996it [39:36,  2.62it/s]
+1997it [39:37,  2.43it/s]
+1998it [39:37,  2.27it/s]
+2000it [39:37,  3.45it/s]
+2000it [39:37,  1.19s/it]
+
+  lr5em03_samp2000_crn_h161: SIG=2.304  BAK=2.716  OVRL=1.974  P808=2.697  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+  lr5em03_samp1504_gru_h161                       2000  2.273  2.705  1.951  2.689
+  lr5em03_samp2000_crn_h161                       2000  2.304  2.716  1.974  2.697
+
+========================================================================
+Step 8: Evaluate lr5em03_samp2000_gru_h161
+========================================================================
+  Loading GRU h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp2000/gru_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  15s
+    enhanced 400/2000  |  30s
+    enhanced 600/2000  |  44s
+    enhanced 800/2000  |  59s
+    enhanced 1000/2000  |  74s
+    enhanced 1200/2000  |  89s
+    enhanced 1400/2000  |  104s
+    enhanced 1600/2000  |  119s
+    enhanced 1800/2000  |  134s
+    enhanced 2000/2000  |  149s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+38:55,  1.35s/it]
+1938it [38:57,  1.40s/it]
+1939it [38:57,  1.06s/it]
+1940it [38:59,  1.38s/it]
+1942it [39:00,  1.23it/s]
+1943it [39:00,  1.49it/s]
+1944it [39:00,  1.49it/s]
+1945it [39:01,  1.71it/s]
+1946it [39:01,  2.06it/s]
+1947it [39:01,  2.20it/s]
+1948it [39:02,  1.82it/s]
+1949it [39:03,  1.68it/s]
+1950it [39:03,  2.08it/s]
+1951it [39:05,  1.28it/s]
+1952it [39:09,  2.00s/it]
+1953it [39:10,  1.49s/it]
+1954it [39:11,  1.28s/it]
+1955it [39:12,  1.30s/it]
+1956it [39:14,  1.55s/it]
+1957it [39:15,  1.38s/it]
+1958it [39:20,  2.49s/it]
+1959it [39:21,  2.07s/it]
+1960it [39:23,  2.13s/it]
+1961it [39:24,  1.52s/it]
+1962it [39:25,  1.38s/it]
+1963it [39:25,  1.20s/it]
+1964it [39:28,  1.74s/it]
+1965it [39:29,  1.53s/it]
+1966it [39:30,  1.33s/it]
+1967it [39:31,  1.30s/it]
+1968it [39:32,  1.17s/it]
+1969it [39:35,  1.72s/it]
+1971it [39:36,  1.10s/it]
+1972it [39:37,  1.02it/s]
+1973it [39:37,  1.27it/s]
+1975it [39:38,  1.66it/s]
+1976it [39:38,  2.04it/s]
+1977it [39:38,  1.84it/s]
+1978it [39:39,  1.77it/s]
+1980it [39:39,  2.85it/s]
+1981it [39:40,  2.35it/s]
+1982it [39:40,  2.19it/s]
+1983it [39:41,  2.31it/s]
+1984it [39:43,  1.08it/s]
+1985it [39:43,  1.43it/s]
+1986it [39:44,  1.49it/s]
+1987it [39:44,  1.78it/s]
+1988it [39:45,  1.34it/s]
+1989it [39:46,  1.43it/s]
+1990it [39:48,  1.09s/it]
+1993it [39:49,  1.57it/s]
+1994it [39:49,  1.89it/s]
+1995it [39:49,  2.17it/s]
+1996it [39:50,  1.96it/s]
+1997it [39:50,  2.09it/s]
+1999it [39:50,  3.35it/s]
+2000it [39:51,  3.22it/s]
+2000it [39:51,  1.20s/it]
+
+  lr5em03_samp2000_gru_h161: SIG=2.241  BAK=2.644  OVRL=1.928  P808=2.693  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+  lr5em03_samp1504_gru_h161                       2000  2.273  2.705  1.951  2.689
+  lr5em03_samp2000_crn_h161                       2000  2.304  2.716  1.974  2.697
+  lr5em03_samp2000_gru_h161                       2000  2.241  2.644  1.928  2.693
+
+========================================================================
+Step 9: Evaluate lr5em03_samp512_crn_h161
+========================================================================
+  Loading CRN h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp512/crn_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  16s
+    enhanced 400/2000  |  34s
+    enhanced 600/2000  |  51s
+    enhanced 800/2000  |  68s
+    enhanced 1000/2000  |  87s
+    enhanced 1200/2000  |  104s
+    enhanced 1400/2000  |  121s
+    enhanced 1600/2000  |  138s
+    enhanced 1800/2000  |  155s
+    enhanced 2000/2000  |  172s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+38:50,  1.32s/it]
+1937it [38:51,  1.04it/s]
+1938it [38:52,  1.16s/it]
+1939it [38:52,  1.15it/s]
+1940it [38:53,  1.28it/s]
+1941it [38:53,  1.61it/s]
+1942it [38:57,  1.63s/it]
+1943it [38:58,  1.46s/it]
+1944it [38:59,  1.19s/it]
+1945it [39:02,  1.80s/it]
+1946it [39:04,  1.87s/it]
+1947it [39:04,  1.38s/it]
+1948it [39:04,  1.00it/s]
+1949it [39:07,  1.47s/it]
+1951it [39:08,  1.09s/it]
+1952it [39:09,  1.01s/it]
+1953it [39:11,  1.28s/it]
+1954it [39:12,  1.14s/it]
+1955it [39:13,  1.07s/it]
+1956it [39:13,  1.03it/s]
+1957it [39:16,  1.44s/it]
+1958it [39:18,  1.66s/it]
+1959it [39:19,  1.51s/it]
+1960it [39:20,  1.16s/it]
+1961it [39:20,  1.00s/it]
+1962it [39:21,  1.04it/s]
+1964it [39:21,  1.76it/s]
+1965it [39:22,  1.67it/s]
+1966it [39:26,  1.53s/it]
+1967it [39:27,  1.31s/it]
+1969it [39:28,  1.00s/it]
+1970it [39:29,  1.00s/it]
+1971it [39:31,  1.23s/it]
+1972it [39:32,  1.20s/it]
+1973it [39:33,  1.00it/s]
+1974it [39:33,  1.14it/s]
+1975it [39:33,  1.53it/s]
+1976it [39:36,  1.32s/it]
+1977it [39:37,  1.17s/it]
+1978it [39:39,  1.43s/it]
+1979it [39:39,  1.10s/it]
+1980it [39:40,  1.14it/s]
+1981it [39:41,  1.11it/s]
+1982it [39:42,  1.01s/it]
+1983it [39:43,  1.03it/s]
+1985it [39:43,  1.61it/s]
+1986it [39:44,  1.95it/s]
+1988it [39:44,  2.92it/s]
+1989it [39:45,  1.72it/s]
+1990it [39:46,  1.58it/s]
+1991it [39:46,  1.86it/s]
+1992it [39:46,  2.13it/s]
+1994it [39:47,  3.26it/s]
+1995it [39:47,  3.15it/s]
+1996it [39:47,  3.54it/s]
+1998it [39:47,  5.37it/s]
+1999it [39:48,  3.54it/s]
+2000it [39:48,  1.19s/it]
+
+  lr5em03_samp512_crn_h161: SIG=2.218  BAK=2.590  OVRL=1.899  P808=2.684  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+  lr5em03_samp1504_gru_h161                       2000  2.273  2.705  1.951  2.689
+  lr5em03_samp2000_crn_h161                       2000  2.304  2.716  1.974  2.697
+  lr5em03_samp2000_gru_h161                       2000  2.241  2.644  1.928  2.693
+  lr5em03_samp512_crn_h161                        2000  2.218  2.590  1.899  2.684
+
+========================================================================
+Step 10: Evaluate lr5em03_samp512_gru_h161
+========================================================================
+  Loading GRU h=161 from:
+    /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp512/gru_h161/best_model.pt
+  Enhancing 2000 test samples ...
+    enhanced 200/2000  |  15s
+    enhanced 400/2000  |  29s
+    enhanced 600/2000  |  44s
+    enhanced 800/2000  |  58s
+    enhanced 1000/2000  |  73s
+    enhanced 1200/2000  |  88s
+    enhanced 1400/2000  |  102s
+    enhanced 1600/2000  |  116s
+    enhanced 1800/2000  |  131s
+    enhanced 2000/2000  |  145s
+  Running DNSMOS on 2000 wav files ...
+  DNSMOS stderr:
+38:48,  2.03s/it]
+1939it [38:51,  1.72s/it]
+1940it [38:52,  1.63s/it]
+1941it [38:52,  1.25s/it]
+1942it [38:52,  1.01it/s]
+1943it [38:53,  1.07it/s]
+1944it [38:53,  1.26it/s]
+1945it [38:54,  1.39it/s]
+1946it [38:55,  1.50it/s]
+1947it [38:56,  1.18it/s]
+1948it [38:58,  1.12s/it]
+1949it [39:01,  1.88s/it]
+1950it [39:02,  1.49s/it]
+1951it [39:02,  1.23s/it]
+1952it [39:03,  1.16s/it]
+1953it [39:04,  1.01it/s]
+1954it [39:04,  1.20it/s]
+1955it [39:05,  1.32it/s]
+1957it [39:05,  2.17it/s]
+1958it [39:06,  2.36it/s]
+1959it [39:07,  1.43it/s]
+1960it [39:09,  1.13s/it]
+1961it [39:09,  1.17it/s]
+1962it [39:12,  1.40s/it]
+1963it [39:13,  1.16s/it]
+1964it [39:14,  1.22s/it]
+1965it [39:19,  2.31s/it]
+1966it [39:20,  1.76s/it]
+1967it [39:21,  1.54s/it]
+1968it [39:24,  2.01s/it]
+1969it [39:26,  2.04s/it]
+1970it [39:27,  1.90s/it]
+1971it [39:28,  1.47s/it]
+1972it [39:28,  1.10s/it]
+1973it [39:29,  1.07it/s]
+1974it [39:30,  1.15s/it]
+1975it [39:31,  1.06it/s]
+1976it [39:31,  1.39it/s]
+1977it [39:31,  1.67it/s]
+1978it [39:32,  1.97it/s]
+1980it [39:34,  1.10it/s]
+1981it [39:35,  1.12it/s]
+1982it [39:36,  1.07it/s]
+1983it [39:36,  1.40it/s]
+1984it [39:37,  1.51it/s]
+1986it [39:37,  2.45it/s]
+1988it [39:37,  3.31it/s]
+1989it [39:37,  3.68it/s]
+1990it [39:38,  2.86it/s]
+1991it [39:38,  3.33it/s]
+1992it [39:38,  3.41it/s]
+1993it [39:39,  2.74it/s]
+1994it [39:39,  3.35it/s]
+1995it [39:40,  2.54it/s]
+1997it [39:41,  2.20it/s]
+1999it [39:41,  2.99it/s]
+2000it [39:41,  3.50it/s]
+2000it [39:41,  1.19s/it]
+
+  lr5em03_samp512_gru_h161: SIG=2.276  BAK=2.693  OVRL=1.954  P808=2.690  n=2000
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+  lr5em03_samp1504_gru_h161                       2000  2.273  2.705  1.951  2.689
+  lr5em03_samp2000_crn_h161                       2000  2.304  2.716  1.974  2.697
+  lr5em03_samp2000_gru_h161                       2000  2.241  2.644  1.928  2.693
+  lr5em03_samp512_crn_h161                        2000  2.218  2.590  1.899  2.684
+  lr5em03_samp512_gru_h161                        2000  2.276  2.693  1.954  2.690
+
+========================================================================
+FINAL SUMMARY
+========================================================================
+
+  Running summary:
+  System                                             n    SIG    BAK   OVRL   P808
+  ------------------------------------------------------------------------------------
+  Noisy input                                     2000  2.239  2.533  1.876  2.624
+  ONNX baseline                                   2000  2.274  2.766  1.937  2.614
+  lr5em03_samp1008_crn_h161                       2000  2.255  2.663  1.932  2.681
+  lr5em03_samp1008_gru_h161                       2000  2.272  2.716  1.959  2.694
+  lr5em03_samp1504_crn_h161                       2000  2.285  2.708  1.960  2.685
+  lr5em03_samp1504_gru_h161                       2000  2.273  2.705  1.951  2.689
+  lr5em03_samp2000_crn_h161                       2000  2.304  2.716  1.974  2.697
+  lr5em03_samp2000_gru_h161                       2000  2.241  2.644  1.928  2.693
+  lr5em03_samp512_crn_h161                        2000  2.218  2.590  1.899  2.684
+  lr5em03_samp512_gru_h161                        2000  2.276  2.693  1.954  2.690
+
+Summary saved to  : /gpfs/helios/home/etais/hpc_bilal/nn_proj/results/summary.csv
+Elapsed time      : 26038s (7.23 h)
+========================================================================
+========================================================================
+Job finished : Thu Jun  4 03:36:50 EEST 2026
+Exit status  : 0
+========================================================================

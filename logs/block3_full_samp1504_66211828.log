@@ -1,0 +1,3448 @@
+========================================================================
+DNS Block 3 — Full Training  (TRAIN_SAMPLES=1504)
+========================================================================
+Job ID       : 66211828
+Node         : falcon4
+Started      : Sun May 31 22:51:33 EEST 2026
+========================================================================
+
+Python       : /gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/bin/python
+Python ver   : Python 3.9.12
+
+LEARNING_RATE  : 0.005
+HIDDEN_SIZE_A  : 161  (GRU)
+HIDDEN_SIZE_B  : 161  (CRN)
+TRAIN_SAMPLES  : 1504
+NUM_EPOCHS     : 100
+RUN_TYPE       : full_train
+
+/gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+======================================================================
+DNS Project — Block 3: Model Training
+======================================================================
+RUN_TYPE       : full_train
+LEARNING_RATE  : 0.005
+HIDDEN_SIZE_A  : 161  (GRU)
+HIDDEN_SIZE_B  : 161  (CRN bottleneck)
+TRAIN_SAMPLES  : 1504 per epoch (online synthesis)
+NUM_EPOCHS     : 100
+BATCH_SIZE     : 16
+GRAD_CLIP      : 1.0
+LR scheduler   : StepLR step=5 gamma=0.95
+Device         : cuda
+GPU count      : 4
+  GPU 0        : Tesla V100-SXM2-32GB
+  GPU 1        : Tesla V100-SXM2-32GB
+  GPU 2        : Tesla V100-SXM2-32GB
+  GPU 3        : Tesla V100-SXM2-32GB
+Model A dir    : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161
+Model B dir    : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161
+
+Loading fixed val and test sets from disk...
+[Block 1] EvalDataset: 2000 samples from /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/pt_files
+[Block 1] EvalDataset: 2000 samples from /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/pt_files
+Pre-loading val batches into memory...
+Val batches loaded: 125
+Pre-loading test batches into memory...
+Test batches loaded: 125
+
+======================================================================
+MODEL A — GRU
+======================================================================
+
+======================================================================
+Training: GRU h=161
+======================================================================
+Parameters: 339,066
+
+Using 4 GPUs with DataParallel
+[codecarbon WARNING @ 22:52:23] Multiple instances of codecarbon are allowed to run at the same time.
+
+Epoch 1/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 1/100]  batch 10/94  loss=0.140509
+  [epoch 1/100]  batch 20/94  loss=0.102736
+  [epoch 1/100]  batch 30/94  loss=0.106929
+  [epoch 1/100]  batch 40/94  loss=0.086939
+  [epoch 1/100]  batch 50/94  loss=0.082354
+  [epoch 1/100]  batch 60/94  loss=0.090390
+  [epoch 1/100]  batch 70/94  loss=0.099017
+  [epoch 1/100]  batch 80/94  loss=0.072471
+  [epoch 1/100]  batch 90/94  loss=0.083351
+------------------------------------------------------------
+Epoch   1/100  train=0.101278  val=0.094489  gap=-0.006789  time=1262s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.094489)
+
+Epoch 2/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 2/100]  batch 10/94  loss=0.076568
+  [epoch 2/100]  batch 20/94  loss=0.094604
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.8067332546752064 2.328069190847237
+lowcut, highcut, fs, order: 94.36258399030861 3755.796446291547 16000 7
+  [epoch 2/100]  batch 30/94  loss=0.101203
+  [epoch 2/100]  batch 40/94  loss=0.074230
+  [epoch 2/100]  batch 50/94  loss=0.097142
+  [epoch 2/100]  batch 60/94  loss=0.080243
+  [epoch 2/100]  batch 70/94  loss=0.113535
+  [epoch 2/100]  batch 80/94  loss=0.104098
+  [epoch 2/100]  batch 90/94  loss=0.101035
+------------------------------------------------------------
+Epoch   2/100  train=0.084094  val=0.081972  gap=-0.002121  time=1249s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.081972)
+
+Epoch 3/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 3/100]  batch 10/94  loss=0.074450
+  [epoch 3/100]  batch 20/94  loss=0.062529
+  [epoch 3/100]  batch 30/94  loss=0.096725
+  [epoch 3/100]  batch 40/94  loss=0.102537
+  [epoch 3/100]  batch 50/94  loss=0.092914
+  [epoch 3/100]  batch 60/94  loss=0.059517
+  [epoch 3/100]  batch 70/94  loss=0.074231
+  [epoch 3/100]  batch 80/94  loss=0.059527
+  [epoch 3/100]  batch 90/94  loss=0.082331
+------------------------------------------------------------
+Epoch   3/100  train=0.082650  val=0.085363  gap=+0.002713  time=1260s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081972
+
+Epoch 4/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 4/100]  batch 10/94  loss=0.080500
+  [epoch 4/100]  batch 20/94  loss=0.072505
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9004105633530685 1.2159792450005145
+lowcut, highcut, fs, order: 84.41517183751357 3320.2442737619394 16000 7
+  [epoch 4/100]  batch 30/94  loss=0.072814
+  [epoch 4/100]  batch 40/94  loss=0.085397
+  [epoch 4/100]  batch 50/94  loss=0.078712
+  [epoch 4/100]  batch 60/94  loss=0.091966
+  [epoch 4/100]  batch 70/94  loss=0.080078
+  [epoch 4/100]  batch 80/94  loss=0.077476
+  [epoch 4/100]  batch 90/94  loss=0.066565
+------------------------------------------------------------
+Epoch   4/100  train=0.080342  val=0.078026  gap=-0.002316  time=1249s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.078026)
+
+Epoch 5/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 5/100]  batch 10/94  loss=0.084829
+  [epoch 5/100]  batch 20/94  loss=0.086389
+  [epoch 5/100]  batch 30/94  loss=0.082427
+  [epoch 5/100]  batch 40/94  loss=0.076871
+  [epoch 5/100]  batch 50/94  loss=0.098165
+  [epoch 5/100]  batch 60/94  loss=0.061379
+  [epoch 5/100]  batch 70/94  loss=0.101490
+  [epoch 5/100]  batch 80/94  loss=0.072941
+  [epoch 5/100]  batch 90/94  loss=0.084280
+------------------------------------------------------------
+Epoch   5/100  train=0.076737  val=0.075387  gap=-0.001349  time=1242s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.075387)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch5.pt
+
+Epoch 6/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 6/100]  batch 10/94  loss=0.084257
+  [epoch 6/100]  batch 20/94  loss=0.078128
+  [epoch 6/100]  batch 30/94  loss=0.080983
+  [epoch 6/100]  batch 40/94  loss=0.084489
+  [epoch 6/100]  batch 50/94  loss=0.097757
+  [epoch 6/100]  batch 60/94  loss=0.074929
+  [epoch 6/100]  batch 70/94  loss=0.082832
+  [epoch 6/100]  batch 80/94  loss=0.073197
+  [epoch 6/100]  batch 90/94  loss=0.083725
+------------------------------------------------------------
+Epoch   6/100  train=0.078474  val=0.085484  gap=+0.007009  time=1257s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.075387
+
+Epoch 7/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 7/100]  batch 10/94  loss=0.048941
+  [epoch 7/100]  batch 20/94  loss=0.073020
+  [epoch 7/100]  batch 30/94  loss=0.070951
+  [epoch 7/100]  batch 40/94  loss=0.059556
+  [epoch 7/100]  batch 50/94  loss=0.057230
+  [epoch 7/100]  batch 60/94  loss=0.070942
+  [epoch 7/100]  batch 70/94  loss=0.077978
+  [epoch 7/100]  batch 80/94  loss=0.087838
+  [epoch 7/100]  batch 90/94  loss=0.067035
+------------------------------------------------------------
+Epoch   7/100  train=0.074497  val=0.075441  gap=+0.000944  time=1262s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.075387
+
+Epoch 8/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 8/100]  batch 10/94  loss=0.073499
+  [epoch 8/100]  batch 20/94  loss=0.073854
+  [epoch 8/100]  batch 30/94  loss=0.064143
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8335011799237737 1.0425178664051995
+lowcut, highcut, fs, order: 78.83520437757885 2829.038569557591 16000 7
+  [epoch 8/100]  batch 40/94  loss=0.077308
+  [epoch 8/100]  batch 50/94  loss=0.082775
+  [epoch 8/100]  batch 60/94  loss=0.058741
+  [epoch 8/100]  batch 70/94  loss=0.056228
+  [epoch 8/100]  batch 80/94  loss=0.071602
+  [epoch 8/100]  batch 90/94  loss=0.083511
+------------------------------------------------------------
+Epoch   8/100  train=0.073271  val=0.078102  gap=+0.004831  time=1238s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.075387
+
+Epoch 9/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 9/100]  batch 10/94  loss=0.084959
+  [epoch 9/100]  batch 20/94  loss=0.071527
+  [epoch 9/100]  batch 30/94  loss=0.096676
+  [epoch 9/100]  batch 40/94  loss=0.095657
+  [epoch 9/100]  batch 50/94  loss=0.080421
+  [epoch 9/100]  batch 60/94  loss=0.078536
+  [epoch 9/100]  batch 70/94  loss=0.083545
+  [epoch 9/100]  batch 80/94  loss=0.090591
+  [epoch 9/100]  batch 90/94  loss=0.051359
+------------------------------------------------------------
+Epoch   9/100  train=0.077542  val=0.083457  gap=+0.005915  time=1234s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.075387
+
+Epoch 10/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 10/100]  batch 10/94  loss=0.088823
+  [epoch 10/100]  batch 20/94  loss=0.060950
+  [epoch 10/100]  batch 30/94  loss=0.061488
+  [epoch 10/100]  batch 40/94  loss=0.077630
+  [epoch 10/100]  batch 50/94  loss=0.073600
+  [epoch 10/100]  batch 60/94  loss=0.052974
+  [epoch 10/100]  batch 70/94  loss=0.082291
+  [epoch 10/100]  batch 80/94  loss=0.076971
+  [epoch 10/100]  batch 90/94  loss=0.076186
+------------------------------------------------------------
+Epoch  10/100  train=0.075312  val=0.077385  gap=+0.002073  time=1238s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.075387
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch10.pt
+
+Epoch 11/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 11/100]  batch 10/94  loss=0.072264
+  [epoch 11/100]  batch 20/94  loss=0.069729
+  [epoch 11/100]  batch 30/94  loss=0.070377
+  [epoch 11/100]  batch 40/94  loss=0.082597
+  [epoch 11/100]  batch 50/94  loss=0.069504
+  [epoch 11/100]  batch 60/94  loss=0.091421
+  [epoch 11/100]  batch 70/94  loss=0.097523
+  [epoch 11/100]  batch 80/94  loss=0.073224
+  [epoch 11/100]  batch 90/94  loss=0.078931
+------------------------------------------------------------
+Epoch  11/100  train=0.073354  val=0.072024  gap=-0.001330  time=1241s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.072024)
+
+Epoch 12/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 12/100]  batch 10/94  loss=0.045741
+  [epoch 12/100]  batch 20/94  loss=0.077768
+  [epoch 12/100]  batch 30/94  loss=0.088986
+  [epoch 12/100]  batch 40/94  loss=0.078824
+  [epoch 12/100]  batch 50/94  loss=0.061034
+  [epoch 12/100]  batch 60/94  loss=0.094228
+  [epoch 12/100]  batch 70/94  loss=0.071756
+  [epoch 12/100]  batch 80/94  loss=0.081993
+  [epoch 12/100]  batch 90/94  loss=0.078298
+------------------------------------------------------------
+Epoch  12/100  train=0.073214  val=0.072063  gap=-0.001151  time=1250s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.072024
+
+Epoch 13/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 13/100]  batch 10/94  loss=0.071681
+  [epoch 13/100]  batch 20/94  loss=0.072398
+  [epoch 13/100]  batch 30/94  loss=0.082674
+  [epoch 13/100]  batch 40/94  loss=0.072161
+  [epoch 13/100]  batch 50/94  loss=0.055922
+  [epoch 13/100]  batch 60/94  loss=0.071451
+  [epoch 13/100]  batch 70/94  loss=0.061973
+  [epoch 13/100]  batch 80/94  loss=0.077792
+  [epoch 13/100]  batch 90/94  loss=0.046512
+------------------------------------------------------------
+Epoch  13/100  train=0.072167  val=0.071493  gap=-0.000673  time=1255s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.071493)
+
+Epoch 14/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 14/100]  batch 10/94  loss=0.058251
+  [epoch 14/100]  batch 20/94  loss=0.063873
+  [epoch 14/100]  batch 30/94  loss=0.077682
+  [epoch 14/100]  batch 40/94  loss=0.070797
+  [epoch 14/100]  batch 50/94  loss=0.064027
+  [epoch 14/100]  batch 60/94  loss=0.069832
+  [epoch 14/100]  batch 70/94  loss=0.063755
+  [epoch 14/100]  batch 80/94  loss=0.086962
+  [epoch 14/100]  batch 90/94  loss=0.077261
+------------------------------------------------------------
+Epoch  14/100  train=0.073299  val=0.073651  gap=+0.000352  time=1252s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071493
+
+Epoch 15/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 15/100]  batch 10/94  loss=0.075248
+  [epoch 15/100]  batch 20/94  loss=0.070319
+  [epoch 15/100]  batch 30/94  loss=0.060796
+  [epoch 15/100]  batch 40/94  loss=0.087670
+  [epoch 15/100]  batch 50/94  loss=0.069749
+  [epoch 15/100]  batch 60/94  loss=0.072307
+  [epoch 15/100]  batch 70/94  loss=0.085440
+  [epoch 15/100]  batch 80/94  loss=0.060441
+  [epoch 15/100]  batch 90/94  loss=0.071698
+------------------------------------------------------------
+Epoch  15/100  train=0.072762  val=0.072420  gap=-0.000343  time=1261s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071493
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch15.pt
+
+Epoch 16/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 16/100]  batch 10/94  loss=0.069439
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0297964494880645 1.3244277180828334
+lowcut, highcut, fs, order: 40.99040615305198 3734.109474662727 16000 7
+  [epoch 16/100]  batch 20/94  loss=0.063571
+  [epoch 16/100]  batch 30/94  loss=0.056718
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.318888701635892 1.6563644712926635
+lowcut, highcut, fs, order: 44.38637381624573 3551.0387168830707 16000 7
+  [epoch 16/100]  batch 40/94  loss=0.097706
+  [epoch 16/100]  batch 50/94  loss=0.090453
+  [epoch 16/100]  batch 60/94  loss=0.057530
+  [epoch 16/100]  batch 70/94  loss=0.064200
+  [epoch 16/100]  batch 80/94  loss=0.071913
+  [epoch 16/100]  batch 90/94  loss=0.072535
+------------------------------------------------------------
+Epoch  16/100  train=0.069858  val=0.071692  gap=+0.001834  time=1257s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071493
+
+Epoch 17/100  lr=4.29e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 2.335853960661439 3.068309079729519
+lowcut, highcut, fs, order: 36.927601446503814 3720.9692024872493 16000 7
+  [epoch 17/100]  batch 10/94  loss=0.048010
+  [epoch 17/100]  batch 20/94  loss=0.068309
+  [epoch 17/100]  batch 30/94  loss=0.068202
+  [epoch 17/100]  batch 40/94  loss=0.062485
+  [epoch 17/100]  batch 50/94  loss=0.077627
+  [epoch 17/100]  batch 60/94  loss=0.074815
+  [epoch 17/100]  batch 70/94  loss=0.098604
+  [epoch 17/100]  batch 80/94  loss=0.067319
+  [epoch 17/100]  batch 90/94  loss=0.061617
+------------------------------------------------------------
+Epoch  17/100  train=0.069132  val=0.073802  gap=+0.004670  time=1240s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071493
+
+Epoch 18/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 18/100]  batch 10/94  loss=0.094141
+  [epoch 18/100]  batch 20/94  loss=0.078917
+  [epoch 18/100]  batch 30/94  loss=0.084868
+  [epoch 18/100]  batch 40/94  loss=0.077128
+  [epoch 18/100]  batch 50/94  loss=0.069695
+  [epoch 18/100]  batch 60/94  loss=0.071890
+  [epoch 18/100]  batch 70/94  loss=0.070966
+  [epoch 18/100]  batch 80/94  loss=0.078350
+  [epoch 18/100]  batch 90/94  loss=0.069287
+------------------------------------------------------------
+Epoch  18/100  train=0.071345  val=0.070660  gap=-0.000685  time=1257s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.070660)
+
+Epoch 19/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 19/100]  batch 10/94  loss=0.066384
+  [epoch 19/100]  batch 20/94  loss=0.083438
+  [epoch 19/100]  batch 30/94  loss=0.058356
+  [epoch 19/100]  batch 40/94  loss=0.068605
+  [epoch 19/100]  batch 50/94  loss=0.075881
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.7564828655487277 2.2480465717848013
+lowcut, highcut, fs, order: 15.78154366130245 3567.4837286555276 16000 7
+  [epoch 19/100]  batch 60/94  loss=0.073427
+  [epoch 19/100]  batch 70/94  loss=0.071285
+  [epoch 19/100]  batch 80/94  loss=0.053814
+  [epoch 19/100]  batch 90/94  loss=0.066928
+------------------------------------------------------------
+Epoch  19/100  train=0.070245  val=0.072036  gap=+0.001791  time=1258s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070660
+
+Epoch 20/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 20/100]  batch 10/94  loss=0.071553
+  [epoch 20/100]  batch 20/94  loss=0.069199
+  [epoch 20/100]  batch 30/94  loss=0.069875
+  [epoch 20/100]  batch 40/94  loss=0.083682
+  [epoch 20/100]  batch 50/94  loss=0.079878
+  [epoch 20/100]  batch 60/94  loss=0.075520
+  [epoch 20/100]  batch 70/94  loss=0.067724
+  [epoch 20/100]  batch 80/94  loss=0.077239
+  [epoch 20/100]  batch 90/94  loss=0.063748
+------------------------------------------------------------
+Epoch  20/100  train=0.069416  val=0.069100  gap=-0.000316  time=1230s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.069100)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch20.pt
+
+Epoch 21/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 21/100]  batch 10/94  loss=0.076600
+  [epoch 21/100]  batch 20/94  loss=0.091390
+  [epoch 21/100]  batch 30/94  loss=0.056044
+  [epoch 21/100]  batch 40/94  loss=0.052881
+  [epoch 21/100]  batch 50/94  loss=0.058766
+  [epoch 21/100]  batch 60/94  loss=0.054035
+  [epoch 21/100]  batch 70/94  loss=0.067448
+  [epoch 21/100]  batch 80/94  loss=0.076268
+  [epoch 21/100]  batch 90/94  loss=0.055279
+------------------------------------------------------------
+Epoch  21/100  train=0.070037  val=0.071753  gap=+0.001716  time=1224s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 22/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 22/100]  batch 10/94  loss=0.078260
+  [epoch 22/100]  batch 20/94  loss=0.062842
+  [epoch 22/100]  batch 30/94  loss=0.073677
+  [epoch 22/100]  batch 40/94  loss=0.053526
+  [epoch 22/100]  batch 50/94  loss=0.066021
+  [epoch 22/100]  batch 60/94  loss=0.078358
+  [epoch 22/100]  batch 70/94  loss=0.079395
+  [epoch 22/100]  batch 80/94  loss=0.085557
+  [epoch 22/100]  batch 90/94  loss=0.071828
+------------------------------------------------------------
+Epoch  22/100  train=0.071408  val=0.071281  gap=-0.000127  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 23/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 23/100]  batch 10/94  loss=0.086412
+  [epoch 23/100]  batch 20/94  loss=0.065719
+  [epoch 23/100]  batch 30/94  loss=0.076579
+  [epoch 23/100]  batch 40/94  loss=0.073045
+  [epoch 23/100]  batch 50/94  loss=0.096802
+  [epoch 23/100]  batch 60/94  loss=0.093285
+  [epoch 23/100]  batch 70/94  loss=0.094280
+  [epoch 23/100]  batch 80/94  loss=0.086449
+  [epoch 23/100]  batch 90/94  loss=0.081958
+------------------------------------------------------------
+Epoch  23/100  train=0.076151  val=0.075836  gap=-0.000315  time=1223s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 24/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 24/100]  batch 10/94  loss=0.080141
+  [epoch 24/100]  batch 20/94  loss=0.078939
+  [epoch 24/100]  batch 30/94  loss=0.056301
+  [epoch 24/100]  batch 40/94  loss=0.084591
+  [epoch 24/100]  batch 50/94  loss=0.068575
+  [epoch 24/100]  batch 60/94  loss=0.064841
+  [epoch 24/100]  batch 70/94  loss=0.056300
+  [epoch 24/100]  batch 80/94  loss=0.077312
+  [epoch 24/100]  batch 90/94  loss=0.056036
+------------------------------------------------------------
+Epoch  24/100  train=0.075286  val=0.074749  gap=-0.000537  time=1215s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 25/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 25/100]  batch 10/94  loss=0.078503
+  [epoch 25/100]  batch 20/94  loss=0.068811
+  [epoch 25/100]  batch 30/94  loss=0.061307
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7786021604051763 1.0795244006436286
+lowcut, highcut, fs, order: 37.36379751747892 2751.739504099384 16000 7
+  [epoch 25/100]  batch 40/94  loss=0.064169
+  [epoch 25/100]  batch 50/94  loss=0.059453
+  [epoch 25/100]  batch 60/94  loss=0.078441
+  [epoch 25/100]  batch 70/94  loss=0.077008
+  [epoch 25/100]  batch 80/94  loss=0.096266
+  [epoch 25/100]  batch 90/94  loss=0.072146
+------------------------------------------------------------
+Epoch  25/100  train=0.074080  val=0.071124  gap=-0.002956  time=1225s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch25.pt
+
+Epoch 26/100  lr=3.87e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8282569023747168 1.0756615253749366
+lowcut, highcut, fs, order: 29.02132450406312 3781.4706210667964 16000 7
+  [epoch 26/100]  batch 10/94  loss=0.074793
+  [epoch 26/100]  batch 20/94  loss=0.067963
+  [epoch 26/100]  batch 30/94  loss=0.061658
+  [epoch 26/100]  batch 40/94  loss=0.060456
+  [epoch 26/100]  batch 50/94  loss=0.073018
+  [epoch 26/100]  batch 60/94  loss=0.072409
+  [epoch 26/100]  batch 70/94  loss=0.079540
+  [epoch 26/100]  batch 80/94  loss=0.073366
+  [epoch 26/100]  batch 90/94  loss=0.103376
+------------------------------------------------------------
+Epoch  26/100  train=0.073595  val=0.075804  gap=+0.002209  time=1223s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 27/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 27/100]  batch 10/94  loss=0.079454
+  [epoch 27/100]  batch 20/94  loss=0.068133
+  [epoch 27/100]  batch 30/94  loss=0.068292
+  [epoch 27/100]  batch 40/94  loss=0.083223
+  [epoch 27/100]  batch 50/94  loss=0.089056
+  [epoch 27/100]  batch 60/94  loss=0.072957
+  [epoch 27/100]  batch 70/94  loss=0.072315
+  [epoch 27/100]  batch 80/94  loss=0.070917
+  [epoch 27/100]  batch 90/94  loss=0.059679
+------------------------------------------------------------
+Epoch  27/100  train=0.073367  val=0.072432  gap=-0.000935  time=1223s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 28/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 28/100]  batch 10/94  loss=0.063610
+  [epoch 28/100]  batch 20/94  loss=0.081020
+  [epoch 28/100]  batch 30/94  loss=0.081859
+  [epoch 28/100]  batch 40/94  loss=0.068947
+  [epoch 28/100]  batch 50/94  loss=0.083513
+  [epoch 28/100]  batch 60/94  loss=0.066263
+  [epoch 28/100]  batch 70/94  loss=0.068354
+  [epoch 28/100]  batch 80/94  loss=0.065423
+  [epoch 28/100]  batch 90/94  loss=0.061556
+------------------------------------------------------------
+Epoch  28/100  train=0.072783  val=0.073970  gap=+0.001187  time=1227s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 29/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 29/100]  batch 10/94  loss=0.079496
+  [epoch 29/100]  batch 20/94  loss=0.064725
+  [epoch 29/100]  batch 30/94  loss=0.066802
+  [epoch 29/100]  batch 40/94  loss=0.075897
+  [epoch 29/100]  batch 50/94  loss=0.065040
+  [epoch 29/100]  batch 60/94  loss=0.075113
+  [epoch 29/100]  batch 70/94  loss=0.061814
+  [epoch 29/100]  batch 80/94  loss=0.064215
+  [epoch 29/100]  batch 90/94  loss=0.054716
+------------------------------------------------------------
+Epoch  29/100  train=0.073195  val=0.071579  gap=-0.001617  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 30/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 30/100]  batch 10/94  loss=0.078717
+  [epoch 30/100]  batch 20/94  loss=0.069767
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9259240430191856 1.168184690628693
+lowcut, highcut, fs, order: 62.267180861387885 3043.3658284807266 16000 7
+  [epoch 30/100]  batch 30/94  loss=0.091234
+  [epoch 30/100]  batch 40/94  loss=0.076665
+  [epoch 30/100]  batch 50/94  loss=0.070753
+  [epoch 30/100]  batch 60/94  loss=0.078059
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.1133794357422102 1.6197252900588772
+lowcut, highcut, fs, order: 91.2022822466424 2781.7681713058423 16000 7
+  [epoch 30/100]  batch 70/94  loss=0.065372
+  [epoch 30/100]  batch 80/94  loss=0.067988
+  [epoch 30/100]  batch 90/94  loss=0.087420
+------------------------------------------------------------
+Epoch  30/100  train=0.072978  val=0.071346  gap=-0.001632  time=1224s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch30.pt
+
+Epoch 31/100  lr=3.68e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8236297788124841 1.106069302696548
+lowcut, highcut, fs, order: 79.10670964997988 3313.2380856734644 16000 7
+  [epoch 31/100]  batch 10/94  loss=0.070026
+  [epoch 31/100]  batch 20/94  loss=0.063220
+  [epoch 31/100]  batch 30/94  loss=0.068796
+  [epoch 31/100]  batch 40/94  loss=0.065032
+  [epoch 31/100]  batch 50/94  loss=0.057182
+  [epoch 31/100]  batch 60/94  loss=0.081428
+  [epoch 31/100]  batch 70/94  loss=0.051985
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7658669953319369 1.0798091987760718
+lowcut, highcut, fs, order: 92.32324867572837 3543.1947969248536 16000 7
+  [epoch 31/100]  batch 80/94  loss=0.064610
+  [epoch 31/100]  batch 90/94  loss=0.076673
+------------------------------------------------------------
+Epoch  31/100  train=0.070456  val=0.072223  gap=+0.001767  time=1234s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 32/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 32/100]  batch 10/94  loss=0.062715
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8290888227776706 1.0933549405776786
+lowcut, highcut, fs, order: 69.57129069535318 2848.813957118614 16000 7
+  [epoch 32/100]  batch 20/94  loss=0.070618
+  [epoch 32/100]  batch 30/94  loss=0.069234
+  [epoch 32/100]  batch 40/94  loss=0.052300
+  [epoch 32/100]  batch 50/94  loss=0.058760
+  [epoch 32/100]  batch 60/94  loss=0.065642
+  [epoch 32/100]  batch 70/94  loss=0.063460
+  [epoch 32/100]  batch 80/94  loss=0.061010
+  [epoch 32/100]  batch 90/94  loss=0.082507
+------------------------------------------------------------
+Epoch  32/100  train=0.070689  val=0.070273  gap=-0.000416  time=1244s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 33/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 33/100]  batch 10/94  loss=0.064582
+  [epoch 33/100]  batch 20/94  loss=0.067603
+  [epoch 33/100]  batch 30/94  loss=0.062493
+  [epoch 33/100]  batch 40/94  loss=0.067786
+  [epoch 33/100]  batch 50/94  loss=0.060324
+  [epoch 33/100]  batch 60/94  loss=0.059378
+  [epoch 33/100]  batch 70/94  loss=0.050607
+  [epoch 33/100]  batch 80/94  loss=0.062627
+  [epoch 33/100]  batch 90/94  loss=0.068481
+------------------------------------------------------------
+Epoch  33/100  train=0.069051  val=0.070116  gap=+0.001065  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 34/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 34/100]  batch 10/94  loss=0.071127
+  [epoch 34/100]  batch 20/94  loss=0.066934
+  [epoch 34/100]  batch 30/94  loss=0.083127
+  [epoch 34/100]  batch 40/94  loss=0.068711
+  [epoch 34/100]  batch 50/94  loss=0.086779
+  [epoch 34/100]  batch 60/94  loss=0.073484
+  [epoch 34/100]  batch 70/94  loss=0.065505
+  [epoch 34/100]  batch 80/94  loss=0.070160
+  [epoch 34/100]  batch 90/94  loss=0.082718
+------------------------------------------------------------
+Epoch  34/100  train=0.071828  val=0.069484  gap=-0.002344  time=1238s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 35/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 35/100]  batch 10/94  loss=0.067305
+  [epoch 35/100]  batch 20/94  loss=0.064599
+  [epoch 35/100]  batch 30/94  loss=0.075223
+  [epoch 35/100]  batch 40/94  loss=0.045084
+  [epoch 35/100]  batch 50/94  loss=0.075535
+  [epoch 35/100]  batch 60/94  loss=0.064077
+  [epoch 35/100]  batch 70/94  loss=0.071772
+  [epoch 35/100]  batch 80/94  loss=0.074658
+  [epoch 35/100]  batch 90/94  loss=0.067760
+------------------------------------------------------------
+Epoch  35/100  train=0.068653  val=0.070135  gap=+0.001482  time=1261s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch35.pt
+
+Epoch 36/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 36/100]  batch 10/94  loss=0.076034
+  [epoch 36/100]  batch 20/94  loss=0.056685
+  [epoch 36/100]  batch 30/94  loss=0.064886
+  [epoch 36/100]  batch 40/94  loss=0.052306
+  [epoch 36/100]  batch 50/94  loss=0.060620
+  [epoch 36/100]  batch 60/94  loss=0.056955
+  [epoch 36/100]  batch 70/94  loss=0.067551
+  [epoch 36/100]  batch 80/94  loss=0.047436
+  [epoch 36/100]  batch 90/94  loss=0.072672
+------------------------------------------------------------
+Epoch  36/100  train=0.068618  val=0.070198  gap=+0.001580  time=1262s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 37/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 37/100]  batch 10/94  loss=0.067490
+  [epoch 37/100]  batch 20/94  loss=0.066491
+  [epoch 37/100]  batch 30/94  loss=0.071729
+  [epoch 37/100]  batch 40/94  loss=0.069997
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8472079285932181 1.1314264170639854
+lowcut, highcut, fs, order: 55.41921955936055 2637.498231131626 16000 7
+  [epoch 37/100]  batch 50/94  loss=0.060793
+  [epoch 37/100]  batch 60/94  loss=0.070577
+  [epoch 37/100]  batch 70/94  loss=0.049355
+  [epoch 37/100]  batch 80/94  loss=0.061327
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7802771489098831 1.0694306395443554
+lowcut, highcut, fs, order: 70.12586234037224 3230.2355005620275 16000 7
+  [epoch 37/100]  batch 90/94  loss=0.064803
+------------------------------------------------------------
+Epoch  37/100  train=0.067824  val=0.069269  gap=+0.001445  time=1238s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 38/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 38/100]  batch 10/94  loss=0.058656
+  [epoch 38/100]  batch 20/94  loss=0.091423
+  [epoch 38/100]  batch 30/94  loss=0.069949
+  [epoch 38/100]  batch 40/94  loss=0.073247
+  [epoch 38/100]  batch 50/94  loss=0.077962
+  [epoch 38/100]  batch 60/94  loss=0.058549
+  [epoch 38/100]  batch 70/94  loss=0.069175
+  [epoch 38/100]  batch 80/94  loss=0.069880
+  [epoch 38/100]  batch 90/94  loss=0.069372
+------------------------------------------------------------
+Epoch  38/100  train=0.069021  val=0.071307  gap=+0.002286  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 39/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 39/100]  batch 10/94  loss=0.080596
+  [epoch 39/100]  batch 20/94  loss=0.086458
+  [epoch 39/100]  batch 30/94  loss=0.068375
+  [epoch 39/100]  batch 40/94  loss=0.068136
+  [epoch 39/100]  batch 50/94  loss=0.052558
+  [epoch 39/100]  batch 60/94  loss=0.072091
+  [epoch 39/100]  batch 70/94  loss=0.060396
+  [epoch 39/100]  batch 80/94  loss=0.071344
+  [epoch 39/100]  batch 90/94  loss=0.071353
+------------------------------------------------------------
+Epoch  39/100  train=0.068500  val=0.070700  gap=+0.002201  time=1238s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.069100
+
+Epoch 40/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 40/100]  batch 10/94  loss=0.066344
+  [epoch 40/100]  batch 20/94  loss=0.081893
+  [epoch 40/100]  batch 30/94  loss=0.069867
+  [epoch 40/100]  batch 40/94  loss=0.069619
+  [epoch 40/100]  batch 50/94  loss=0.069876
+  [epoch 40/100]  batch 60/94  loss=0.067856
+  [epoch 40/100]  batch 70/94  loss=0.073456
+  [epoch 40/100]  batch 80/94  loss=0.071181
+  [epoch 40/100]  batch 90/94  loss=0.075471
+------------------------------------------------------------
+Epoch  40/100  train=0.070889  val=0.067509  gap=-0.003381  time=1241s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.067509)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch40.pt
+
+Epoch 41/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 41/100]  batch 10/94  loss=0.061467
+  [epoch 41/100]  batch 20/94  loss=0.065868
+  [epoch 41/100]  batch 30/94  loss=0.079093
+  [epoch 41/100]  batch 40/94  loss=0.068534
+  [epoch 41/100]  batch 50/94  loss=0.070215
+  [epoch 41/100]  batch 60/94  loss=0.052507
+  [epoch 41/100]  batch 70/94  loss=0.055771
+  [epoch 41/100]  batch 80/94  loss=0.075771
+  [epoch 41/100]  batch 90/94  loss=0.054252
+------------------------------------------------------------
+Epoch  41/100  train=0.067262  val=0.068657  gap=+0.001395  time=1227s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.067509
+
+Epoch 42/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 42/100]  batch 10/94  loss=0.083546
+  [epoch 42/100]  batch 20/94  loss=0.054537
+  [epoch 42/100]  batch 30/94  loss=0.055564
+  [epoch 42/100]  batch 40/94  loss=0.089434
+  [epoch 42/100]  batch 50/94  loss=0.094548
+  [epoch 42/100]  batch 60/94  loss=0.061095
+  [epoch 42/100]  batch 70/94  loss=0.055182
+  [epoch 42/100]  batch 80/94  loss=0.067446
+  [epoch 42/100]  batch 90/94  loss=0.061035
+------------------------------------------------------------
+Epoch  42/100  train=0.067740  val=0.069214  gap=+0.001474  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.067509
+
+Epoch 43/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 43/100]  batch 10/94  loss=0.100455
+  [epoch 43/100]  batch 20/94  loss=0.082103
+  [epoch 43/100]  batch 30/94  loss=0.068412
+  [epoch 43/100]  batch 40/94  loss=0.072829
+  [epoch 43/100]  batch 50/94  loss=0.064961
+  [epoch 43/100]  batch 60/94  loss=0.050221
+  [epoch 43/100]  batch 70/94  loss=0.063701
+  [epoch 43/100]  batch 80/94  loss=0.058745
+  [epoch 43/100]  batch 90/94  loss=0.074611
+------------------------------------------------------------
+Epoch  43/100  train=0.066795  val=0.066552  gap=-0.000243  time=1254s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.066552)
+
+Epoch 44/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 44/100]  batch 10/94  loss=0.075140
+  [epoch 44/100]  batch 20/94  loss=0.064506
+  [epoch 44/100]  batch 30/94  loss=0.079197
+  [epoch 44/100]  batch 40/94  loss=0.080197
+  [epoch 44/100]  batch 50/94  loss=0.064430
+  [epoch 44/100]  batch 60/94  loss=0.067788
+  [epoch 44/100]  batch 70/94  loss=0.070182
+  [epoch 44/100]  batch 80/94  loss=0.067997
+  [epoch 44/100]  batch 90/94  loss=0.061752
+------------------------------------------------------------
+Epoch  44/100  train=0.065762  val=0.070608  gap=+0.004846  time=1222s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066552
+
+Epoch 45/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 45/100]  batch 10/94  loss=0.074980
+  [epoch 45/100]  batch 20/94  loss=0.071196
+  [epoch 45/100]  batch 30/94  loss=0.077056
+  [epoch 45/100]  batch 40/94  loss=0.079304
+  [epoch 45/100]  batch 50/94  loss=0.069076
+  [epoch 45/100]  batch 60/94  loss=0.079039
+  [epoch 45/100]  batch 70/94  loss=0.076452
+  [epoch 45/100]  batch 80/94  loss=0.060597
+  [epoch 45/100]  batch 90/94  loss=0.066527
+------------------------------------------------------------
+Epoch  45/100  train=0.068717  val=0.069779  gap=+0.001062  time=1247s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066552
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch45.pt
+
+Epoch 46/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 46/100]  batch 10/94  loss=0.067795
+  [epoch 46/100]  batch 20/94  loss=0.060530
+  [epoch 46/100]  batch 30/94  loss=0.067540
+  [epoch 46/100]  batch 40/94  loss=0.069237
+  [epoch 46/100]  batch 50/94  loss=0.071519
+  [epoch 46/100]  batch 60/94  loss=0.060222
+  [epoch 46/100]  batch 70/94  loss=0.070154
+  [epoch 46/100]  batch 80/94  loss=0.070696
+  [epoch 46/100]  batch 90/94  loss=0.067676
+------------------------------------------------------------
+Epoch  46/100  train=0.069287  val=0.069086  gap=-0.000201  time=1261s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066552
+
+Epoch 47/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 47/100]  batch 10/94  loss=0.051775
+  [epoch 47/100]  batch 20/94  loss=0.067923
+  [epoch 47/100]  batch 30/94  loss=0.053473
+  [epoch 47/100]  batch 40/94  loss=0.065859
+  [epoch 47/100]  batch 50/94  loss=0.067193
+  [epoch 47/100]  batch 60/94  loss=0.074192
+  [epoch 47/100]  batch 70/94  loss=0.081125
+  [epoch 47/100]  batch 80/94  loss=0.085342
+  [epoch 47/100]  batch 90/94  loss=0.065546
+------------------------------------------------------------
+Epoch  47/100  train=0.068192  val=0.066053  gap=-0.002140  time=1240s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.066053)
+
+Epoch 48/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 48/100]  batch 10/94  loss=0.079214
+  [epoch 48/100]  batch 20/94  loss=0.058628
+  [epoch 48/100]  batch 30/94  loss=0.087063
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.791123042540183 1.0217275944318356
+lowcut, highcut, fs, order: 87.66804379915281 3640.2412447660945 16000 7
+  [epoch 48/100]  batch 40/94  loss=0.063130
+  [epoch 48/100]  batch 50/94  loss=0.069324
+  [epoch 48/100]  batch 60/94  loss=0.083015
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.859304460111592 1.0867839074559198
+lowcut, highcut, fs, order: 41.47027378740839 3618.37466991309 16000 7
+  [epoch 48/100]  batch 70/94  loss=0.068321
+  [epoch 48/100]  batch 80/94  loss=0.062789
+  [epoch 48/100]  batch 90/94  loss=0.067013
+------------------------------------------------------------
+Epoch  48/100  train=0.067019  val=0.068454  gap=+0.001434  time=1230s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 49/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 49/100]  batch 10/94  loss=0.057687
+  [epoch 49/100]  batch 20/94  loss=0.065163
+  [epoch 49/100]  batch 30/94  loss=0.064619
+  [epoch 49/100]  batch 40/94  loss=0.068982
+  [epoch 49/100]  batch 50/94  loss=0.062913
+  [epoch 49/100]  batch 60/94  loss=0.065779
+  [epoch 49/100]  batch 70/94  loss=0.068182
+  [epoch 49/100]  batch 80/94  loss=0.062777
+  [epoch 49/100]  batch 90/94  loss=0.077576
+------------------------------------------------------------
+Epoch  49/100  train=0.067493  val=0.067492  gap=-0.000001  time=1225s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 50/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 50/100]  batch 10/94  loss=0.078472
+  [epoch 50/100]  batch 20/94  loss=0.076611
+  [epoch 50/100]  batch 30/94  loss=0.057927
+  [epoch 50/100]  batch 40/94  loss=0.069698
+  [epoch 50/100]  batch 50/94  loss=0.064089
+  [epoch 50/100]  batch 60/94  loss=0.054658
+  [epoch 50/100]  batch 70/94  loss=0.061556
+  [epoch 50/100]  batch 80/94  loss=0.065149
+  [epoch 50/100]  batch 90/94  loss=0.074197
+------------------------------------------------------------
+Epoch  50/100  train=0.068182  val=0.069893  gap=+0.001710  time=1247s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch50.pt
+
+Epoch 51/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 51/100]  batch 10/94  loss=0.060352
+  [epoch 51/100]  batch 20/94  loss=0.071829
+  [epoch 51/100]  batch 30/94  loss=0.053667
+  [epoch 51/100]  batch 40/94  loss=0.059789
+  [epoch 51/100]  batch 50/94  loss=0.081348
+  [epoch 51/100]  batch 60/94  loss=0.070015
+  [epoch 51/100]  batch 70/94  loss=0.072167
+  [epoch 51/100]  batch 80/94  loss=0.059013
+  [epoch 51/100]  batch 90/94  loss=0.057777
+------------------------------------------------------------
+Epoch  51/100  train=0.066603  val=0.066861  gap=+0.000259  time=1237s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 52/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 52/100]  batch 10/94  loss=0.058204
+  [epoch 52/100]  batch 20/94  loss=0.087173
+  [epoch 52/100]  batch 30/94  loss=0.065616
+  [epoch 52/100]  batch 40/94  loss=0.053363
+  [epoch 52/100]  batch 50/94  loss=0.059849
+  [epoch 52/100]  batch 60/94  loss=0.044163
+  [epoch 52/100]  batch 70/94  loss=0.075818
+  [epoch 52/100]  batch 80/94  loss=0.062146
+  [epoch 52/100]  batch 90/94  loss=0.070840
+------------------------------------------------------------
+Epoch  52/100  train=0.067719  val=0.066640  gap=-0.001079  time=1242s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 53/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 53/100]  batch 10/94  loss=0.070456
+  [epoch 53/100]  batch 20/94  loss=0.068728
+  [epoch 53/100]  batch 30/94  loss=0.061913
+  [epoch 53/100]  batch 40/94  loss=0.071097
+  [epoch 53/100]  batch 50/94  loss=0.078093
+  [epoch 53/100]  batch 60/94  loss=0.066028
+  [epoch 53/100]  batch 70/94  loss=0.062709
+  [epoch 53/100]  batch 80/94  loss=0.057013
+  [epoch 53/100]  batch 90/94  loss=0.074370
+------------------------------------------------------------
+Epoch  53/100  train=0.066714  val=0.066641  gap=-0.000073  time=1242s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 54/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 54/100]  batch 10/94  loss=0.071888
+  [epoch 54/100]  batch 20/94  loss=0.098029
+  [epoch 54/100]  batch 30/94  loss=0.075427
+  [epoch 54/100]  batch 40/94  loss=0.065139
+  [epoch 54/100]  batch 50/94  loss=0.055052
+  [epoch 54/100]  batch 60/94  loss=0.051113
+  [epoch 54/100]  batch 70/94  loss=0.068704
+  [epoch 54/100]  batch 80/94  loss=0.074540
+  [epoch 54/100]  batch 90/94  loss=0.053161
+------------------------------------------------------------
+Epoch  54/100  train=0.066731  val=0.066117  gap=-0.000614  time=1235s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 55/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 55/100]  batch 10/94  loss=0.051697
+  [epoch 55/100]  batch 20/94  loss=0.056161
+  [epoch 55/100]  batch 30/94  loss=0.050599
+  [epoch 55/100]  batch 40/94  loss=0.070963
+  [epoch 55/100]  batch 50/94  loss=0.055378
+  [epoch 55/100]  batch 60/94  loss=0.072571
+  [epoch 55/100]  batch 70/94  loss=0.067195
+  [epoch 55/100]  batch 80/94  loss=0.074855
+  [epoch 55/100]  batch 90/94  loss=0.052265
+------------------------------------------------------------
+Epoch  55/100  train=0.066364  val=0.069150  gap=+0.002786  time=1238s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch55.pt
+
+Epoch 56/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 56/100]  batch 10/94  loss=0.065678
+  [epoch 56/100]  batch 20/94  loss=0.061525
+  [epoch 56/100]  batch 30/94  loss=0.064892
+  [epoch 56/100]  batch 40/94  loss=0.069704
+  [epoch 56/100]  batch 50/94  loss=0.065499
+  [epoch 56/100]  batch 60/94  loss=0.063272
+  [epoch 56/100]  batch 70/94  loss=0.062756
+  [epoch 56/100]  batch 80/94  loss=0.071490
+  [epoch 56/100]  batch 90/94  loss=0.048193
+------------------------------------------------------------
+Epoch  56/100  train=0.067307  val=0.068510  gap=+0.001202  time=1234s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 57/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 57/100]  batch 10/94  loss=0.074503
+  [epoch 57/100]  batch 20/94  loss=0.054844
+  [epoch 57/100]  batch 30/94  loss=0.090265
+  [epoch 57/100]  batch 40/94  loss=0.048843
+  [epoch 57/100]  batch 50/94  loss=0.068612
+  [epoch 57/100]  batch 60/94  loss=0.078040
+  [epoch 57/100]  batch 70/94  loss=0.051188
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9986480268499015 1.3052004282647531
+lowcut, highcut, fs, order: 89.78305746891985 3551.710097416716 16000 7
+  [epoch 57/100]  batch 80/94  loss=0.083761
+  [epoch 57/100]  batch 90/94  loss=0.074106
+------------------------------------------------------------
+Epoch  57/100  train=0.067047  val=0.067113  gap=+0.000066  time=1226s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 58/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 58/100]  batch 10/94  loss=0.061304
+  [epoch 58/100]  batch 20/94  loss=0.069315
+  [epoch 58/100]  batch 30/94  loss=0.059558
+  [epoch 58/100]  batch 40/94  loss=0.084643
+  [epoch 58/100]  batch 50/94  loss=0.074816
+  [epoch 58/100]  batch 60/94  loss=0.059909
+  [epoch 58/100]  batch 70/94  loss=0.060492
+  [epoch 58/100]  batch 80/94  loss=0.062550
+  [epoch 58/100]  batch 90/94  loss=0.065665
+------------------------------------------------------------
+Epoch  58/100  train=0.069364  val=0.067548  gap=-0.001816  time=1237s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 59/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 59/100]  batch 10/94  loss=0.072470
+  [epoch 59/100]  batch 20/94  loss=0.066372
+  [epoch 59/100]  batch 30/94  loss=0.061837
+  [epoch 59/100]  batch 40/94  loss=0.064699
+  [epoch 59/100]  batch 50/94  loss=0.056130
+  [epoch 59/100]  batch 60/94  loss=0.067235
+  [epoch 59/100]  batch 70/94  loss=0.064990
+  [epoch 59/100]  batch 80/94  loss=0.075808
+  [epoch 59/100]  batch 90/94  loss=0.057723
+------------------------------------------------------------
+Epoch  59/100  train=0.065769  val=0.066678  gap=+0.000909  time=1214s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+
+Epoch 60/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 60/100]  batch 10/94  loss=0.076986
+  [epoch 60/100]  batch 20/94  loss=0.062675
+  [epoch 60/100]  batch 30/94  loss=0.042685
+  [epoch 60/100]  batch 40/94  loss=0.061687
+  [epoch 60/100]  batch 50/94  loss=0.076362
+  [epoch 60/100]  batch 60/94  loss=0.059354
+  [epoch 60/100]  batch 70/94  loss=0.072595
+  [epoch 60/100]  batch 80/94  loss=0.069134
+  [epoch 60/100]  batch 90/94  loss=0.053288
+------------------------------------------------------------
+Epoch  60/100  train=0.066782  val=0.067522  gap=+0.000740  time=1209s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.066053
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch60.pt
+
+Epoch 61/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 61/100]  batch 10/94  loss=0.052487
+  [epoch 61/100]  batch 20/94  loss=0.062446
+  [epoch 61/100]  batch 30/94  loss=0.067501
+  [epoch 61/100]  batch 40/94  loss=0.073437
+  [epoch 61/100]  batch 50/94  loss=0.069197
+  [epoch 61/100]  batch 60/94  loss=0.061212
+  [epoch 61/100]  batch 70/94  loss=0.063709
+  [epoch 61/100]  batch 80/94  loss=0.068220
+  [epoch 61/100]  batch 90/94  loss=0.062988
+------------------------------------------------------------
+Epoch  61/100  train=0.067812  val=0.065671  gap=-0.002141  time=1214s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.065671)
+
+Epoch 62/100  lr=2.70e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7236635223934791 1.0497218770453673
+lowcut, highcut, fs, order: 50.26766038159627 2205.636927680088 16000 7
+  [epoch 62/100]  batch 10/94  loss=0.070975
+  [epoch 62/100]  batch 20/94  loss=0.069860
+  [epoch 62/100]  batch 30/94  loss=0.076463
+  [epoch 62/100]  batch 40/94  loss=0.064295
+  [epoch 62/100]  batch 50/94  loss=0.090303
+  [epoch 62/100]  batch 60/94  loss=0.071501
+  [epoch 62/100]  batch 70/94  loss=0.070896
+  [epoch 62/100]  batch 80/94  loss=0.060418
+  [epoch 62/100]  batch 90/94  loss=0.053749
+------------------------------------------------------------
+Epoch  62/100  train=0.066225  val=0.068286  gap=+0.002060  time=1197s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 63/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 63/100]  batch 10/94  loss=0.072197
+  [epoch 63/100]  batch 20/94  loss=0.058006
+  [epoch 63/100]  batch 30/94  loss=0.069601
+  [epoch 63/100]  batch 40/94  loss=0.068321
+  [epoch 63/100]  batch 50/94  loss=0.074435
+  [epoch 63/100]  batch 60/94  loss=0.061961
+  [epoch 63/100]  batch 70/94  loss=0.066369
+  [epoch 63/100]  batch 80/94  loss=0.061569
+  [epoch 63/100]  batch 90/94  loss=0.053835
+------------------------------------------------------------
+Epoch  63/100  train=0.064383  val=0.067265  gap=+0.002882  time=1207s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 64/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 64/100]  batch 10/94  loss=0.074187
+  [epoch 64/100]  batch 20/94  loss=0.066335
+  [epoch 64/100]  batch 30/94  loss=0.062235
+  [epoch 64/100]  batch 40/94  loss=0.062995
+  [epoch 64/100]  batch 50/94  loss=0.057519
+  [epoch 64/100]  batch 60/94  loss=0.045482
+  [epoch 64/100]  batch 70/94  loss=0.069551
+  [epoch 64/100]  batch 80/94  loss=0.061774
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9317396441826143 1.1886583414356713
+lowcut, highcut, fs, order: 27.90456563008184 3363.285501961115 16000 7
+  [epoch 64/100]  batch 90/94  loss=0.069481
+------------------------------------------------------------
+Epoch  64/100  train=0.066369  val=0.071472  gap=+0.005103  time=1209s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 65/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 65/100]  batch 10/94  loss=0.079961
+  [epoch 65/100]  batch 20/94  loss=0.067687
+  [epoch 65/100]  batch 30/94  loss=0.054328
+  [epoch 65/100]  batch 40/94  loss=0.063626
+  [epoch 65/100]  batch 50/94  loss=0.076705
+  [epoch 65/100]  batch 60/94  loss=0.066408
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7296467709150851 1.011801669376969
+lowcut, highcut, fs, order: 59.78473924026541 3909.755639525159 16000 7
+  [epoch 65/100]  batch 70/94  loss=0.070213
+  [epoch 65/100]  batch 80/94  loss=0.073705
+  [epoch 65/100]  batch 90/94  loss=0.064539
+------------------------------------------------------------
+Epoch  65/100  train=0.069363  val=0.070236  gap=+0.000873  time=1213s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch65.pt
+
+Epoch 66/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 66/100]  batch 10/94  loss=0.064027
+  [epoch 66/100]  batch 20/94  loss=0.087311
+  [epoch 66/100]  batch 30/94  loss=0.058428
+  [epoch 66/100]  batch 40/94  loss=0.050338
+  [epoch 66/100]  batch 50/94  loss=0.058559
+  [epoch 66/100]  batch 60/94  loss=0.072444
+  [epoch 66/100]  batch 70/94  loss=0.066524
+  [epoch 66/100]  batch 80/94  loss=0.089276
+  [epoch 66/100]  batch 90/94  loss=0.070857
+------------------------------------------------------------
+Epoch  66/100  train=0.068446  val=0.068129  gap=-0.000318  time=1219s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 67/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 67/100]  batch 10/94  loss=0.054354
+  [epoch 67/100]  batch 20/94  loss=0.073891
+  [epoch 67/100]  batch 30/94  loss=0.061114
+  [epoch 67/100]  batch 40/94  loss=0.077264
+  [epoch 67/100]  batch 50/94  loss=0.069233
+  [epoch 67/100]  batch 60/94  loss=0.056578
+  [epoch 67/100]  batch 70/94  loss=0.069849
+  [epoch 67/100]  batch 80/94  loss=0.077603
+  [epoch 67/100]  batch 90/94  loss=0.071670
+------------------------------------------------------------
+Epoch  67/100  train=0.068098  val=0.071009  gap=+0.002911  time=1198s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 68/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 68/100]  batch 10/94  loss=0.079357
+  [epoch 68/100]  batch 20/94  loss=0.079867
+  [epoch 68/100]  batch 30/94  loss=0.072541
+  [epoch 68/100]  batch 40/94  loss=0.078739
+  [epoch 68/100]  batch 50/94  loss=0.057401
+  [epoch 68/100]  batch 60/94  loss=0.075697
+  [epoch 68/100]  batch 70/94  loss=0.047999
+  [epoch 68/100]  batch 80/94  loss=0.062595
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.9374040470837903 2.4263857907453863
+lowcut, highcut, fs, order: 60.24184093107013 3724.0145635364443 16000 7
+  [epoch 68/100]  batch 90/94  loss=0.073300
+------------------------------------------------------------
+Epoch  68/100  train=0.067265  val=0.066034  gap=-0.001231  time=1190s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 69/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 69/100]  batch 10/94  loss=0.060498
+  [epoch 69/100]  batch 20/94  loss=0.067734
+  [epoch 69/100]  batch 30/94  loss=0.075828
+  [epoch 69/100]  batch 40/94  loss=0.076315
+  [epoch 69/100]  batch 50/94  loss=0.049835
+  [epoch 69/100]  batch 60/94  loss=0.077370
+  [epoch 69/100]  batch 70/94  loss=0.062097
+  [epoch 69/100]  batch 80/94  loss=0.065908
+  [epoch 69/100]  batch 90/94  loss=0.082908
+------------------------------------------------------------
+Epoch  69/100  train=0.066219  val=0.066907  gap=+0.000688  time=1205s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 70/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 70/100]  batch 10/94  loss=0.060617
+  [epoch 70/100]  batch 20/94  loss=0.064846
+  [epoch 70/100]  batch 30/94  loss=0.062542
+  [epoch 70/100]  batch 40/94  loss=0.074258
+  [epoch 70/100]  batch 50/94  loss=0.060139
+  [epoch 70/100]  batch 60/94  loss=0.053388
+  [epoch 70/100]  batch 70/94  loss=0.075086
+  [epoch 70/100]  batch 80/94  loss=0.056159
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7434063318254476 1.0137383904536308
+lowcut, highcut, fs, order: 50.292499757161764 3101.992951436803 16000 7
+  [epoch 70/100]  batch 90/94  loss=0.050910
+------------------------------------------------------------
+Epoch  70/100  train=0.067451  val=0.066232  gap=-0.001219  time=1227s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch70.pt
+
+Epoch 71/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 71/100]  batch 10/94  loss=0.056180
+  [epoch 71/100]  batch 20/94  loss=0.075614
+  [epoch 71/100]  batch 30/94  loss=0.084996
+  [epoch 71/100]  batch 40/94  loss=0.057557
+  [epoch 71/100]  batch 50/94  loss=0.078881
+  [epoch 71/100]  batch 60/94  loss=0.078676
+  [epoch 71/100]  batch 70/94  loss=0.070231
+  [epoch 71/100]  batch 80/94  loss=0.058281
+  [epoch 71/100]  batch 90/94  loss=0.051971
+------------------------------------------------------------
+Epoch  71/100  train=0.066566  val=0.066567  gap=+0.000001  time=1243s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 72/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 72/100]  batch 10/94  loss=0.079020
+  [epoch 72/100]  batch 20/94  loss=0.062295
+  [epoch 72/100]  batch 30/94  loss=0.064340
+  [epoch 72/100]  batch 40/94  loss=0.062716
+  [epoch 72/100]  batch 50/94  loss=0.062797
+  [epoch 72/100]  batch 60/94  loss=0.073599
+  [epoch 72/100]  batch 70/94  loss=0.062405
+  [epoch 72/100]  batch 80/94  loss=0.051362
+  [epoch 72/100]  batch 90/94  loss=0.070026
+------------------------------------------------------------
+Epoch  72/100  train=0.067113  val=0.066990  gap=-0.000124  time=1256s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 73/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 73/100]  batch 10/94  loss=0.072616
+  [epoch 73/100]  batch 20/94  loss=0.069354
+  [epoch 73/100]  batch 30/94  loss=0.067013
+  [epoch 73/100]  batch 40/94  loss=0.070326
+  [epoch 73/100]  batch 50/94  loss=0.067691
+  [epoch 73/100]  batch 60/94  loss=0.073021
+  [epoch 73/100]  batch 70/94  loss=0.055787
+  [epoch 73/100]  batch 80/94  loss=0.056808
+  [epoch 73/100]  batch 90/94  loss=0.074375
+------------------------------------------------------------
+Epoch  73/100  train=0.065233  val=0.065789  gap=+0.000557  time=1240s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 74/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 74/100]  batch 10/94  loss=0.083076
+  [epoch 74/100]  batch 20/94  loss=0.063869
+  [epoch 74/100]  batch 30/94  loss=0.067451
+  [epoch 74/100]  batch 40/94  loss=0.072323
+  [epoch 74/100]  batch 50/94  loss=0.075861
+  [epoch 74/100]  batch 60/94  loss=0.059815
+  [epoch 74/100]  batch 70/94  loss=0.072132
+  [epoch 74/100]  batch 80/94  loss=0.091566
+  [epoch 74/100]  batch 90/94  loss=0.102443
+------------------------------------------------------------
+Epoch  74/100  train=0.067129  val=0.073488  gap=+0.006359  time=1247s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 75/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 75/100]  batch 10/94  loss=0.061201
+  [epoch 75/100]  batch 20/94  loss=0.064230
+  [epoch 75/100]  batch 30/94  loss=0.072217
+  [epoch 75/100]  batch 40/94  loss=0.096007
+  [epoch 75/100]  batch 50/94  loss=0.069015
+  [epoch 75/100]  batch 60/94  loss=0.065728
+  [epoch 75/100]  batch 70/94  loss=0.078157
+  [epoch 75/100]  batch 80/94  loss=0.067462
+  [epoch 75/100]  batch 90/94  loss=0.093772
+------------------------------------------------------------
+Epoch  75/100  train=0.071354  val=0.068775  gap=-0.002579  time=1249s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch75.pt
+
+Epoch 76/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 76/100]  batch 10/94  loss=0.060870
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.29346423479729 1.9510342713148632
+lowcut, highcut, fs, order: 79.60719016205148 2194.5066861002983 16000 7
+  [epoch 76/100]  batch 20/94  loss=0.067766
+  [epoch 76/100]  batch 30/94  loss=0.058160
+  [epoch 76/100]  batch 40/94  loss=0.061273
+  [epoch 76/100]  batch 50/94  loss=0.050211
+  [epoch 76/100]  batch 60/94  loss=0.057026
+  [epoch 76/100]  batch 70/94  loss=0.065644
+  [epoch 76/100]  batch 80/94  loss=0.078457
+  [epoch 76/100]  batch 90/94  loss=0.052289
+------------------------------------------------------------
+Epoch  76/100  train=0.066211  val=0.069678  gap=+0.003467  time=1269s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 77/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 77/100]  batch 10/94  loss=0.071912
+  [epoch 77/100]  batch 20/94  loss=0.076389
+  [epoch 77/100]  batch 30/94  loss=0.068144
+  [epoch 77/100]  batch 40/94  loss=0.068991
+  [epoch 77/100]  batch 50/94  loss=0.083824
+  [epoch 77/100]  batch 60/94  loss=0.061436
+  [epoch 77/100]  batch 70/94  loss=0.067887
+  [epoch 77/100]  batch 80/94  loss=0.060444
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0142703122975463 1.3590643198050554
+lowcut, highcut, fs, order: 79.65079694553816 3918.2537332087963 16000 7
+  [epoch 77/100]  batch 90/94  loss=0.074056
+------------------------------------------------------------
+Epoch  77/100  train=0.068068  val=0.067919  gap=-0.000149  time=1267s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 78/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 78/100]  batch 10/94  loss=0.071114
+  [epoch 78/100]  batch 20/94  loss=0.077022
+  [epoch 78/100]  batch 30/94  loss=0.061906
+  [epoch 78/100]  batch 40/94  loss=0.067137
+  [epoch 78/100]  batch 50/94  loss=0.091543
+  [epoch 78/100]  batch 60/94  loss=0.059335
+  [epoch 78/100]  batch 70/94  loss=0.064227
+  [epoch 78/100]  batch 80/94  loss=0.065390
+  [epoch 78/100]  batch 90/94  loss=0.059969
+------------------------------------------------------------
+Epoch  78/100  train=0.066225  val=0.067455  gap=+0.001231  time=1249s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 79/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 79/100]  batch 10/94  loss=0.076182
+  [epoch 79/100]  batch 20/94  loss=0.066314
+  [epoch 79/100]  batch 30/94  loss=0.067943
+  [epoch 79/100]  batch 40/94  loss=0.065378
+  [epoch 79/100]  batch 50/94  loss=0.065223
+  [epoch 79/100]  batch 60/94  loss=0.061099
+  [epoch 79/100]  batch 70/94  loss=0.063873
+  [epoch 79/100]  batch 80/94  loss=0.062939
+  [epoch 79/100]  batch 90/94  loss=0.069839
+------------------------------------------------------------
+Epoch  79/100  train=0.067324  val=0.067000  gap=-0.000324  time=1240s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+
+Epoch 80/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 80/100]  batch 10/94  loss=0.069606
+  [epoch 80/100]  batch 20/94  loss=0.065844
+  [epoch 80/100]  batch 30/94  loss=0.072636
+  [epoch 80/100]  batch 40/94  loss=0.073745
+  [epoch 80/100]  batch 50/94  loss=0.058744
+  [epoch 80/100]  batch 60/94  loss=0.094642
+  [epoch 80/100]  batch 70/94  loss=0.058829
+  [epoch 80/100]  batch 80/94  loss=0.051490
+  [epoch 80/100]  batch 90/94  loss=0.090088
+------------------------------------------------------------
+Epoch  80/100  train=0.068584  val=0.066710  gap=-0.001875  time=1244s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065671
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch80.pt
+
+Epoch 81/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 81/100]  batch 10/94  loss=0.063956
+  [epoch 81/100]  batch 20/94  loss=0.067243
+  [epoch 81/100]  batch 30/94  loss=0.082256
+  [epoch 81/100]  batch 40/94  loss=0.070691
+  [epoch 81/100]  batch 50/94  loss=0.084307
+  [epoch 81/100]  batch 60/94  loss=0.067958
+  [epoch 81/100]  batch 70/94  loss=0.076657
+  [epoch 81/100]  batch 80/94  loss=0.052241
+  [epoch 81/100]  batch 90/94  loss=0.064902
+------------------------------------------------------------
+Epoch  81/100  train=0.067148  val=0.065163  gap=-0.001985  time=1253s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.065163)
+
+Epoch 82/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 82/100]  batch 10/94  loss=0.069294
+  [epoch 82/100]  batch 20/94  loss=0.061403
+  [epoch 82/100]  batch 30/94  loss=0.066565
+  [epoch 82/100]  batch 40/94  loss=0.060962
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7793430811403996 1.052112423655228
+lowcut, highcut, fs, order: 63.181058451553106 3301.244353031868 16000 7
+  [epoch 82/100]  batch 50/94  loss=0.055241
+  [epoch 82/100]  batch 60/94  loss=0.074374
+  [epoch 82/100]  batch 70/94  loss=0.056590
+  [epoch 82/100]  batch 80/94  loss=0.061967
+  [epoch 82/100]  batch 90/94  loss=0.077083
+------------------------------------------------------------
+Epoch  82/100  train=0.067236  val=0.066331  gap=-0.000905  time=1250s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+
+Epoch 83/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 83/100]  batch 10/94  loss=0.073400
+  [epoch 83/100]  batch 20/94  loss=0.058581
+  [epoch 83/100]  batch 30/94  loss=0.074495
+  [epoch 83/100]  batch 40/94  loss=0.048366
+  [epoch 83/100]  batch 50/94  loss=0.065743
+  [epoch 83/100]  batch 60/94  loss=0.060388
+  [epoch 83/100]  batch 70/94  loss=0.071122
+  [epoch 83/100]  batch 80/94  loss=0.063816
+  [epoch 83/100]  batch 90/94  loss=0.082134
+------------------------------------------------------------
+Epoch  83/100  train=0.066280  val=0.066309  gap=+0.000028  time=1247s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+
+Epoch 84/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 84/100]  batch 10/94  loss=0.061461
+  [epoch 84/100]  batch 20/94  loss=0.046480
+  [epoch 84/100]  batch 30/94  loss=0.055341
+  [epoch 84/100]  batch 40/94  loss=0.055464
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8956383791454504 1.1896100396141867
+lowcut, highcut, fs, order: 61.25620479076719 2908.95082724592 16000 7
+  [epoch 84/100]  batch 50/94  loss=0.070085
+  [epoch 84/100]  batch 60/94  loss=0.073544
+  [epoch 84/100]  batch 70/94  loss=0.069439
+  [epoch 84/100]  batch 80/94  loss=0.066872
+  [epoch 84/100]  batch 90/94  loss=0.076357
+------------------------------------------------------------
+Epoch  84/100  train=0.064662  val=0.066642  gap=+0.001979  time=1236s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+
+Epoch 85/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 85/100]  batch 10/94  loss=0.069463
+  [epoch 85/100]  batch 20/94  loss=0.067489
+  [epoch 85/100]  batch 30/94  loss=0.071925
+  [epoch 85/100]  batch 40/94  loss=0.061416
+  [epoch 85/100]  batch 50/94  loss=0.074436
+  [epoch 85/100]  batch 60/94  loss=0.054868
+  [epoch 85/100]  batch 70/94  loss=0.094721
+  [epoch 85/100]  batch 80/94  loss=0.080938
+  [epoch 85/100]  batch 90/94  loss=0.073654
+------------------------------------------------------------
+Epoch  85/100  train=0.065815  val=0.066450  gap=+0.000635  time=1246s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch85.pt
+
+Epoch 86/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 86/100]  batch 10/94  loss=0.049628
+  [epoch 86/100]  batch 20/94  loss=0.069716
+  [epoch 86/100]  batch 30/94  loss=0.052140
+  [epoch 86/100]  batch 40/94  loss=0.075140
+  [epoch 86/100]  batch 50/94  loss=0.058280
+  [epoch 86/100]  batch 60/94  loss=0.067567
+  [epoch 86/100]  batch 70/94  loss=0.073809
+  [epoch 86/100]  batch 80/94  loss=0.081081
+  [epoch 86/100]  batch 90/94  loss=0.090226
+------------------------------------------------------------
+Epoch  86/100  train=0.065769  val=0.066204  gap=+0.000435  time=1246s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+
+Epoch 87/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 87/100]  batch 10/94  loss=0.060413
+  [epoch 87/100]  batch 20/94  loss=0.068719
+  [epoch 87/100]  batch 30/94  loss=0.067642
+  [epoch 87/100]  batch 40/94  loss=0.063821
+  [epoch 87/100]  batch 50/94  loss=0.066300
+  [epoch 87/100]  batch 60/94  loss=0.070202
+  [epoch 87/100]  batch 70/94  loss=0.060016
+  [epoch 87/100]  batch 80/94  loss=0.056729
+  [epoch 87/100]  batch 90/94  loss=0.075014
+------------------------------------------------------------
+Epoch  87/100  train=0.065842  val=0.066221  gap=+0.000379  time=1261s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+
+Epoch 88/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 88/100]  batch 10/94  loss=0.051282
+  [epoch 88/100]  batch 20/94  loss=0.070378
+  [epoch 88/100]  batch 30/94  loss=0.057982
+  [epoch 88/100]  batch 40/94  loss=0.055984
+  [epoch 88/100]  batch 50/94  loss=0.080712
+  [epoch 88/100]  batch 60/94  loss=0.054307
+  [epoch 88/100]  batch 70/94  loss=0.052176
+  [epoch 88/100]  batch 80/94  loss=0.066025
+  [epoch 88/100]  batch 90/94  loss=0.057403
+------------------------------------------------------------
+Epoch  88/100  train=0.064592  val=0.066837  gap=+0.002245  time=1258s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.065163
+
+Epoch 89/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 89/100]  batch 10/94  loss=0.045573
+  [epoch 89/100]  batch 20/94  loss=0.049638
+  [epoch 89/100]  batch 30/94  loss=0.065220
+  [epoch 89/100]  batch 40/94  loss=0.067794
+  [epoch 89/100]  batch 50/94  loss=0.065487
+  [epoch 89/100]  batch 60/94  loss=0.087796
+  [epoch 89/100]  batch 70/94  loss=0.070255
+  [epoch 89/100]  batch 80/94  loss=0.069254
+  [epoch 89/100]  batch 90/94  loss=0.059160
+------------------------------------------------------------
+Epoch  89/100  train=0.063619  val=0.064520  gap=+0.000901  time=1281s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.064520)
+
+Epoch 90/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 90/100]  batch 10/94  loss=0.058739
+  [epoch 90/100]  batch 20/94  loss=0.073955
+  [epoch 90/100]  batch 30/94  loss=0.082919
+  [epoch 90/100]  batch 40/94  loss=0.075875
+  [epoch 90/100]  batch 50/94  loss=0.070385
+  [epoch 90/100]  batch 60/94  loss=0.072129
+  [epoch 90/100]  batch 70/94  loss=0.085535
+  [epoch 90/100]  batch 80/94  loss=0.069090
+  [epoch 90/100]  batch 90/94  loss=0.064027
+------------------------------------------------------------
+Epoch  90/100  train=0.064902  val=0.067053  gap=+0.002151  time=1281s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch90.pt
+
+Epoch 91/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 91/100]  batch 10/94  loss=0.073219
+  [epoch 91/100]  batch 20/94  loss=0.040797
+  [epoch 91/100]  batch 30/94  loss=0.071649
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8033477709357167 1.1577736832046417
+lowcut, highcut, fs, order: 55.97439340669307 2378.155059799432 16000 7
+  [epoch 91/100]  batch 40/94  loss=0.058862
+  [epoch 91/100]  batch 50/94  loss=0.046857
+  [epoch 91/100]  batch 60/94  loss=0.065429
+  [epoch 91/100]  batch 70/94  loss=0.073631
+  [epoch 91/100]  batch 80/94  loss=0.059606
+  [epoch 91/100]  batch 90/94  loss=0.068631
+------------------------------------------------------------
+Epoch  91/100  train=0.065980  val=0.064962  gap=-0.001018  time=1254s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+
+Epoch 92/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 92/100]  batch 10/94  loss=0.060246
+  [epoch 92/100]  batch 20/94  loss=0.054529
+  [epoch 92/100]  batch 30/94  loss=0.059043
+  [epoch 92/100]  batch 40/94  loss=0.065060
+  [epoch 92/100]  batch 50/94  loss=0.072336
+  [epoch 92/100]  batch 60/94  loss=0.079212
+  [epoch 92/100]  batch 70/94  loss=0.058255
+  [epoch 92/100]  batch 80/94  loss=0.037831
+  [epoch 92/100]  batch 90/94  loss=0.069081
+------------------------------------------------------------
+Epoch  92/100  train=0.064848  val=0.065915  gap=+0.001067  time=1247s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+
+Epoch 93/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 93/100]  batch 10/94  loss=0.081478
+  [epoch 93/100]  batch 20/94  loss=0.071237
+  [epoch 93/100]  batch 30/94  loss=0.062092
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8630970646466505 1.1649207778496034
+lowcut, highcut, fs, order: 68.23900414440934 2938.7300748365174 16000 7
+  [epoch 93/100]  batch 40/94  loss=0.059232
+  [epoch 93/100]  batch 50/94  loss=0.064169
+  [epoch 93/100]  batch 60/94  loss=0.079238
+  [epoch 93/100]  batch 70/94  loss=0.076281
+  [epoch 93/100]  batch 80/94  loss=0.069227
+  [epoch 93/100]  batch 90/94  loss=0.046773
+------------------------------------------------------------
+Epoch  93/100  train=0.064529  val=0.067090  gap=+0.002561  time=1245s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+
+Epoch 94/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 94/100]  batch 10/94  loss=0.060143
+  [epoch 94/100]  batch 20/94  loss=0.060288
+  [epoch 94/100]  batch 30/94  loss=0.061840
+  [epoch 94/100]  batch 40/94  loss=0.069922
+  [epoch 94/100]  batch 50/94  loss=0.065745
+  [epoch 94/100]  batch 60/94  loss=0.056807
+  [epoch 94/100]  batch 70/94  loss=0.055749
+  [epoch 94/100]  batch 80/94  loss=0.077506
+  [epoch 94/100]  batch 90/94  loss=0.079250
+------------------------------------------------------------
+Epoch  94/100  train=0.063025  val=0.065355  gap=+0.002331  time=1229s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+
+Epoch 95/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 95/100]  batch 10/94  loss=0.057768
+  [epoch 95/100]  batch 20/94  loss=0.058377
+  [epoch 95/100]  batch 30/94  loss=0.071369
+  [epoch 95/100]  batch 40/94  loss=0.059618
+  [epoch 95/100]  batch 50/94  loss=0.073097
+  [epoch 95/100]  batch 60/94  loss=0.067346
+  [epoch 95/100]  batch 70/94  loss=0.066881
+  [epoch 95/100]  batch 80/94  loss=0.070981
+  [epoch 95/100]  batch 90/94  loss=0.055715
+------------------------------------------------------------
+Epoch  95/100  train=0.064526  val=0.065631  gap=+0.001104  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch95.pt
+
+Epoch 96/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 96/100]  batch 10/94  loss=0.069867
+  [epoch 96/100]  batch 20/94  loss=0.058508
+  [epoch 96/100]  batch 30/94  loss=0.067941
+  [epoch 96/100]  batch 40/94  loss=0.052401
+  [epoch 96/100]  batch 50/94  loss=0.064107
+  [epoch 96/100]  batch 60/94  loss=0.054037
+  [epoch 96/100]  batch 70/94  loss=0.055341
+  [epoch 96/100]  batch 80/94  loss=0.061058
+  [epoch 96/100]  batch 90/94  loss=0.060072
+------------------------------------------------------------
+Epoch  96/100  train=0.063732  val=0.065100  gap=+0.001368  time=1242s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+
+Epoch 97/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 97/100]  batch 10/94  loss=0.066681
+  [epoch 97/100]  batch 20/94  loss=0.047469
+  [epoch 97/100]  batch 30/94  loss=0.069276
+  [epoch 97/100]  batch 40/94  loss=0.057546
+  [epoch 97/100]  batch 50/94  loss=0.054373
+  [epoch 97/100]  batch 60/94  loss=0.058604
+  [epoch 97/100]  batch 70/94  loss=0.058558
+  [epoch 97/100]  batch 80/94  loss=0.073203
+  [epoch 97/100]  batch 90/94  loss=0.075610
+------------------------------------------------------------
+Epoch  97/100  train=0.064128  val=0.064618  gap=+0.000490  time=1304s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064520
+
+Epoch 98/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 98/100]  batch 10/94  loss=0.071391
+  [epoch 98/100]  batch 20/94  loss=0.066649
+  [epoch 98/100]  batch 30/94  loss=0.061444
+  [epoch 98/100]  batch 40/94  loss=0.065213
+  [epoch 98/100]  batch 50/94  loss=0.066495
+  [epoch 98/100]  batch 60/94  loss=0.062889
+  [epoch 98/100]  batch 70/94  loss=0.088255
+  [epoch 98/100]  batch 80/94  loss=0.081528
+  [epoch 98/100]  batch 90/94  loss=0.062545
+------------------------------------------------------------
+Epoch  98/100  train=0.065934  val=0.064285  gap=-0.001649  time=1281s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.064285)
+
+Epoch 99/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 99/100]  batch 10/94  loss=0.066263
+  [epoch 99/100]  batch 20/94  loss=0.056529
+  [epoch 99/100]  batch 30/94  loss=0.069947
+  [epoch 99/100]  batch 40/94  loss=0.054802
+  [epoch 99/100]  batch 50/94  loss=0.067179
+  [epoch 99/100]  batch 60/94  loss=0.067063
+  [epoch 99/100]  batch 70/94  loss=0.059124
+  [epoch 99/100]  batch 80/94  loss=0.090225
+  [epoch 99/100]  batch 90/94  loss=0.065657
+------------------------------------------------------------
+Epoch  99/100  train=0.064254  val=0.066310  gap=+0.002057  time=1276s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064285
+
+Epoch 100/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 100/100]  batch 10/94  loss=0.054118
+  [epoch 100/100]  batch 20/94  loss=0.067109
+  [epoch 100/100]  batch 30/94  loss=0.066863
+  [epoch 100/100]  batch 40/94  loss=0.084345
+  [epoch 100/100]  batch 50/94  loss=0.067911
+  [epoch 100/100]  batch 60/94  loss=0.058069
+  [epoch 100/100]  batch 70/94  loss=0.059814
+  [epoch 100/100]  batch 80/94  loss=0.063935
+  [epoch 100/100]  batch 90/94  loss=0.065505
+------------------------------------------------------------
+Epoch 100/100  train=0.064490  val=0.064360  gap=-0.000129  time=1276s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.064285
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/checkpoints/checkpoint_epoch100.pt
+
+======================================================================
+Training complete: GRU h=161
+======================================================================
+Total time     : 124084s  (34.47h)
+Best val loss  : 0.064285
+Total energy   : 9525.4949 Wh
+GPU energy     : 8195.4163 Wh
+CPU energy     : 665.1474 Wh
+RAM energy     : 664.9313 Wh
+Total CO2      : 3968.9594 gCO2eq
+Avg GPU power  : 238.0 W
+Avg CPU power  : 20.0 W
+  Loss curves saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/gru_h161/loss_curves.png
+
+Final test evaluation using best model...
+Best model epoch : 98
+Train loss       : 0.065934
+Val loss         : 0.064285
+Test loss        : 0.061624
+
+======================================================================
+MODEL B — CRN
+======================================================================
+
+======================================================================
+Training: CRN h=161
+======================================================================
+Parameters: 3,948,364
+
+Using 4 GPUs with DataParallel
+
+Epoch 1/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 1/100]  batch 10/94  loss=0.237941
+  [epoch 1/100]  batch 20/94  loss=0.148215
+  [epoch 1/100]  batch 30/94  loss=0.231425
+  [epoch 1/100]  batch 40/94  loss=0.161744
+  [epoch 1/100]  batch 50/94  loss=0.143461
+  [epoch 1/100]  batch 60/94  loss=0.144144
+  [epoch 1/100]  batch 70/94  loss=0.168883
+  [epoch 1/100]  batch 80/94  loss=0.159670
+  [epoch 1/100]  batch 90/94  loss=0.132332
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0086437376092607 1.3036992413294604
+lowcut, highcut, fs, order: 47.62183791262212 3106.3610487896226 16000 7
+------------------------------------------------------------
+Epoch   1/100  train=0.185099  val=0.141812  gap=-0.043286  time=1240s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.141812)
+
+Epoch 2/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 2/100]  batch 10/94  loss=0.182226
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8397541541566705 1.1934974917022625
+lowcut, highcut, fs, order: 56.93942239189288 2846.1211873727643 16000 7
+  [epoch 2/100]  batch 20/94  loss=0.121187
+  [epoch 2/100]  batch 30/94  loss=0.165304
+  [epoch 2/100]  batch 40/94  loss=0.163591
+  [epoch 2/100]  batch 50/94  loss=0.127359
+  [epoch 2/100]  batch 60/94  loss=0.153626
+  [epoch 2/100]  batch 70/94  loss=0.157492
+  [epoch 2/100]  batch 80/94  loss=0.154047
+  [epoch 2/100]  batch 90/94  loss=0.109882
+------------------------------------------------------------
+Epoch   2/100  train=0.145118  val=0.109180  gap=-0.035938  time=1250s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.109180)
+
+Epoch 3/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 3/100]  batch 10/94  loss=0.169137
+  [epoch 3/100]  batch 20/94  loss=0.146098
+  [epoch 3/100]  batch 30/94  loss=0.165339
+  [epoch 3/100]  batch 40/94  loss=0.163363
+  [epoch 3/100]  batch 50/94  loss=0.112327
+  [epoch 3/100]  batch 60/94  loss=0.121047
+  [epoch 3/100]  batch 70/94  loss=0.106316
+  [epoch 3/100]  batch 80/94  loss=0.140760
+  [epoch 3/100]  batch 90/94  loss=0.107178
+------------------------------------------------------------
+Epoch   3/100  train=0.134666  val=0.100470  gap=-0.034196  time=1237s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.100470)
+
+Epoch 4/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 4/100]  batch 10/94  loss=0.133088
+  [epoch 4/100]  batch 20/94  loss=0.143518
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9778279391290344 1.3205112322652401
+lowcut, highcut, fs, order: 57.09836864962 3529.2425379850733 16000 7
+  [epoch 4/100]  batch 30/94  loss=0.131574
+  [epoch 4/100]  batch 40/94  loss=0.118692
+  [epoch 4/100]  batch 50/94  loss=0.097483
+  [epoch 4/100]  batch 60/94  loss=0.139309
+  [epoch 4/100]  batch 70/94  loss=0.100513
+  [epoch 4/100]  batch 80/94  loss=0.112816
+  [epoch 4/100]  batch 90/94  loss=0.130863
+------------------------------------------------------------
+Epoch   4/100  train=0.120056  val=0.089390  gap=-0.030666  time=1234s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.089390)
+
+Epoch 5/100  lr=5.00e-03
+------------------------------------------------------------
+  [epoch 5/100]  batch 10/94  loss=0.099180
+  [epoch 5/100]  batch 20/94  loss=0.098774
+  [epoch 5/100]  batch 30/94  loss=0.077764
+  [epoch 5/100]  batch 40/94  loss=0.117402
+  [epoch 5/100]  batch 50/94  loss=0.123039
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.6413058876213833 1.124427011492872
+lowcut, highcut, fs, order: 82.3146457410053 3890.536309892301 16000 7
+  [epoch 5/100]  batch 60/94  loss=0.101007
+  [epoch 5/100]  batch 70/94  loss=0.094249
+  [epoch 5/100]  batch 80/94  loss=0.129433
+  [epoch 5/100]  batch 90/94  loss=0.120535
+------------------------------------------------------------
+Epoch   5/100  train=0.110111  val=0.086673  gap=-0.023438  time=1241s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.086673)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch5.pt
+
+Epoch 6/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 6/100]  batch 10/94  loss=0.136831
+  [epoch 6/100]  batch 20/94  loss=0.090783
+  [epoch 6/100]  batch 30/94  loss=0.112672
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.791427240762658 1.0014136291429157
+lowcut, highcut, fs, order: 94.169706478457 3551.451884315782 16000 7
+  [epoch 6/100]  batch 40/94  loss=0.107134
+  [epoch 6/100]  batch 50/94  loss=0.117110
+  [epoch 6/100]  batch 60/94  loss=0.112407
+  [epoch 6/100]  batch 70/94  loss=0.080700
+  [epoch 6/100]  batch 80/94  loss=0.101226
+  [epoch 6/100]  batch 90/94  loss=0.149362
+------------------------------------------------------------
+Epoch   6/100  train=0.106440  val=0.085364  gap=-0.021076  time=1246s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.085364)
+
+Epoch 7/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 7/100]  batch 10/94  loss=0.125412
+  [epoch 7/100]  batch 20/94  loss=0.107304
+  [epoch 7/100]  batch 30/94  loss=0.092248
+  [epoch 7/100]  batch 40/94  loss=0.099654
+  [epoch 7/100]  batch 50/94  loss=0.110833
+  [epoch 7/100]  batch 60/94  loss=0.090103
+  [epoch 7/100]  batch 70/94  loss=0.086438
+  [epoch 7/100]  batch 80/94  loss=0.110520
+  [epoch 7/100]  batch 90/94  loss=0.107029
+------------------------------------------------------------
+Epoch   7/100  train=0.107260  val=0.082418  gap=-0.024842  time=1256s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.082418)
+
+Epoch 8/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 8/100]  batch 10/94  loss=0.124139
+  [epoch 8/100]  batch 20/94  loss=0.088173
+  [epoch 8/100]  batch 30/94  loss=0.115788
+  [epoch 8/100]  batch 40/94  loss=0.121827
+  [epoch 8/100]  batch 50/94  loss=0.099999
+  [epoch 8/100]  batch 60/94  loss=0.110143
+  [epoch 8/100]  batch 70/94  loss=0.110952
+  [epoch 8/100]  batch 80/94  loss=0.081639
+  [epoch 8/100]  batch 90/94  loss=0.127364
+------------------------------------------------------------
+Epoch   8/100  train=0.105939  val=0.081991  gap=-0.023948  time=1245s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.081991)
+
+Epoch 9/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 9/100]  batch 10/94  loss=0.100873
+  [epoch 9/100]  batch 20/94  loss=0.089510
+  [epoch 9/100]  batch 30/94  loss=0.118511
+  [epoch 9/100]  batch 40/94  loss=0.105885
+  [epoch 9/100]  batch 50/94  loss=0.083518
+  [epoch 9/100]  batch 60/94  loss=0.095033
+  [epoch 9/100]  batch 70/94  loss=0.104789
+  [epoch 9/100]  batch 80/94  loss=0.121942
+  [epoch 9/100]  batch 90/94  loss=0.101088
+------------------------------------------------------------
+Epoch   9/100  train=0.099769  val=0.085219  gap=-0.014550  time=1242s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081991
+
+Epoch 10/100  lr=4.75e-03
+------------------------------------------------------------
+  [epoch 10/100]  batch 10/94  loss=0.083302
+  [epoch 10/100]  batch 20/94  loss=0.097683
+  [epoch 10/100]  batch 30/94  loss=0.078530
+  [epoch 10/100]  batch 40/94  loss=0.092130
+  [epoch 10/100]  batch 50/94  loss=0.148522
+  [epoch 10/100]  batch 60/94  loss=0.106681
+  [epoch 10/100]  batch 70/94  loss=0.087950
+  [epoch 10/100]  batch 80/94  loss=0.094351
+  [epoch 10/100]  batch 90/94  loss=0.094665
+------------------------------------------------------------
+Epoch  10/100  train=0.101899  val=0.079776  gap=-0.022123  time=1225s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.079776)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch10.pt
+
+Epoch 11/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 11/100]  batch 10/94  loss=0.088686
+  [epoch 11/100]  batch 20/94  loss=0.121939
+  [epoch 11/100]  batch 30/94  loss=0.105158
+  [epoch 11/100]  batch 40/94  loss=0.121335
+  [epoch 11/100]  batch 50/94  loss=0.089862
+  [epoch 11/100]  batch 60/94  loss=0.092552
+  [epoch 11/100]  batch 70/94  loss=0.073061
+  [epoch 11/100]  batch 80/94  loss=0.099434
+  [epoch 11/100]  batch 90/94  loss=0.120213
+------------------------------------------------------------
+Epoch  11/100  train=0.100717  val=0.083842  gap=-0.016874  time=1231s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+
+Epoch 12/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 12/100]  batch 10/94  loss=0.091626
+  [epoch 12/100]  batch 20/94  loss=0.094337
+  [epoch 12/100]  batch 30/94  loss=0.114603
+  [epoch 12/100]  batch 40/94  loss=0.111521
+  [epoch 12/100]  batch 50/94  loss=0.139778
+  [epoch 12/100]  batch 60/94  loss=0.104677
+  [epoch 12/100]  batch 70/94  loss=0.103281
+  [epoch 12/100]  batch 80/94  loss=0.094088
+  [epoch 12/100]  batch 90/94  loss=0.116903
+------------------------------------------------------------
+Epoch  12/100  train=0.102872  val=0.087179  gap=-0.015693  time=1218s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+
+Epoch 13/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 13/100]  batch 10/94  loss=0.072727
+  [epoch 13/100]  batch 20/94  loss=0.128425
+  [epoch 13/100]  batch 30/94  loss=0.118025
+  [epoch 13/100]  batch 40/94  loss=0.099914
+  [epoch 13/100]  batch 50/94  loss=0.100931
+  [epoch 13/100]  batch 60/94  loss=0.091456
+  [epoch 13/100]  batch 70/94  loss=0.103355
+  [epoch 13/100]  batch 80/94  loss=0.122542
+  [epoch 13/100]  batch 90/94  loss=0.100688
+------------------------------------------------------------
+Epoch  13/100  train=0.100406  val=0.081703  gap=-0.018703  time=1212s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+
+Epoch 14/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 14/100]  batch 10/94  loss=0.099016
+  [epoch 14/100]  batch 20/94  loss=0.097162
+  [epoch 14/100]  batch 30/94  loss=0.075886
+  [epoch 14/100]  batch 40/94  loss=0.114411
+  [epoch 14/100]  batch 50/94  loss=0.121147
+  [epoch 14/100]  batch 60/94  loss=0.109760
+  [epoch 14/100]  batch 70/94  loss=0.072007
+  [epoch 14/100]  batch 80/94  loss=0.106384
+  [epoch 14/100]  batch 90/94  loss=0.088368
+------------------------------------------------------------
+Epoch  14/100  train=0.100149  val=0.085503  gap=-0.014646  time=1226s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+
+Epoch 15/100  lr=4.51e-03
+------------------------------------------------------------
+  [epoch 15/100]  batch 10/94  loss=0.092675
+  [epoch 15/100]  batch 20/94  loss=0.112032
+  [epoch 15/100]  batch 30/94  loss=0.077726
+  [epoch 15/100]  batch 40/94  loss=0.086586
+  [epoch 15/100]  batch 50/94  loss=0.098129
+  [epoch 15/100]  batch 60/94  loss=0.087242
+  [epoch 15/100]  batch 70/94  loss=0.080516
+  [epoch 15/100]  batch 80/94  loss=0.114413
+  [epoch 15/100]  batch 90/94  loss=0.089650
+------------------------------------------------------------
+Epoch  15/100  train=0.096472  val=0.082815  gap=-0.013657  time=1259s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch15.pt
+
+Epoch 16/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 16/100]  batch 10/94  loss=0.082863
+  [epoch 16/100]  batch 20/94  loss=0.090832
+  [epoch 16/100]  batch 30/94  loss=0.124171
+  [epoch 16/100]  batch 40/94  loss=0.082587
+  [epoch 16/100]  batch 50/94  loss=0.080652
+  [epoch 16/100]  batch 60/94  loss=0.116548
+  [epoch 16/100]  batch 70/94  loss=0.073046
+  [epoch 16/100]  batch 80/94  loss=0.085189
+  [epoch 16/100]  batch 90/94  loss=0.099567
+------------------------------------------------------------
+Epoch  16/100  train=0.097504  val=0.080183  gap=-0.017321  time=1269s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+
+Epoch 17/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 17/100]  batch 10/94  loss=0.092231
+  [epoch 17/100]  batch 20/94  loss=0.116842
+  [epoch 17/100]  batch 30/94  loss=0.107201
+  [epoch 17/100]  batch 40/94  loss=0.106264
+  [epoch 17/100]  batch 50/94  loss=0.118323
+  [epoch 17/100]  batch 60/94  loss=0.092650
+  [epoch 17/100]  batch 70/94  loss=0.100498
+  [epoch 17/100]  batch 80/94  loss=0.131963
+  [epoch 17/100]  batch 90/94  loss=0.131130
+------------------------------------------------------------
+Epoch  17/100  train=0.099906  val=0.080744  gap=-0.019162  time=1226s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.079776
+
+Epoch 18/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 18/100]  batch 10/94  loss=0.079926
+  [epoch 18/100]  batch 20/94  loss=0.086468
+  [epoch 18/100]  batch 30/94  loss=0.091289
+  [epoch 18/100]  batch 40/94  loss=0.096556
+  [epoch 18/100]  batch 50/94  loss=0.095037
+  [epoch 18/100]  batch 60/94  loss=0.098044
+  [epoch 18/100]  batch 70/94  loss=0.109565
+  [epoch 18/100]  batch 80/94  loss=0.106437
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.1872736694992754 1.7492939938571097
+lowcut, highcut, fs, order: 93.6959652601833 3401.1854419262745 16000 7
+  [epoch 18/100]  batch 90/94  loss=0.082008
+------------------------------------------------------------
+Epoch  18/100  train=0.097378  val=0.078454  gap=-0.018923  time=1235s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.078454)
+
+Epoch 19/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 19/100]  batch 10/94  loss=0.082107
+  [epoch 19/100]  batch 20/94  loss=0.096905
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0367353354256577 1.3297503059694382
+lowcut, highcut, fs, order: 81.07990001350404 2967.7034129413246 16000 7
+  [epoch 19/100]  batch 30/94  loss=0.091427
+  [epoch 19/100]  batch 40/94  loss=0.089268
+  [epoch 19/100]  batch 50/94  loss=0.094177
+  [epoch 19/100]  batch 60/94  loss=0.082880
+  [epoch 19/100]  batch 70/94  loss=0.074977
+  [epoch 19/100]  batch 80/94  loss=0.120367
+  [epoch 19/100]  batch 90/94  loss=0.096826
+------------------------------------------------------------
+Epoch  19/100  train=0.095771  val=0.078206  gap=-0.017565  time=1228s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.078206)
+
+Epoch 20/100  lr=4.29e-03
+------------------------------------------------------------
+  [epoch 20/100]  batch 10/94  loss=0.077243
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0883111117132194 1.7133573183207682
+lowcut, highcut, fs, order: 65.95862868309877 2680.97077097876 16000 7
+  [epoch 20/100]  batch 20/94  loss=0.094568
+  [epoch 20/100]  batch 30/94  loss=0.090142
+  [epoch 20/100]  batch 40/94  loss=0.068071
+  [epoch 20/100]  batch 50/94  loss=0.083321
+  [epoch 20/100]  batch 60/94  loss=0.081722
+  [epoch 20/100]  batch 70/94  loss=0.087983
+  [epoch 20/100]  batch 80/94  loss=0.141451
+  [epoch 20/100]  batch 90/94  loss=0.102754
+------------------------------------------------------------
+Epoch  20/100  train=0.095683  val=0.086270  gap=-0.009413  time=1235s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.078206
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch20.pt
+
+Epoch 21/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 21/100]  batch 10/94  loss=0.084587
+  [epoch 21/100]  batch 20/94  loss=0.084293
+  [epoch 21/100]  batch 30/94  loss=0.089910
+  [epoch 21/100]  batch 40/94  loss=0.102077
+  [epoch 21/100]  batch 50/94  loss=0.089646
+  [epoch 21/100]  batch 60/94  loss=0.098828
+  [epoch 21/100]  batch 70/94  loss=0.090085
+  [epoch 21/100]  batch 80/94  loss=0.096084
+  [epoch 21/100]  batch 90/94  loss=0.110981
+------------------------------------------------------------
+Epoch  21/100  train=0.096703  val=0.094925  gap=-0.001778  time=1232s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.078206
+
+Epoch 22/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 22/100]  batch 10/94  loss=0.078090
+  [epoch 22/100]  batch 20/94  loss=0.101399
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8537918577859276 1.1129845448237408
+lowcut, highcut, fs, order: 54.07872815004067 3382.7086928392855 16000 7
+  [epoch 22/100]  batch 30/94  loss=0.077630
+  [epoch 22/100]  batch 40/94  loss=0.080964
+  [epoch 22/100]  batch 50/94  loss=0.122283
+  [epoch 22/100]  batch 60/94  loss=0.109041
+  [epoch 22/100]  batch 70/94  loss=0.072672
+  [epoch 22/100]  batch 80/94  loss=0.114573
+  [epoch 22/100]  batch 90/94  loss=0.077177
+------------------------------------------------------------
+Epoch  22/100  train=0.095651  val=0.079127  gap=-0.016524  time=1217s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.078206
+
+Epoch 23/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 23/100]  batch 10/94  loss=0.089546
+  [epoch 23/100]  batch 20/94  loss=0.089136
+  [epoch 23/100]  batch 30/94  loss=0.091193
+  [epoch 23/100]  batch 40/94  loss=0.088724
+  [epoch 23/100]  batch 50/94  loss=0.103363
+  [epoch 23/100]  batch 60/94  loss=0.084808
+  [epoch 23/100]  batch 70/94  loss=0.083361
+  [epoch 23/100]  batch 80/94  loss=0.094659
+  [epoch 23/100]  batch 90/94  loss=0.096045
+------------------------------------------------------------
+Epoch  23/100  train=0.096477  val=0.077376  gap=-0.019101  time=1215s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.077376)
+
+Epoch 24/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 24/100]  batch 10/94  loss=0.106357
+  [epoch 24/100]  batch 20/94  loss=0.074516
+  [epoch 24/100]  batch 30/94  loss=0.068238
+  [epoch 24/100]  batch 40/94  loss=0.081827
+  [epoch 24/100]  batch 50/94  loss=0.070778
+  [epoch 24/100]  batch 60/94  loss=0.113832
+  [epoch 24/100]  batch 70/94  loss=0.092547
+  [epoch 24/100]  batch 80/94  loss=0.082528
+  [epoch 24/100]  batch 90/94  loss=0.077662
+------------------------------------------------------------
+Epoch  24/100  train=0.092815  val=0.080497  gap=-0.012319  time=1220s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 25/100  lr=4.07e-03
+------------------------------------------------------------
+  [epoch 25/100]  batch 10/94  loss=0.098842
+  [epoch 25/100]  batch 20/94  loss=0.086287
+  [epoch 25/100]  batch 30/94  loss=0.076221
+  [epoch 25/100]  batch 40/94  loss=0.081138
+  [epoch 25/100]  batch 50/94  loss=0.117523
+  [epoch 25/100]  batch 60/94  loss=0.093985
+  [epoch 25/100]  batch 70/94  loss=0.109635
+  [epoch 25/100]  batch 80/94  loss=0.102196
+  [epoch 25/100]  batch 90/94  loss=0.083939
+------------------------------------------------------------
+Epoch  25/100  train=0.094639  val=0.083458  gap=-0.011181  time=1211s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch25.pt
+
+Epoch 26/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 26/100]  batch 10/94  loss=0.089945
+  [epoch 26/100]  batch 20/94  loss=0.102603
+  [epoch 26/100]  batch 30/94  loss=0.079266
+  [epoch 26/100]  batch 40/94  loss=0.118838
+  [epoch 26/100]  batch 50/94  loss=0.092646
+  [epoch 26/100]  batch 60/94  loss=0.092708
+  [epoch 26/100]  batch 70/94  loss=0.072596
+  [epoch 26/100]  batch 80/94  loss=0.098471
+  [epoch 26/100]  batch 90/94  loss=0.106642
+------------------------------------------------------------
+Epoch  26/100  train=0.093836  val=0.078855  gap=-0.014982  time=1209s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 27/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 27/100]  batch 10/94  loss=0.086026
+  [epoch 27/100]  batch 20/94  loss=0.091910
+  [epoch 27/100]  batch 30/94  loss=0.127619
+  [epoch 27/100]  batch 40/94  loss=0.132435
+  [epoch 27/100]  batch 50/94  loss=0.096352
+  [epoch 27/100]  batch 60/94  loss=0.089028
+  [epoch 27/100]  batch 70/94  loss=0.094564
+  [epoch 27/100]  batch 80/94  loss=0.097207
+  [epoch 27/100]  batch 90/94  loss=0.073835
+------------------------------------------------------------
+Epoch  27/100  train=0.093109  val=0.080740  gap=-0.012369  time=1207s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 28/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 28/100]  batch 10/94  loss=0.090514
+  [epoch 28/100]  batch 20/94  loss=0.091738
+  [epoch 28/100]  batch 30/94  loss=0.096102
+  [epoch 28/100]  batch 40/94  loss=0.084109
+  [epoch 28/100]  batch 50/94  loss=0.090120
+  [epoch 28/100]  batch 60/94  loss=0.095384
+  [epoch 28/100]  batch 70/94  loss=0.076934
+  [epoch 28/100]  batch 80/94  loss=0.105039
+  [epoch 28/100]  batch 90/94  loss=0.077714
+------------------------------------------------------------
+Epoch  28/100  train=0.092798  val=0.078855  gap=-0.013944  time=1218s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 29/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 29/100]  batch 10/94  loss=0.086032
+  [epoch 29/100]  batch 20/94  loss=0.098643
+  [epoch 29/100]  batch 30/94  loss=0.074038
+  [epoch 29/100]  batch 40/94  loss=0.083321
+  [epoch 29/100]  batch 50/94  loss=0.110192
+  [epoch 29/100]  batch 60/94  loss=0.094423
+  [epoch 29/100]  batch 70/94  loss=0.108699
+  [epoch 29/100]  batch 80/94  loss=0.102364
+  [epoch 29/100]  batch 90/94  loss=0.120674
+------------------------------------------------------------
+Epoch  29/100  train=0.094122  val=0.086967  gap=-0.007156  time=1204s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 30/100  lr=3.87e-03
+------------------------------------------------------------
+  [epoch 30/100]  batch 10/94  loss=0.082799
+  [epoch 30/100]  batch 20/94  loss=0.074277
+  [epoch 30/100]  batch 30/94  loss=0.096904
+  [epoch 30/100]  batch 40/94  loss=0.094004
+  [epoch 30/100]  batch 50/94  loss=0.086535
+  [epoch 30/100]  batch 60/94  loss=0.068482
+  [epoch 30/100]  batch 70/94  loss=0.079766
+  [epoch 30/100]  batch 80/94  loss=0.097393
+  [epoch 30/100]  batch 90/94  loss=0.088460
+------------------------------------------------------------
+Epoch  30/100  train=0.092256  val=0.083661  gap=-0.008595  time=1247s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch30.pt
+
+Epoch 31/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 31/100]  batch 10/94  loss=0.067744
+  [epoch 31/100]  batch 20/94  loss=0.110311
+  [epoch 31/100]  batch 30/94  loss=0.095280
+  [epoch 31/100]  batch 40/94  loss=0.083150
+  [epoch 31/100]  batch 50/94  loss=0.092714
+  [epoch 31/100]  batch 60/94  loss=0.086722
+  [epoch 31/100]  batch 70/94  loss=0.089406
+  [epoch 31/100]  batch 80/94  loss=0.098911
+  [epoch 31/100]  batch 90/94  loss=0.112232
+------------------------------------------------------------
+Epoch  31/100  train=0.094241  val=0.079788  gap=-0.014453  time=1261s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 32/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 32/100]  batch 10/94  loss=0.076569
+  [epoch 32/100]  batch 20/94  loss=0.099548
+  [epoch 32/100]  batch 30/94  loss=0.077799
+  [epoch 32/100]  batch 40/94  loss=0.124541
+  [epoch 32/100]  batch 50/94  loss=0.108779
+  [epoch 32/100]  batch 60/94  loss=0.076731
+  [epoch 32/100]  batch 70/94  loss=0.099084
+  [epoch 32/100]  batch 80/94  loss=0.077312
+  [epoch 32/100]  batch 90/94  loss=0.113844
+------------------------------------------------------------
+Epoch  32/100  train=0.091912  val=0.081048  gap=-0.010865  time=1264s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.077376
+
+Epoch 33/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 33/100]  batch 10/94  loss=0.064556
+  [epoch 33/100]  batch 20/94  loss=0.099359
+  [epoch 33/100]  batch 30/94  loss=0.084580
+  [epoch 33/100]  batch 40/94  loss=0.079232
+  [epoch 33/100]  batch 50/94  loss=0.087583
+  [epoch 33/100]  batch 60/94  loss=0.125063
+  [epoch 33/100]  batch 70/94  loss=0.109838
+  [epoch 33/100]  batch 80/94  loss=0.090914
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.687166224393552 1.412695117649184
+lowcut, highcut, fs, order: 39.07215534926387 3241.0053875452954 16000 7
+  [epoch 33/100]  batch 90/94  loss=0.100558
+------------------------------------------------------------
+Epoch  33/100  train=0.092980  val=0.076812  gap=-0.016168  time=1251s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.076812)
+
+Epoch 34/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 34/100]  batch 10/94  loss=0.104351
+  [epoch 34/100]  batch 20/94  loss=0.083854
+  [epoch 34/100]  batch 30/94  loss=0.085201
+  [epoch 34/100]  batch 40/94  loss=0.078284
+  [epoch 34/100]  batch 50/94  loss=0.065758
+  [epoch 34/100]  batch 60/94  loss=0.080186
+  [epoch 34/100]  batch 70/94  loss=0.120748
+  [epoch 34/100]  batch 80/94  loss=0.094295
+  [epoch 34/100]  batch 90/94  loss=0.091537
+------------------------------------------------------------
+Epoch  34/100  train=0.090052  val=0.081423  gap=-0.008629  time=1296s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076812
+
+Epoch 35/100  lr=3.68e-03
+------------------------------------------------------------
+  [epoch 35/100]  batch 10/94  loss=0.068434
+  [epoch 35/100]  batch 20/94  loss=0.107384
+  [epoch 35/100]  batch 30/94  loss=0.093094
+  [epoch 35/100]  batch 40/94  loss=0.098337
+  [epoch 35/100]  batch 50/94  loss=0.076725
+  [epoch 35/100]  batch 60/94  loss=0.095888
+  [epoch 35/100]  batch 70/94  loss=0.082164
+  [epoch 35/100]  batch 80/94  loss=0.093262
+  [epoch 35/100]  batch 90/94  loss=0.099198
+------------------------------------------------------------
+Epoch  35/100  train=0.089124  val=0.076661  gap=-0.012463  time=1320s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.076661)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch35.pt
+
+Epoch 36/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 36/100]  batch 10/94  loss=0.075855
+  [epoch 36/100]  batch 20/94  loss=0.097773
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.6479021736431823 1.0400830679963349
+lowcut, highcut, fs, order: 66.40677227917787 2383.3511023295996 16000 7
+  [epoch 36/100]  batch 30/94  loss=0.095612
+  [epoch 36/100]  batch 40/94  loss=0.084236
+  [epoch 36/100]  batch 50/94  loss=0.088354
+  [epoch 36/100]  batch 60/94  loss=0.093192
+  [epoch 36/100]  batch 70/94  loss=0.076704
+  [epoch 36/100]  batch 80/94  loss=0.102396
+  [epoch 36/100]  batch 90/94  loss=0.086668
+------------------------------------------------------------
+Epoch  36/100  train=0.089139  val=0.079562  gap=-0.009576  time=1332s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 37/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 37/100]  batch 10/94  loss=0.082417
+  [epoch 37/100]  batch 20/94  loss=0.070385
+  [epoch 37/100]  batch 30/94  loss=0.089618
+  [epoch 37/100]  batch 40/94  loss=0.095746
+  [epoch 37/100]  batch 50/94  loss=0.085499
+  [epoch 37/100]  batch 60/94  loss=0.094579
+  [epoch 37/100]  batch 70/94  loss=0.078701
+  [epoch 37/100]  batch 80/94  loss=0.091476
+  [epoch 37/100]  batch 90/94  loss=0.093504
+------------------------------------------------------------
+Epoch  37/100  train=0.088091  val=0.082919  gap=-0.005172  time=1315s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 38/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 38/100]  batch 10/94  loss=0.087734
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.7076020368400715 2.6433111502239988
+lowcut, highcut, fs, order: 53.372926841495705 2286.8531779003147 16000 7
+  [epoch 38/100]  batch 20/94  loss=0.092194
+  [epoch 38/100]  batch 30/94  loss=0.115424
+  [epoch 38/100]  batch 40/94  loss=0.099075
+  [epoch 38/100]  batch 50/94  loss=0.096061
+  [epoch 38/100]  batch 60/94  loss=0.113405
+  [epoch 38/100]  batch 70/94  loss=0.094702
+  [epoch 38/100]  batch 80/94  loss=0.115483
+  [epoch 38/100]  batch 90/94  loss=0.096459
+------------------------------------------------------------
+Epoch  38/100  train=0.092523  val=0.080926  gap=-0.011596  time=1309s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 39/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 39/100]  batch 10/94  loss=0.102402
+  [epoch 39/100]  batch 20/94  loss=0.144903
+  [epoch 39/100]  batch 30/94  loss=0.106747
+  [epoch 39/100]  batch 40/94  loss=0.109546
+  [epoch 39/100]  batch 50/94  loss=0.107703
+  [epoch 39/100]  batch 60/94  loss=0.083570
+  [epoch 39/100]  batch 70/94  loss=0.093605
+  [epoch 39/100]  batch 80/94  loss=0.101143
+  [epoch 39/100]  batch 90/94  loss=0.101149
+------------------------------------------------------------
+Epoch  39/100  train=0.090850  val=0.078423  gap=-0.012427  time=1320s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 40/100  lr=3.49e-03
+------------------------------------------------------------
+  [epoch 40/100]  batch 10/94  loss=0.077385
+  [epoch 40/100]  batch 20/94  loss=0.077248
+  [epoch 40/100]  batch 30/94  loss=0.077210
+  [epoch 40/100]  batch 40/94  loss=0.067927
+  [epoch 40/100]  batch 50/94  loss=0.096295
+  [epoch 40/100]  batch 60/94  loss=0.072795
+  [epoch 40/100]  batch 70/94  loss=0.098560
+  [epoch 40/100]  batch 80/94  loss=0.072021
+  [epoch 40/100]  batch 90/94  loss=0.080450
+------------------------------------------------------------
+Epoch  40/100  train=0.086929  val=0.080995  gap=-0.005934  time=1332s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch40.pt
+
+Epoch 41/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 41/100]  batch 10/94  loss=0.106167
+  [epoch 41/100]  batch 20/94  loss=0.087180
+  [epoch 41/100]  batch 30/94  loss=0.079749
+  [epoch 41/100]  batch 40/94  loss=0.076046
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8203827466757392 1.0282641501423135
+lowcut, highcut, fs, order: 16.984274096569933 2755.9353164899094 16000 7
+  [epoch 41/100]  batch 50/94  loss=0.085601
+  [epoch 41/100]  batch 60/94  loss=0.079337
+  [epoch 41/100]  batch 70/94  loss=0.087491
+  [epoch 41/100]  batch 80/94  loss=0.094257
+  [epoch 41/100]  batch 90/94  loss=0.099781
+------------------------------------------------------------
+Epoch  41/100  train=0.086838  val=0.080231  gap=-0.006607  time=1324s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 42/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 42/100]  batch 10/94  loss=0.077130
+  [epoch 42/100]  batch 20/94  loss=0.075066
+  [epoch 42/100]  batch 30/94  loss=0.099563
+  [epoch 42/100]  batch 40/94  loss=0.098796
+  [epoch 42/100]  batch 50/94  loss=0.060718
+  [epoch 42/100]  batch 60/94  loss=0.072027
+  [epoch 42/100]  batch 70/94  loss=0.092765
+  [epoch 42/100]  batch 80/94  loss=0.080570
+  [epoch 42/100]  batch 90/94  loss=0.078987
+------------------------------------------------------------
+Epoch  42/100  train=0.085989  val=0.080117  gap=-0.005872  time=1337s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 43/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 43/100]  batch 10/94  loss=0.111988
+  [epoch 43/100]  batch 20/94  loss=0.102567
+  [epoch 43/100]  batch 30/94  loss=0.081339
+  [epoch 43/100]  batch 40/94  loss=0.080907
+  [epoch 43/100]  batch 50/94  loss=0.083405
+  [epoch 43/100]  batch 60/94  loss=0.081980
+  [epoch 43/100]  batch 70/94  loss=0.086971
+  [epoch 43/100]  batch 80/94  loss=0.073269
+  [epoch 43/100]  batch 90/94  loss=0.081903
+------------------------------------------------------------
+Epoch  43/100  train=0.089516  val=0.078289  gap=-0.011227  time=1321s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 44/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 44/100]  batch 10/94  loss=0.080374
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9993150729993928 1.7756928310027082
+lowcut, highcut, fs, order: 99.43261109651662 3989.311067519465 16000 7
+  [epoch 44/100]  batch 20/94  loss=0.075550
+  [epoch 44/100]  batch 30/94  loss=0.071513
+  [epoch 44/100]  batch 40/94  loss=0.083846
+  [epoch 44/100]  batch 50/94  loss=0.107214
+  [epoch 44/100]  batch 60/94  loss=0.101513
+  [epoch 44/100]  batch 70/94  loss=0.092666
+  [epoch 44/100]  batch 80/94  loss=0.082698
+  [epoch 44/100]  batch 90/94  loss=0.076142
+------------------------------------------------------------
+Epoch  44/100  train=0.088673  val=0.079179  gap=-0.009495  time=1274s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+
+Epoch 45/100  lr=3.32e-03
+------------------------------------------------------------
+  [epoch 45/100]  batch 10/94  loss=0.076778
+  [epoch 45/100]  batch 20/94  loss=0.094027
+  [epoch 45/100]  batch 30/94  loss=0.094748
+  [epoch 45/100]  batch 40/94  loss=0.055968
+  [epoch 45/100]  batch 50/94  loss=0.090908
+  [epoch 45/100]  batch 60/94  loss=0.096855
+  [epoch 45/100]  batch 70/94  loss=0.087701
+  [epoch 45/100]  batch 80/94  loss=0.095143
+  [epoch 45/100]  batch 90/94  loss=0.076123
+------------------------------------------------------------
+Epoch  45/100  train=0.087195  val=0.077826  gap=-0.009368  time=1259s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.076661
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch45.pt
+
+Epoch 46/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 46/100]  batch 10/94  loss=0.109678
+  [epoch 46/100]  batch 20/94  loss=0.092170
+  [epoch 46/100]  batch 30/94  loss=0.105721
+  [epoch 46/100]  batch 40/94  loss=0.097305
+  [epoch 46/100]  batch 50/94  loss=0.069018
+  [epoch 46/100]  batch 60/94  loss=0.094560
+  [epoch 46/100]  batch 70/94  loss=0.065369
+  [epoch 46/100]  batch 80/94  loss=0.090969
+  [epoch 46/100]  batch 90/94  loss=0.081853
+------------------------------------------------------------
+Epoch  46/100  train=0.085725  val=0.074271  gap=-0.011454  time=1245s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.074271)
+
+Epoch 47/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 47/100]  batch 10/94  loss=0.075917
+  [epoch 47/100]  batch 20/94  loss=0.076309
+  [epoch 47/100]  batch 30/94  loss=0.096084
+  [epoch 47/100]  batch 40/94  loss=0.072219
+  [epoch 47/100]  batch 50/94  loss=0.075925
+  [epoch 47/100]  batch 60/94  loss=0.092041
+  [epoch 47/100]  batch 70/94  loss=0.081986
+  [epoch 47/100]  batch 80/94  loss=0.094124
+  [epoch 47/100]  batch 90/94  loss=0.109075
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7514683525166677 1.1351929234842997
+lowcut, highcut, fs, order: 82.03080487910172 3759.3319852908226 16000 7
+------------------------------------------------------------
+Epoch  47/100  train=0.085917  val=0.076414  gap=-0.009502  time=1232s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 48/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 48/100]  batch 10/94  loss=0.087561
+  [epoch 48/100]  batch 20/94  loss=0.079360
+  [epoch 48/100]  batch 30/94  loss=0.090478
+  [epoch 48/100]  batch 40/94  loss=0.076508
+  [epoch 48/100]  batch 50/94  loss=0.103306
+  [epoch 48/100]  batch 60/94  loss=0.077854
+  [epoch 48/100]  batch 70/94  loss=0.081071
+  [epoch 48/100]  batch 80/94  loss=0.086647
+  [epoch 48/100]  batch 90/94  loss=0.068422
+------------------------------------------------------------
+Epoch  48/100  train=0.087991  val=0.075208  gap=-0.012783  time=1271s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 49/100  lr=3.15e-03
+------------------------------------------------------------
+  [epoch 49/100]  batch 10/94  loss=0.098758
+  [epoch 49/100]  batch 20/94  loss=0.076911
+  [epoch 49/100]  batch 30/94  loss=0.086790
+  [epoch 49/100]  batch 40/94  loss=0.090981
+  [epoch 49/100]  batch 50/94  loss=0.091774
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8263408073495544 1.0455539694432567
+lowcut, highcut, fs, order: 72.5352127431062 3946.7129096841236 16000 7
+  [epoch 49/100]  batch 60/94  loss=0.067980
+  [epoch 49/100]  batch 70/94  loss=0.067394
+  [epoch 49/100]  batch 80/94  loss=0.092565
+  [epoch 49/100]  batch 90/94  loss=0.075606
+------------------------------------------------------------
+Epoch  49/100  train=0.087092  val=0.080755  gap=-0.006337  time=1259s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 50/100  lr=3.15e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7810518859685643 1.0776758257277979
+lowcut, highcut, fs, order: 92.08404960797385 3069.7772145242216 16000 7
+  [epoch 50/100]  batch 10/94  loss=0.090281
+  [epoch 50/100]  batch 20/94  loss=0.086640
+  [epoch 50/100]  batch 30/94  loss=0.089729
+  [epoch 50/100]  batch 40/94  loss=0.087953
+  [epoch 50/100]  batch 50/94  loss=0.077047
+  [epoch 50/100]  batch 60/94  loss=0.089992
+  [epoch 50/100]  batch 70/94  loss=0.083290
+  [epoch 50/100]  batch 80/94  loss=0.087073
+  [epoch 50/100]  batch 90/94  loss=0.105199
+------------------------------------------------------------
+Epoch  50/100  train=0.086361  val=0.084518  gap=-0.001843  time=1279s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch50.pt
+
+Epoch 51/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 51/100]  batch 10/94  loss=0.092510
+  [epoch 51/100]  batch 20/94  loss=0.066755
+  [epoch 51/100]  batch 30/94  loss=0.067854
+  [epoch 51/100]  batch 40/94  loss=0.080307
+  [epoch 51/100]  batch 50/94  loss=0.082228
+  [epoch 51/100]  batch 60/94  loss=0.110079
+  [epoch 51/100]  batch 70/94  loss=0.091322
+  [epoch 51/100]  batch 80/94  loss=0.068894
+  [epoch 51/100]  batch 90/94  loss=0.087761
+------------------------------------------------------------
+Epoch  51/100  train=0.087943  val=0.078754  gap=-0.009189  time=1254s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 52/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 52/100]  batch 10/94  loss=0.079855
+  [epoch 52/100]  batch 20/94  loss=0.074849
+  [epoch 52/100]  batch 30/94  loss=0.095880
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.1347448152641395 1.4621611976712092
+lowcut, highcut, fs, order: 39.34760090235601 3032.7400392925488 16000 7
+  [epoch 52/100]  batch 40/94  loss=0.087110
+  [epoch 52/100]  batch 50/94  loss=0.079111
+  [epoch 52/100]  batch 60/94  loss=0.081583
+  [epoch 52/100]  batch 70/94  loss=0.076546
+  [epoch 52/100]  batch 80/94  loss=0.065691
+  [epoch 52/100]  batch 90/94  loss=0.072742
+------------------------------------------------------------
+Epoch  52/100  train=0.086033  val=0.080067  gap=-0.005966  time=1243s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 53/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 53/100]  batch 10/94  loss=0.075115
+  [epoch 53/100]  batch 20/94  loss=0.079253
+  [epoch 53/100]  batch 30/94  loss=0.110426
+  [epoch 53/100]  batch 40/94  loss=0.103549
+  [epoch 53/100]  batch 50/94  loss=0.069677
+  [epoch 53/100]  batch 60/94  loss=0.070904
+  [epoch 53/100]  batch 70/94  loss=0.072039
+  [epoch 53/100]  batch 80/94  loss=0.087881
+  [epoch 53/100]  batch 90/94  loss=0.074315
+------------------------------------------------------------
+Epoch  53/100  train=0.083362  val=0.079588  gap=-0.003774  time=1239s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 54/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 54/100]  batch 10/94  loss=0.086258
+  [epoch 54/100]  batch 20/94  loss=0.083005
+  [epoch 54/100]  batch 30/94  loss=0.074388
+  [epoch 54/100]  batch 40/94  loss=0.092080
+  [epoch 54/100]  batch 50/94  loss=0.082253
+  [epoch 54/100]  batch 60/94  loss=0.088878
+  [epoch 54/100]  batch 70/94  loss=0.078126
+  [epoch 54/100]  batch 80/94  loss=0.083116
+  [epoch 54/100]  batch 90/94  loss=0.076236
+------------------------------------------------------------
+Epoch  54/100  train=0.083797  val=0.075952  gap=-0.007845  time=1273s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+
+Epoch 55/100  lr=2.99e-03
+------------------------------------------------------------
+  [epoch 55/100]  batch 10/94  loss=0.071739
+  [epoch 55/100]  batch 20/94  loss=0.072312
+  [epoch 55/100]  batch 30/94  loss=0.074714
+  [epoch 55/100]  batch 40/94  loss=0.082817
+  [epoch 55/100]  batch 50/94  loss=0.097427
+  [epoch 55/100]  batch 60/94  loss=0.073684
+  [epoch 55/100]  batch 70/94  loss=0.081936
+  [epoch 55/100]  batch 80/94  loss=0.107599
+  [epoch 55/100]  batch 90/94  loss=0.082864
+------------------------------------------------------------
+Epoch  55/100  train=0.085182  val=0.080749  gap=-0.004433  time=1300s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074271
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch55.pt
+
+Epoch 56/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 56/100]  batch 10/94  loss=0.076287
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9548893268659583 1.2823221841339814
+lowcut, highcut, fs, order: 74.18282188342991 3590.7521881530993 16000 7
+  [epoch 56/100]  batch 20/94  loss=0.083077
+  [epoch 56/100]  batch 30/94  loss=0.072626
+  [epoch 56/100]  batch 40/94  loss=0.086754
+  [epoch 56/100]  batch 50/94  loss=0.075655
+  [epoch 56/100]  batch 60/94  loss=0.078986
+  [epoch 56/100]  batch 70/94  loss=0.078593
+  [epoch 56/100]  batch 80/94  loss=0.084103
+  [epoch 56/100]  batch 90/94  loss=0.084416
+------------------------------------------------------------
+Epoch  56/100  train=0.084024  val=0.074201  gap=-0.009823  time=1277s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.074201)
+
+Epoch 57/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 57/100]  batch 10/94  loss=0.096680
+  [epoch 57/100]  batch 20/94  loss=0.088815
+  [epoch 57/100]  batch 30/94  loss=0.063611
+  [epoch 57/100]  batch 40/94  loss=0.092214
+  [epoch 57/100]  batch 50/94  loss=0.115164
+  [epoch 57/100]  batch 60/94  loss=0.090535
+  [epoch 57/100]  batch 70/94  loss=0.054144
+  [epoch 57/100]  batch 80/94  loss=0.069479
+  [epoch 57/100]  batch 90/94  loss=0.079851
+------------------------------------------------------------
+Epoch  57/100  train=0.084467  val=0.080376  gap=-0.004090  time=1263s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074201
+
+Epoch 58/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 58/100]  batch 10/94  loss=0.099934
+  [epoch 58/100]  batch 20/94  loss=0.101280
+  [epoch 58/100]  batch 30/94  loss=0.090494
+  [epoch 58/100]  batch 40/94  loss=0.074205
+  [epoch 58/100]  batch 50/94  loss=0.082005
+  [epoch 58/100]  batch 60/94  loss=0.087027
+  [epoch 58/100]  batch 70/94  loss=0.068661
+  [epoch 58/100]  batch 80/94  loss=0.079297
+  [epoch 58/100]  batch 90/94  loss=0.088855
+------------------------------------------------------------
+Epoch  58/100  train=0.082154  val=0.074516  gap=-0.007638  time=1262s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074201
+
+Epoch 59/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 59/100]  batch 10/94  loss=0.083153
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9125131194380219 1.2466751931054096
+lowcut, highcut, fs, order: 86.0917910058164 2474.089270691747 16000 7
+  [epoch 59/100]  batch 20/94  loss=0.075457
+  [epoch 59/100]  batch 30/94  loss=0.088923
+  [epoch 59/100]  batch 40/94  loss=0.088039
+  [epoch 59/100]  batch 50/94  loss=0.073051
+  [epoch 59/100]  batch 60/94  loss=0.082501
+  [epoch 59/100]  batch 70/94  loss=0.073800
+  [epoch 59/100]  batch 80/94  loss=0.064849
+  [epoch 59/100]  batch 90/94  loss=0.068891
+------------------------------------------------------------
+Epoch  59/100  train=0.082734  val=0.078434  gap=-0.004300  time=1257s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074201
+
+Epoch 60/100  lr=2.84e-03
+------------------------------------------------------------
+  [epoch 60/100]  batch 10/94  loss=0.086619
+  [epoch 60/100]  batch 20/94  loss=0.090075
+  [epoch 60/100]  batch 30/94  loss=0.093874
+  [epoch 60/100]  batch 40/94  loss=0.070399
+  [epoch 60/100]  batch 50/94  loss=0.083196
+  [epoch 60/100]  batch 60/94  loss=0.083051
+  [epoch 60/100]  batch 70/94  loss=0.074826
+  [epoch 60/100]  batch 80/94  loss=0.079008
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8808591091578521 1.3200048238805357
+lowcut, highcut, fs, order: 70.7427806958511 2979.018393193148 16000 7
+  [epoch 60/100]  batch 90/94  loss=0.062593
+------------------------------------------------------------
+Epoch  60/100  train=0.082669  val=0.079323  gap=-0.003346  time=1260s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074201
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch60.pt
+
+Epoch 61/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 61/100]  batch 10/94  loss=0.074273
+  [epoch 61/100]  batch 20/94  loss=0.094048
+  [epoch 61/100]  batch 30/94  loss=0.070185
+  [epoch 61/100]  batch 40/94  loss=0.065487
+  [epoch 61/100]  batch 50/94  loss=0.076935
+  [epoch 61/100]  batch 60/94  loss=0.059578
+  [epoch 61/100]  batch 70/94  loss=0.084427
+  [epoch 61/100]  batch 80/94  loss=0.083472
+  [epoch 61/100]  batch 90/94  loss=0.092296
+------------------------------------------------------------
+Epoch  61/100  train=0.081608  val=0.076734  gap=-0.004874  time=1251s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074201
+
+Epoch 62/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 62/100]  batch 10/94  loss=0.060981
+  [epoch 62/100]  batch 20/94  loss=0.081353
+  [epoch 62/100]  batch 30/94  loss=0.077485
+  [epoch 62/100]  batch 40/94  loss=0.074175
+  [epoch 62/100]  batch 50/94  loss=0.074436
+  [epoch 62/100]  batch 60/94  loss=0.066162
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.8142622848360432 2.5396156802094154
+lowcut, highcut, fs, order: 96.47321796161356 3509.2721384387655 16000 7
+  [epoch 62/100]  batch 70/94  loss=0.065999
+  [epoch 62/100]  batch 80/94  loss=0.079297
+  [epoch 62/100]  batch 90/94  loss=0.081038
+------------------------------------------------------------
+Epoch  62/100  train=0.080200  val=0.085812  gap=+0.005613  time=1250s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074201
+
+Epoch 63/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 63/100]  batch 10/94  loss=0.087006
+  [epoch 63/100]  batch 20/94  loss=0.085090
+  [epoch 63/100]  batch 30/94  loss=0.079044
+  [epoch 63/100]  batch 40/94  loss=0.091862
+  [epoch 63/100]  batch 50/94  loss=0.072617
+  [epoch 63/100]  batch 60/94  loss=0.072508
+  [epoch 63/100]  batch 70/94  loss=0.060990
+  [epoch 63/100]  batch 80/94  loss=0.085439
+  [epoch 63/100]  batch 90/94  loss=0.085176
+------------------------------------------------------------
+Epoch  63/100  train=0.083275  val=0.074053  gap=-0.009223  time=1258s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.074053)
+
+Epoch 64/100  lr=2.70e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0954911988178824 1.6002109648509042
+lowcut, highcut, fs, order: 65.6583715105486 3256.0488220375128 16000 7
+  [epoch 64/100]  batch 10/94  loss=0.085047
+  [epoch 64/100]  batch 20/94  loss=0.069578
+  [epoch 64/100]  batch 30/94  loss=0.084185
+  [epoch 64/100]  batch 40/94  loss=0.086863
+  [epoch 64/100]  batch 50/94  loss=0.090720
+  [epoch 64/100]  batch 60/94  loss=0.081897
+  [epoch 64/100]  batch 70/94  loss=0.074399
+  [epoch 64/100]  batch 80/94  loss=0.087935
+  [epoch 64/100]  batch 90/94  loss=0.080934
+------------------------------------------------------------
+Epoch  64/100  train=0.082854  val=0.074119  gap=-0.008736  time=1254s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.074053
+
+Epoch 65/100  lr=2.70e-03
+------------------------------------------------------------
+  [epoch 65/100]  batch 10/94  loss=0.071275
+  [epoch 65/100]  batch 20/94  loss=0.067788
+  [epoch 65/100]  batch 30/94  loss=0.076577
+  [epoch 65/100]  batch 40/94  loss=0.083472
+  [epoch 65/100]  batch 50/94  loss=0.096324
+  [epoch 65/100]  batch 60/94  loss=0.074834
+  [epoch 65/100]  batch 70/94  loss=0.075816
+  [epoch 65/100]  batch 80/94  loss=0.092966
+  [epoch 65/100]  batch 90/94  loss=0.102840
+------------------------------------------------------------
+Epoch  65/100  train=0.080134  val=0.073423  gap=-0.006711  time=1248s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.073423)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch65.pt
+
+Epoch 66/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 66/100]  batch 10/94  loss=0.085157
+  [epoch 66/100]  batch 20/94  loss=0.073394
+  [epoch 66/100]  batch 30/94  loss=0.120771
+  [epoch 66/100]  batch 40/94  loss=0.085560
+  [epoch 66/100]  batch 50/94  loss=0.069805
+  [epoch 66/100]  batch 60/94  loss=0.071441
+  [epoch 66/100]  batch 70/94  loss=0.075635
+  [epoch 66/100]  batch 80/94  loss=0.081042
+  [epoch 66/100]  batch 90/94  loss=0.061806
+------------------------------------------------------------
+Epoch  66/100  train=0.081162  val=0.079460  gap=-0.001702  time=1251s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 67/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 67/100]  batch 10/94  loss=0.067276
+  [epoch 67/100]  batch 20/94  loss=0.078765
+  [epoch 67/100]  batch 30/94  loss=0.085699
+  [epoch 67/100]  batch 40/94  loss=0.097706
+  [epoch 67/100]  batch 50/94  loss=0.075363
+  [epoch 67/100]  batch 60/94  loss=0.106653
+  [epoch 67/100]  batch 70/94  loss=0.073793
+  [epoch 67/100]  batch 80/94  loss=0.081438
+  [epoch 67/100]  batch 90/94  loss=0.079153
+------------------------------------------------------------
+Epoch  67/100  train=0.083273  val=0.078072  gap=-0.005201  time=1265s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 68/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 68/100]  batch 10/94  loss=0.084673
+  [epoch 68/100]  batch 20/94  loss=0.080971
+  [epoch 68/100]  batch 30/94  loss=0.093786
+  [epoch 68/100]  batch 40/94  loss=0.082144
+  [epoch 68/100]  batch 50/94  loss=0.098152
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.686379084665687 1.1025615502643826
+lowcut, highcut, fs, order: 53.09717619096753 2942.615221033636 16000 7
+  [epoch 68/100]  batch 60/94  loss=0.091399
+  [epoch 68/100]  batch 70/94  loss=0.086789
+  [epoch 68/100]  batch 80/94  loss=0.068318
+  [epoch 68/100]  batch 90/94  loss=0.070475
+------------------------------------------------------------
+Epoch  68/100  train=0.080780  val=0.086248  gap=+0.005468  time=1256s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 69/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 69/100]  batch 10/94  loss=0.079229
+  [epoch 69/100]  batch 20/94  loss=0.079448
+  [epoch 69/100]  batch 30/94  loss=0.077886
+  [epoch 69/100]  batch 40/94  loss=0.059910
+  [epoch 69/100]  batch 50/94  loss=0.089325
+  [epoch 69/100]  batch 60/94  loss=0.086777
+  [epoch 69/100]  batch 70/94  loss=0.090763
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8074057041548404 1.0200950351280624
+lowcut, highcut, fs, order: 73.72384606550031 2348.0484403363776 16000 7
+  [epoch 69/100]  batch 80/94  loss=0.094251
+  [epoch 69/100]  batch 90/94  loss=0.092892
+------------------------------------------------------------
+Epoch  69/100  train=0.082791  val=0.073670  gap=-0.009121  time=1263s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 70/100  lr=2.57e-03
+------------------------------------------------------------
+  [epoch 70/100]  batch 10/94  loss=0.072113
+  [epoch 70/100]  batch 20/94  loss=0.058986
+  [epoch 70/100]  batch 30/94  loss=0.093266
+  [epoch 70/100]  batch 40/94  loss=0.090804
+  [epoch 70/100]  batch 50/94  loss=0.075734
+  [epoch 70/100]  batch 60/94  loss=0.100393
+  [epoch 70/100]  batch 70/94  loss=0.072681
+  [epoch 70/100]  batch 80/94  loss=0.090999
+  [epoch 70/100]  batch 90/94  loss=0.081111
+------------------------------------------------------------
+Epoch  70/100  train=0.079165  val=0.075606  gap=-0.003560  time=1260s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch70.pt
+
+Epoch 71/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 71/100]  batch 10/94  loss=0.090025
+  [epoch 71/100]  batch 20/94  loss=0.066570
+  [epoch 71/100]  batch 30/94  loss=0.075488
+  [epoch 71/100]  batch 40/94  loss=0.096606
+  [epoch 71/100]  batch 50/94  loss=0.068623
+  [epoch 71/100]  batch 60/94  loss=0.062732
+  [epoch 71/100]  batch 70/94  loss=0.092258
+  [epoch 71/100]  batch 80/94  loss=0.101642
+  [epoch 71/100]  batch 90/94  loss=0.077089
+------------------------------------------------------------
+Epoch  71/100  train=0.079356  val=0.074342  gap=-0.005014  time=1276s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 72/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 72/100]  batch 10/94  loss=0.072123
+  [epoch 72/100]  batch 20/94  loss=0.059251
+  [epoch 72/100]  batch 30/94  loss=0.059913
+  [epoch 72/100]  batch 40/94  loss=0.090684
+  [epoch 72/100]  batch 50/94  loss=0.074605
+  [epoch 72/100]  batch 60/94  loss=0.069571
+  [epoch 72/100]  batch 70/94  loss=0.069943
+  [epoch 72/100]  batch 80/94  loss=0.069515
+  [epoch 72/100]  batch 90/94  loss=0.071273
+------------------------------------------------------------
+Epoch  72/100  train=0.079734  val=0.073497  gap=-0.006238  time=1274s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 73/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 73/100]  batch 10/94  loss=0.081902
+  [epoch 73/100]  batch 20/94  loss=0.079781
+  [epoch 73/100]  batch 30/94  loss=0.077823
+  [epoch 73/100]  batch 40/94  loss=0.100877
+  [epoch 73/100]  batch 50/94  loss=0.067998
+  [epoch 73/100]  batch 60/94  loss=0.080663
+  [epoch 73/100]  batch 70/94  loss=0.072743
+  [epoch 73/100]  batch 80/94  loss=0.066584
+  [epoch 73/100]  batch 90/94  loss=0.063845
+------------------------------------------------------------
+Epoch  73/100  train=0.078213  val=0.074511  gap=-0.003703  time=1284s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 74/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 74/100]  batch 10/94  loss=0.087710
+  [epoch 74/100]  batch 20/94  loss=0.083732
+  [epoch 74/100]  batch 30/94  loss=0.089642
+  [epoch 74/100]  batch 40/94  loss=0.076999
+  [epoch 74/100]  batch 50/94  loss=0.080619
+  [epoch 74/100]  batch 60/94  loss=0.139700
+  [epoch 74/100]  batch 70/94  loss=0.076891
+  [epoch 74/100]  batch 80/94  loss=0.079442
+  [epoch 74/100]  batch 90/94  loss=0.081953
+------------------------------------------------------------
+Epoch  74/100  train=0.079636  val=0.074334  gap=-0.005302  time=1284s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 75/100  lr=2.44e-03
+------------------------------------------------------------
+  [epoch 75/100]  batch 10/94  loss=0.105384
+  [epoch 75/100]  batch 20/94  loss=0.066642
+  [epoch 75/100]  batch 30/94  loss=0.067940
+  [epoch 75/100]  batch 40/94  loss=0.085191
+  [epoch 75/100]  batch 50/94  loss=0.089135
+  [epoch 75/100]  batch 60/94  loss=0.097664
+  [epoch 75/100]  batch 70/94  loss=0.078310
+  [epoch 75/100]  batch 80/94  loss=0.062799
+  [epoch 75/100]  batch 90/94  loss=0.085451
+------------------------------------------------------------
+Epoch  75/100  train=0.081050  val=0.083875  gap=+0.002825  time=1290s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch75.pt
+
+Epoch 76/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 76/100]  batch 10/94  loss=0.083986
+  [epoch 76/100]  batch 20/94  loss=0.074429
+  [epoch 76/100]  batch 30/94  loss=0.061048
+  [epoch 76/100]  batch 40/94  loss=0.076699
+  [epoch 76/100]  batch 50/94  loss=0.077326
+  [epoch 76/100]  batch 60/94  loss=0.070116
+  [epoch 76/100]  batch 70/94  loss=0.080751
+  [epoch 76/100]  batch 80/94  loss=0.081302
+  [epoch 76/100]  batch 90/94  loss=0.063832
+------------------------------------------------------------
+Epoch  76/100  train=0.078352  val=0.076429  gap=-0.001923  time=1268s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.073423
+
+Epoch 77/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 77/100]  batch 10/94  loss=0.075314
+  [epoch 77/100]  batch 20/94  loss=0.095371
+  [epoch 77/100]  batch 30/94  loss=0.079872
+  [epoch 77/100]  batch 40/94  loss=0.082375
+  [epoch 77/100]  batch 50/94  loss=0.092747
+  [epoch 77/100]  batch 60/94  loss=0.081555
+  [epoch 77/100]  batch 70/94  loss=0.107037
+  [epoch 77/100]  batch 80/94  loss=0.088039
+  [epoch 77/100]  batch 90/94  loss=0.075512
+------------------------------------------------------------
+Epoch  77/100  train=0.079880  val=0.073410  gap=-0.006470  time=1273s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.073410)
+
+Epoch 78/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 78/100]  batch 10/94  loss=0.078068
+  [epoch 78/100]  batch 20/94  loss=0.080457
+  [epoch 78/100]  batch 30/94  loss=0.066860
+  [epoch 78/100]  batch 40/94  loss=0.070432
+  [epoch 78/100]  batch 50/94  loss=0.077081
+  [epoch 78/100]  batch 60/94  loss=0.065438
+  [epoch 78/100]  batch 70/94  loss=0.076376
+  [epoch 78/100]  batch 80/94  loss=0.087532
+  [epoch 78/100]  batch 90/94  loss=0.067363
+------------------------------------------------------------
+Epoch  78/100  train=0.077676  val=0.073150  gap=-0.004526  time=1294s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.073150)
+
+Epoch 79/100  lr=2.32e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.4298716448066164 1.7893588840326613
+lowcut, highcut, fs, order: 51.86500148042267 3653.853160356286 16000 7
+  [epoch 79/100]  batch 10/94  loss=0.065879
+  [epoch 79/100]  batch 20/94  loss=0.082094
+  [epoch 79/100]  batch 30/94  loss=0.053852
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 1.0188177250537274 1.3102279020873069
+lowcut, highcut, fs, order: 76.22415694863254 3501.4170701923904 16000 7
+  [epoch 79/100]  batch 40/94  loss=0.093090
+  [epoch 79/100]  batch 50/94  loss=0.090860
+  [epoch 79/100]  batch 60/94  loss=0.081707
+  [epoch 79/100]  batch 70/94  loss=0.062784
+  [epoch 79/100]  batch 80/94  loss=0.067489
+  [epoch 79/100]  batch 90/94  loss=0.085163
+------------------------------------------------------------
+Epoch  79/100  train=0.077534  val=0.072841  gap=-0.004693  time=1298s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.072841)
+
+Epoch 80/100  lr=2.32e-03
+------------------------------------------------------------
+  [epoch 80/100]  batch 10/94  loss=0.075256
+  [epoch 80/100]  batch 20/94  loss=0.077836
+  [epoch 80/100]  batch 30/94  loss=0.095863
+  [epoch 80/100]  batch 40/94  loss=0.085139
+  [epoch 80/100]  batch 50/94  loss=0.084754
+  [epoch 80/100]  batch 60/94  loss=0.079328
+  [epoch 80/100]  batch 70/94  loss=0.078263
+  [epoch 80/100]  batch 80/94  loss=0.097226
+  [epoch 80/100]  batch 90/94  loss=0.070868
+------------------------------------------------------------
+Epoch  80/100  train=0.080572  val=0.073937  gap=-0.006635  time=1290s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.072841
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch80.pt
+
+Epoch 81/100  lr=2.20e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8103406489349607 1.1122551022854985
+lowcut, highcut, fs, order: 72.31458942985296 3453.6174195783947 16000 7
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8236266669959939 1.0390004638464645
+lowcut, highcut, fs, order: 45.69801088421894 3513.9385223481104 16000 7
+  [epoch 81/100]  batch 10/94  loss=0.086230
+  [epoch 81/100]  batch 20/94  loss=0.092230
+  [epoch 81/100]  batch 30/94  loss=0.086830
+  [epoch 81/100]  batch 40/94  loss=0.077446
+  [epoch 81/100]  batch 50/94  loss=0.077493
+  [epoch 81/100]  batch 60/94  loss=0.087922
+  [epoch 81/100]  batch 70/94  loss=0.092413
+  [epoch 81/100]  batch 80/94  loss=0.076230
+  [epoch 81/100]  batch 90/94  loss=0.078670
+------------------------------------------------------------
+Epoch  81/100  train=0.078540  val=0.071284  gap=-0.007256  time=1274s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.071284)
+
+Epoch 82/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 82/100]  batch 10/94  loss=0.079060
+  [epoch 82/100]  batch 20/94  loss=0.073972
+  [epoch 82/100]  batch 30/94  loss=0.069673
+  [epoch 82/100]  batch 40/94  loss=0.069399
+  [epoch 82/100]  batch 50/94  loss=0.083116
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.5151917979903894 1.0841947728311827
+lowcut, highcut, fs, order: 40.78781832744675 3956.5932544438806 16000 7
+  [epoch 82/100]  batch 60/94  loss=0.072648
+  [epoch 82/100]  batch 70/94  loss=0.090060
+  [epoch 82/100]  batch 80/94  loss=0.071632
+  [epoch 82/100]  batch 90/94  loss=0.083201
+------------------------------------------------------------
+Epoch  82/100  train=0.077155  val=0.080106  gap=+0.002951  time=1289s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071284
+
+Epoch 83/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 83/100]  batch 10/94  loss=0.068820
+  [epoch 83/100]  batch 20/94  loss=0.076502
+  [epoch 83/100]  batch 30/94  loss=0.073478
+  [epoch 83/100]  batch 40/94  loss=0.063774
+  [epoch 83/100]  batch 50/94  loss=0.064363
+  [epoch 83/100]  batch 60/94  loss=0.094483
+  [epoch 83/100]  batch 70/94  loss=0.085916
+  [epoch 83/100]  batch 80/94  loss=0.086986
+  [epoch 83/100]  batch 90/94  loss=0.080834
+------------------------------------------------------------
+Epoch  83/100  train=0.078085  val=0.077340  gap=-0.000745  time=1302s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071284
+
+Epoch 84/100  lr=2.20e-03
+------------------------------------------------------------
+  [epoch 84/100]  batch 10/94  loss=0.075462
+  [epoch 84/100]  batch 20/94  loss=0.061700
+  [epoch 84/100]  batch 30/94  loss=0.064064
+  [epoch 84/100]  batch 40/94  loss=0.068583
+  [epoch 84/100]  batch 50/94  loss=0.077136
+  [epoch 84/100]  batch 60/94  loss=0.100595
+  [epoch 84/100]  batch 70/94  loss=0.068538
+  [epoch 84/100]  batch 80/94  loss=0.067032
+  [epoch 84/100]  batch 90/94  loss=0.065831
+------------------------------------------------------------
+Epoch  84/100  train=0.078459  val=0.071932  gap=-0.006527  time=1296s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071284
+
+Epoch 85/100  lr=2.20e-03
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7664253993505886 1.1844067980271216
+lowcut, highcut, fs, order: 60.112397959842035 3712.7943580740593 16000 7
+  [epoch 85/100]  batch 10/94  loss=0.074306
+  [epoch 85/100]  batch 20/94  loss=0.092440
+  [epoch 85/100]  batch 30/94  loss=0.073782
+  [epoch 85/100]  batch 40/94  loss=0.085253
+  [epoch 85/100]  batch 50/94  loss=0.074020
+  [epoch 85/100]  batch 60/94  loss=0.099597
+  [epoch 85/100]  batch 70/94  loss=0.076300
+  [epoch 85/100]  batch 80/94  loss=0.071404
+  [epoch 85/100]  batch 90/94  loss=0.063497
+------------------------------------------------------------
+Epoch  85/100  train=0.078773  val=0.072610  gap=-0.006163  time=1312s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.071284
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch85.pt
+
+Epoch 86/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 86/100]  batch 10/94  loss=0.076352
+  [epoch 86/100]  batch 20/94  loss=0.076547
+  [epoch 86/100]  batch 30/94  loss=0.067473
+  [epoch 86/100]  batch 40/94  loss=0.087248
+  [epoch 86/100]  batch 50/94  loss=0.063909
+  [epoch 86/100]  batch 60/94  loss=0.093894
+  [epoch 86/100]  batch 70/94  loss=0.083544
+  [epoch 86/100]  batch 80/94  loss=0.079164
+  [epoch 86/100]  batch 90/94  loss=0.078392
+------------------------------------------------------------
+Epoch  86/100  train=0.076190  val=0.070970  gap=-0.005220  time=1335s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.070970)
+
+Epoch 87/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 87/100]  batch 10/94  loss=0.086182
+  [epoch 87/100]  batch 20/94  loss=0.085576
+  [epoch 87/100]  batch 30/94  loss=0.071855
+  [epoch 87/100]  batch 40/94  loss=0.080595
+  [epoch 87/100]  batch 50/94  loss=0.066512
+  [epoch 87/100]  batch 60/94  loss=0.074031
+  [epoch 87/100]  batch 70/94  loss=0.082840
+  [epoch 87/100]  batch 80/94  loss=0.074689
+  [epoch 87/100]  batch 90/94  loss=0.093872
+------------------------------------------------------------
+Epoch  87/100  train=0.075484  val=0.082637  gap=+0.007152  time=1329s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070970
+
+Epoch 88/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 88/100]  batch 10/94  loss=0.077466
+  [epoch 88/100]  batch 20/94  loss=0.068061
+  [epoch 88/100]  batch 30/94  loss=0.078098
+  [epoch 88/100]  batch 40/94  loss=0.074098
+  [epoch 88/100]  batch 50/94  loss=0.086032
+  [epoch 88/100]  batch 60/94  loss=0.077790
+  [epoch 88/100]  batch 70/94  loss=0.088455
+  [epoch 88/100]  batch 80/94  loss=0.080211
+  [epoch 88/100]  batch 90/94  loss=0.081013
+------------------------------------------------------------
+Epoch  88/100  train=0.077745  val=0.080182  gap=+0.002437  time=1305s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070970
+
+Epoch 89/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 89/100]  batch 10/94  loss=0.079047
+  [epoch 89/100]  batch 20/94  loss=0.136439
+  [epoch 89/100]  batch 30/94  loss=0.077146
+  [epoch 89/100]  batch 40/94  loss=0.084390
+  [epoch 89/100]  batch 50/94  loss=0.070601
+  [epoch 89/100]  batch 60/94  loss=0.078253
+  [epoch 89/100]  batch 70/94  loss=0.078662
+  [epoch 89/100]  batch 80/94  loss=0.071056
+  [epoch 89/100]  batch 90/94  loss=0.075315
+------------------------------------------------------------
+Epoch  89/100  train=0.076764  val=0.077967  gap=+0.001203  time=1304s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070970
+
+Epoch 90/100  lr=2.09e-03
+------------------------------------------------------------
+  [epoch 90/100]  batch 10/94  loss=0.085374
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8020881743534972 1.0674284515835446
+lowcut, highcut, fs, order: 59.36876226386248 3408.163710573387 16000 7
+  [epoch 90/100]  batch 20/94  loss=0.080540
+  [epoch 90/100]  batch 30/94  loss=0.087657
+  [epoch 90/100]  batch 40/94  loss=0.072575
+  [epoch 90/100]  batch 50/94  loss=0.090404
+  [epoch 90/100]  batch 60/94  loss=0.079789
+  [epoch 90/100]  batch 70/94  loss=0.102504
+  [epoch 90/100]  batch 80/94  loss=0.072629
+  [epoch 90/100]  batch 90/94  loss=0.093587
+------------------------------------------------------------
+Epoch  90/100  train=0.077270  val=0.081541  gap=+0.004270  time=1314s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070970
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch90.pt
+
+Epoch 91/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 91/100]  batch 10/94  loss=0.071263
+  [epoch 91/100]  batch 20/94  loss=0.063742
+  [epoch 91/100]  batch 30/94  loss=0.086733
+  [epoch 91/100]  batch 40/94  loss=0.071994
+  [epoch 91/100]  batch 50/94  loss=0.062623
+  [epoch 91/100]  batch 60/94  loss=0.047088
+  [epoch 91/100]  batch 70/94  loss=0.066868
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.5863849152103886 1.0301549244343975
+lowcut, highcut, fs, order: 16.689155273218528 3795.14372431335 16000 7
+  [epoch 91/100]  batch 80/94  loss=0.062110
+  [epoch 91/100]  batch 90/94  loss=0.086753
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9867459643918991 1.3268088124120165
+lowcut, highcut, fs, order: 76.69285457755062 3826.496619560833 16000 7
+------------------------------------------------------------
+Epoch  91/100  train=0.077097  val=0.078331  gap=+0.001234  time=1306s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070970
+
+Epoch 92/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 92/100]  batch 10/94  loss=0.069731
+  [epoch 92/100]  batch 20/94  loss=0.076282
+  [epoch 92/100]  batch 30/94  loss=0.097420
+  [epoch 92/100]  batch 40/94  loss=0.072209
+  [epoch 92/100]  batch 50/94  loss=0.050696
+  [epoch 92/100]  batch 60/94  loss=0.077065
+  [epoch 92/100]  batch 70/94  loss=0.078288
+  [epoch 92/100]  batch 80/94  loss=0.062842
+  [epoch 92/100]  batch 90/94  loss=0.073234
+------------------------------------------------------------
+Epoch  92/100  train=0.076480  val=0.070941  gap=-0.005539  time=1269s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.070941)
+
+Epoch 93/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 93/100]  batch 10/94  loss=0.072533
+  [epoch 93/100]  batch 20/94  loss=0.064218
+  [epoch 93/100]  batch 30/94  loss=0.093494
+  [epoch 93/100]  batch 40/94  loss=0.074468
+  [epoch 93/100]  batch 50/94  loss=0.083882
+  [epoch 93/100]  batch 60/94  loss=0.061583
+  [epoch 93/100]  batch 70/94  loss=0.064867
+  [epoch 93/100]  batch 80/94  loss=0.066803
+  [epoch 93/100]  batch 90/94  loss=0.083498
+------------------------------------------------------------
+Epoch  93/100  train=0.076366  val=0.074102  gap=-0.002264  time=1283s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+
+Epoch 94/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 94/100]  batch 10/94  loss=0.079631
+  [epoch 94/100]  batch 20/94  loss=0.072271
+  [epoch 94/100]  batch 30/94  loss=0.061001
+  [epoch 94/100]  batch 40/94  loss=0.081347
+  [epoch 94/100]  batch 50/94  loss=0.077848
+  [epoch 94/100]  batch 60/94  loss=0.065835
+  [epoch 94/100]  batch 70/94  loss=0.088490
+  [epoch 94/100]  batch 80/94  loss=0.060062
+  [epoch 94/100]  batch 90/94  loss=0.085071
+------------------------------------------------------------
+Epoch  94/100  train=0.076887  val=0.072352  gap=-0.004534  time=1204s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+
+Epoch 95/100  lr=1.99e-03
+------------------------------------------------------------
+  [epoch 95/100]  batch 10/94  loss=0.135567
+  [epoch 95/100]  batch 20/94  loss=0.091188
+  [epoch 95/100]  batch 30/94  loss=0.103205
+  [epoch 95/100]  batch 40/94  loss=0.096591
+  [epoch 95/100]  batch 50/94  loss=0.076988
+  [epoch 95/100]  batch 60/94  loss=0.064704
+  [epoch 95/100]  batch 70/94  loss=0.070271
+  [epoch 95/100]  batch 80/94  loss=0.073971
+  [epoch 95/100]  batch 90/94  loss=0.078180
+------------------------------------------------------------
+Epoch  95/100  train=0.078182  val=0.076463  gap=-0.001719  time=1204s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch95.pt
+
+Epoch 96/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 96/100]  batch 10/94  loss=0.083831
+  [epoch 96/100]  batch 20/94  loss=0.066970
+  [epoch 96/100]  batch 30/94  loss=0.068139
+  [epoch 96/100]  batch 40/94  loss=0.070418
+  [epoch 96/100]  batch 50/94  loss=0.073736
+  [epoch 96/100]  batch 60/94  loss=0.066466
+  [epoch 96/100]  batch 70/94  loss=0.075349
+  [epoch 96/100]  batch 80/94  loss=0.076785
+  [epoch 96/100]  batch 90/94  loss=0.089013
+------------------------------------------------------------
+Epoch  96/100  train=0.077179  val=0.073347  gap=-0.003832  time=1204s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+
+Epoch 97/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 97/100]  batch 10/94  loss=0.070159
+  [epoch 97/100]  batch 20/94  loss=0.076690
+  [epoch 97/100]  batch 30/94  loss=0.088467
+  [epoch 97/100]  batch 40/94  loss=0.069332
+  [epoch 97/100]  batch 50/94  loss=0.076381
+  [epoch 97/100]  batch 60/94  loss=0.083198
+  [epoch 97/100]  batch 70/94  loss=0.064772
+  [epoch 97/100]  batch 80/94  loss=0.073435
+  [epoch 97/100]  batch 90/94  loss=0.082953
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.6594699020041707 1.0400663263566576
+lowcut, highcut, fs, order: 20.000856154018507 2217.015422020995 16000 7
+------------------------------------------------------------
+Epoch  97/100  train=0.075335  val=0.072913  gap=-0.002422  time=1201s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+
+Epoch 98/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 98/100]  batch 10/94  loss=0.078063
+  [epoch 98/100]  batch 20/94  loss=0.070134
+  [epoch 98/100]  batch 30/94  loss=0.069268
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.7002487281653453 1.0076165008184677
+lowcut, highcut, fs, order: 57.491490364636086 3362.8713313444123 16000 7
+  [epoch 98/100]  batch 40/94  loss=0.084347
+  [epoch 98/100]  batch 50/94  loss=0.064277
+  [epoch 98/100]  batch 60/94  loss=0.090698
+  [epoch 98/100]  batch 70/94  loss=0.068798
+  [epoch 98/100]  batch 80/94  loss=0.069416
+  [epoch 98/100]  batch 90/94  loss=0.091790
+------------------------------------------------------------
+Epoch  98/100  train=0.076342  val=0.077902  gap=+0.001560  time=1185s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+
+Epoch 99/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 99/100]  batch 10/94  loss=0.080747
+  [epoch 99/100]  batch 20/94  loss=0.080449
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8392366676376749 1.1588347512391368
+lowcut, highcut, fs, order: 68.38961465824275 3036.837961797193 16000 7
+  [epoch 99/100]  batch 30/94  loss=0.073053
+  [epoch 99/100]  batch 40/94  loss=0.099635
+  [epoch 99/100]  batch 50/94  loss=0.069375
+  [epoch 99/100]  batch 60/94  loss=0.069172
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.9380820704660434 1.2259291059262
+lowcut, highcut, fs, order: 55.8403578838631 2986.136797452791 16000 7
+  [epoch 99/100]  batch 70/94  loss=0.058192
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.999031565883981 1.2506199279550287
+lowcut, highcut, fs, order: 47.77187716646171 3747.4998773371526 16000 7
+  [epoch 99/100]  batch 80/94  loss=0.102582
+  [epoch 99/100]  batch 90/94  loss=0.067234
+------------------------------------------------------------
+Epoch  99/100  train=0.074885  val=0.073041  gap=-0.001844  time=1199s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+
+Epoch 100/100  lr=1.89e-03
+------------------------------------------------------------
+  [epoch 100/100]  batch 10/94  loss=0.075648
+  [epoch 100/100]  batch 20/94  loss=0.063320
+  [epoch 100/100]  batch 30/94  loss=0.092838
+  [epoch 100/100]  batch 40/94  loss=0.096491
+  [epoch 100/100]  batch 50/94  loss=0.079664
+  [epoch 100/100]  batch 60/94  loss=0.081315
+  [epoch 100/100]  batch 70/94  loss=0.081584
+  [epoch 100/100]  batch 80/94  loss=0.077330
+  [epoch 100/100]  batch 90/94  loss=0.060963
+------------------------------------------------------------
+Epoch 100/100  train=0.075328  val=0.074935  gap=-0.000393  time=1202s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.070941
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/checkpoints/checkpoint_epoch100.pt
+
+======================================================================
+Training complete: CRN h=161
+======================================================================
+Total time     : 126070s  (35.02h)
+Best val loss  : 0.070941
+Total energy   : 10124.3903 Wh
+GPU energy     : 8772.9097 Wh
+CPU energy     : 675.8671 Wh
+RAM energy     : 675.6135 Wh
+Total CO2      : 4218.4993 gCO2eq
+Avg GPU power  : 250.7 W
+Avg CPU power  : 20.0 W
+  Loss curves saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504/crn_h161/loss_curves.png
+
+Final test evaluation using best model...
+Best model epoch : 92
+Train loss       : 0.076480
+Val loss         : 0.070941
+Test loss        : 0.067892
+
+
+======================================================================
+FINAL SUMMARY
+======================================================================
+Model                    Params    BestVal   TestLoss   Energy(Wh)     CO2(g)
+----------------------------------------------------------------------
+GRU h=161               339,066   0.064285   0.061624    9525.4949  3968.9594
+CRN h=161             3,948,364   0.070941   0.067892   10124.3903  4218.4993
+
+Total job time : 250211s  (69.50h)
+RUN_TYPE       : full_train
+Results saved  : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/full_train/lr5em03_samp1504
+
+Next steps:
+  Run block4and5.py to enhance audio and compute DNSMOS.
+
+========================================================================
+Full training finished : Wed Jun  3 20:21:59 EEST 2026
+Job ID                 : 66211828
+========================================================================

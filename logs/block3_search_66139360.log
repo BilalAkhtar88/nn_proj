@@ -1,0 +1,510 @@
+========================================================================
+DNS Block 3 — Hyperparameter Search
+========================================================================
+Job ID       : 66139360
+Node         : falcon4
+Started      : Fri May 29 10:40:27 EEST 2026
+========================================================================
+
+Python       : /gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/bin/python
+Python ver   : Python 3.9.12
+
+LEARNING_RATE  : 0.001
+HIDDEN_SIZE_A  : 322
+HIDDEN_SIZE_B  : 322
+TRAIN_SAMPLES  : 500
+NUM_EPOCHS     : 20
+RUN_TYPE       : search
+
+/gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+======================================================================
+DNS Project — Block 3: Model Training
+======================================================================
+RUN_TYPE       : search
+LEARNING_RATE  : 0.001
+HIDDEN_SIZE_A  : 322  (GRU)
+HIDDEN_SIZE_B  : 322  (CRN bottleneck)
+TRAIN_SAMPLES  : 500 per epoch (online synthesis)
+NUM_EPOCHS     : 20
+BATCH_SIZE     : 16
+GRAD_CLIP      : 1.0
+LR scheduler   : StepLR step=5 gamma=0.95
+Device         : cuda
+GPU count      : 4
+  GPU 0        : Tesla V100-SXM2-32GB
+  GPU 1        : Tesla V100-SXM2-32GB
+  GPU 2        : Tesla V100-SXM2-32GB
+  GPU 3        : Tesla V100-SXM2-32GB
+Model A dir    : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/gru_h322
+Model B dir    : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/crn_h322
+
+Loading fixed val and test sets from disk...
+[Block 1] EvalDataset: 2000 samples from /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/pt_files
+[Block 1] EvalDataset: 2000 samples from /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/pt_files
+Pre-loading val batches into memory...
+Val batches loaded: 125
+Pre-loading test batches into memory...
+Test batches loaded: 125
+
+======================================================================
+MODEL A — GRU
+======================================================================
+
+======================================================================
+Training: GRU h=322
+======================================================================
+Parameters: 1,196,391
+
+Using 4 GPUs with DataParallel
+[codecarbon WARNING @ 10:40:53] Multiple instances of codecarbon are allowed to run at the same time.
+
+Epoch 1/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 1/20]  batch 10/31  loss=0.155554
+  [epoch 1/20]  batch 20/31  loss=0.131021
+  [epoch 1/20]  batch 30/31  loss=0.124396
+------------------------------------------------------------
+Epoch   1/20  train=0.148039  val=0.125939  gap=-0.022101  time=404s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.125939)
+
+Epoch 2/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 2/20]  batch 10/31  loss=0.118641
+  [epoch 2/20]  batch 20/31  loss=0.096881
+  [epoch 2/20]  batch 30/31  loss=0.111337
+------------------------------------------------------------
+Epoch   2/20  train=0.110756  val=0.099632  gap=-0.011124  time=407s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.099632)
+
+Epoch 3/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 3/20]  batch 10/31  loss=0.098762
+  [epoch 3/20]  batch 20/31  loss=0.094505
+  [epoch 3/20]  batch 30/31  loss=0.102993
+------------------------------------------------------------
+Epoch   3/20  train=0.094629  val=0.092259  gap=-0.002370  time=401s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.092259)
+
+Epoch 4/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 4/20]  batch 10/31  loss=0.117397
+  [epoch 4/20]  batch 20/31  loss=0.097484
+  [epoch 4/20]  batch 30/31  loss=0.097298
+------------------------------------------------------------
+Epoch   4/20  train=0.092701  val=0.095419  gap=+0.002718  time=408s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.092259
+
+Epoch 5/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 5/20]  batch 10/31  loss=0.094633
+  [epoch 5/20]  batch 20/31  loss=0.073376
+  [epoch 5/20]  batch 30/31  loss=0.070856
+------------------------------------------------------------
+Epoch   5/20  train=0.087817  val=0.088979  gap=+0.001163  time=402s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.088979)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/gru_h322/checkpoints/checkpoint_epoch5.pt
+
+Epoch 6/20  lr=9.50e-04
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.88789775731325 1.3899257453525227
+lowcut, highcut, fs, order: 98.64917676974537 3303.6940199449045 16000 7
+  [epoch 6/20]  batch 10/31  loss=0.105640
+  [epoch 6/20]  batch 20/31  loss=0.100242
+  [epoch 6/20]  batch 30/31  loss=0.080162
+------------------------------------------------------------
+Epoch   6/20  train=0.086375  val=0.087405  gap=+0.001030  time=400s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.087405)
+
+Epoch 7/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 7/20]  batch 10/31  loss=0.068981
+  [epoch 7/20]  batch 20/31  loss=0.089043
+  [epoch 7/20]  batch 30/31  loss=0.074650
+------------------------------------------------------------
+Epoch   7/20  train=0.084532  val=0.087591  gap=+0.003060  time=403s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.087405
+
+Epoch 8/20  lr=9.50e-04
+------------------------------------------------------------
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.889440023309755 1.1151694504347138
+lowcut, highcut, fs, order: 12.09010222411038 3700.847759791806 16000 7
+  [epoch 8/20]  batch 10/31  loss=0.092482
+  [epoch 8/20]  batch 20/31  loss=0.067760
+  [epoch 8/20]  batch 30/31  loss=0.078594
+------------------------------------------------------------
+Epoch   8/20  train=0.088657  val=0.087287  gap=-0.001370  time=406s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.087287)
+
+Epoch 9/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 9/20]  batch 10/31  loss=0.078566
+  [epoch 9/20]  batch 20/31  loss=0.080310
+  [epoch 9/20]  batch 30/31  loss=0.087553
+------------------------------------------------------------
+Epoch   9/20  train=0.085146  val=0.085546  gap=+0.000400  time=403s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.085546)
+
+Epoch 10/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 10/20]  batch 10/31  loss=0.112031
+  [epoch 10/20]  batch 20/31  loss=0.098221
+  [epoch 10/20]  batch 30/31  loss=0.090395
+------------------------------------------------------------
+Epoch  10/20  train=0.085294  val=0.083464  gap=-0.001831  time=393s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.083464)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/gru_h322/checkpoints/checkpoint_epoch10.pt
+
+Epoch 11/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 11/20]  batch 10/31  loss=0.090277
+  [epoch 11/20]  batch 20/31  loss=0.092942
+  [epoch 11/20]  batch 30/31  loss=0.083012
+------------------------------------------------------------
+Epoch  11/20  train=0.090378  val=0.088769  gap=-0.001609  time=404s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.083464
+
+Epoch 12/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 12/20]  batch 10/31  loss=0.071670
+  [epoch 12/20]  batch 20/31  loss=0.082017
+  [epoch 12/20]  batch 30/31  loss=0.080466
+------------------------------------------------------------
+Epoch  12/20  train=0.088619  val=0.083463  gap=-0.005156  time=408s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.083463)
+
+Epoch 13/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 13/20]  batch 10/31  loss=0.080244
+  [epoch 13/20]  batch 20/31  loss=0.115774
+  [epoch 13/20]  batch 30/31  loss=0.075501
+------------------------------------------------------------
+Epoch  13/20  train=0.085087  val=0.084921  gap=-0.000165  time=411s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.083463
+
+Epoch 14/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 14/20]  batch 10/31  loss=0.079044
+  [epoch 14/20]  batch 20/31  loss=0.068404
+  [epoch 14/20]  batch 30/31  loss=0.093959
+------------------------------------------------------------
+Epoch  14/20  train=0.086015  val=0.081914  gap=-0.004101  time=405s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.081914)
+
+Epoch 15/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 15/20]  batch 10/31  loss=0.066335
+  [epoch 15/20]  batch 20/31  loss=0.079930
+  [epoch 15/20]  batch 30/31  loss=0.079593
+------------------------------------------------------------
+Epoch  15/20  train=0.081777  val=0.081419  gap=-0.000358  time=409s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.081419)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/gru_h322/checkpoints/checkpoint_epoch15.pt
+
+Epoch 16/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 16/20]  batch 10/31  loss=0.073389
+  [epoch 16/20]  batch 20/31  loss=0.083117
+  [epoch 16/20]  batch 30/31  loss=0.074530
+------------------------------------------------------------
+Epoch  16/20  train=0.081779  val=0.080130  gap=-0.001649  time=412s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.080130)
+
+Epoch 17/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 17/20]  batch 10/31  loss=0.082783
+  [epoch 17/20]  batch 20/31  loss=0.093526
+  [epoch 17/20]  batch 30/31  loss=0.070997
+------------------------------------------------------------
+Epoch  17/20  train=0.081668  val=0.080748  gap=-0.000921  time=411s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.080130
+
+Epoch 18/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 18/20]  batch 10/31  loss=0.097031
+  [epoch 18/20]  batch 20/31  loss=0.084518
+  [epoch 18/20]  batch 30/31  loss=0.091632
+------------------------------------------------------------
+Epoch  18/20  train=0.083303  val=0.080411  gap=-0.002892  time=407s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.080130
+
+Epoch 19/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 19/20]  batch 10/31  loss=0.081780
+  [epoch 19/20]  batch 20/31  loss=0.088648
+  [epoch 19/20]  batch 30/31  loss=0.074673
+------------------------------------------------------------
+Epoch  19/20  train=0.082822  val=0.085197  gap=+0.002375  time=413s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.080130
+
+Epoch 20/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 20/20]  batch 10/31  loss=0.084589
+  [epoch 20/20]  batch 20/31  loss=0.062987
+  [epoch 20/20]  batch 30/31  loss=0.080584
+------------------------------------------------------------
+Epoch  20/20  train=0.077069  val=0.082911  gap=+0.005842  time=407s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.080130
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/gru_h322/checkpoints/checkpoint_epoch20.pt
+
+======================================================================
+Training complete: GRU h=322
+======================================================================
+Total time     : 8114s  (2.25h)
+Best val loss  : 0.080130
+Total energy   : 657.1594 Wh
+GPU energy     : 570.1708 Wh
+CPU energy     : 43.4962 Wh
+RAM energy     : 43.4924 Wh
+Total CO2      : 273.8166 gCO2eq
+Avg GPU power  : 253.2 W
+Avg CPU power  : 20.0 W
+  Loss curves saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/gru_h322/loss_curves.png
+
+Final test evaluation using best model...
+Best model epoch : 16
+Train loss       : 0.081779
+Val loss         : 0.080130
+Test loss        : 0.076637
+
+======================================================================
+MODEL B — CRN
+======================================================================
+
+======================================================================
+Training: CRN h=322
+======================================================================
+Parameters: 13,702,871
+
+Using 4 GPUs with DataParallel
+
+Epoch 1/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 1/20]  batch 10/31  loss=0.177923
+  [epoch 1/20]  batch 20/31  loss=0.197701
+  [epoch 1/20]  batch 30/31  loss=0.114279
+------------------------------------------------------------
+Epoch   1/20  train=0.149259  val=0.173368  gap=+0.024109  time=410s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.173368)
+
+Epoch 2/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 2/20]  batch 10/31  loss=0.103769
+  [epoch 2/20]  batch 20/31  loss=0.082864
+  [epoch 2/20]  batch 30/31  loss=0.116921
+------------------------------------------------------------
+Epoch   2/20  train=0.116357  val=0.102992  gap=-0.013365  time=410s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.102992)
+
+Epoch 3/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 3/20]  batch 10/31  loss=0.187664
+  [epoch 3/20]  batch 20/31  loss=0.107565
+  [epoch 3/20]  batch 30/31  loss=0.100037
+------------------------------------------------------------
+Epoch   3/20  train=0.110421  val=0.085640  gap=-0.024781  time=411s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.085640)
+
+Epoch 4/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 4/20]  batch 10/31  loss=0.113564
+  [epoch 4/20]  batch 20/31  loss=0.100106
+  [epoch 4/20]  batch 30/31  loss=0.087908
+------------------------------------------------------------
+Epoch   4/20  train=0.107112  val=0.086191  gap=-0.020921  time=414s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.085640
+
+Epoch 5/20  lr=1.00e-03
+------------------------------------------------------------
+  [epoch 5/20]  batch 10/31  loss=0.109115
+  [epoch 5/20]  batch 20/31  loss=0.090549
+  [epoch 5/20]  batch 30/31  loss=0.110715
+------------------------------------------------------------
+Epoch   5/20  train=0.107042  val=0.087900  gap=-0.019141  time=417s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.085640
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/crn_h322/checkpoints/checkpoint_epoch5.pt
+
+Epoch 6/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 6/20]  batch 10/31  loss=0.115039
+  [epoch 6/20]  batch 20/31  loss=0.115215
+  [epoch 6/20]  batch 30/31  loss=0.116408
+------------------------------------------------------------
+Epoch   6/20  train=0.121789  val=0.091276  gap=-0.030513  time=417s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.085640
+
+Epoch 7/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 7/20]  batch 10/31  loss=0.147348
+  [epoch 7/20]  batch 20/31  loss=0.105476
+  [epoch 7/20]  batch 30/31  loss=0.126621
+------------------------------------------------------------
+Epoch   7/20  train=0.112998  val=0.096549  gap=-0.016449  time=418s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.085640
+
+Epoch 8/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 8/20]  batch 10/31  loss=0.109737
+  [epoch 8/20]  batch 20/31  loss=0.117550
+  [epoch 8/20]  batch 30/31  loss=0.136598
+------------------------------------------------------------
+Epoch   8/20  train=0.116474  val=0.089644  gap=-0.026830  time=420s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.085640
+
+Epoch 9/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 9/20]  batch 10/31  loss=0.121381
+  [epoch 9/20]  batch 20/31  loss=0.100876
+  [epoch 9/20]  batch 30/31  loss=0.120522
+------------------------------------------------------------
+Epoch   9/20  train=0.114044  val=0.091677  gap=-0.022366  time=417s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.085640
+
+Epoch 10/20  lr=9.50e-04
+------------------------------------------------------------
+  [epoch 10/20]  batch 10/31  loss=0.098482
+  [epoch 10/20]  batch 20/31  loss=0.126002
+  [epoch 10/20]  batch 30/31  loss=0.099431
+------------------------------------------------------------
+Epoch  10/20  train=0.104283  val=0.084989  gap=-0.019295  time=417s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.084989)
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/crn_h322/checkpoints/checkpoint_epoch10.pt
+
+Epoch 11/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 11/20]  batch 10/31  loss=0.090856
+  [epoch 11/20]  batch 20/31  loss=0.088633
+  [epoch 11/20]  batch 30/31  loss=0.097334
+------------------------------------------------------------
+Epoch  11/20  train=0.099654  val=0.089911  gap=-0.009743  time=429s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.084989
+
+Epoch 12/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 12/20]  batch 10/31  loss=0.101117
+  [epoch 12/20]  batch 20/31  loss=0.073254
+  [epoch 12/20]  batch 30/31  loss=0.120554
+------------------------------------------------------------
+Epoch  12/20  train=0.103633  val=0.081625  gap=-0.022009  time=426s  energy=0.00Wh  CO2=0.00g
+  ✓ Best model saved (val_loss=0.081625)
+
+Epoch 13/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 13/20]  batch 10/31  loss=0.110157
+  [epoch 13/20]  batch 20/31  loss=0.108170
+  [epoch 13/20]  batch 30/31  loss=0.101813
+------------------------------------------------------------
+Epoch  13/20  train=0.105203  val=0.084344  gap=-0.020859  time=434s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+
+Epoch 14/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 14/20]  batch 10/31  loss=0.108605
+  [epoch 14/20]  batch 20/31  loss=0.098823
+  [epoch 14/20]  batch 30/31  loss=0.080940
+------------------------------------------------------------
+Epoch  14/20  train=0.107941  val=0.089840  gap=-0.018101  time=436s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+
+Epoch 15/20  lr=9.02e-04
+------------------------------------------------------------
+  [epoch 15/20]  batch 10/31  loss=0.088704
+  [epoch 15/20]  batch 20/31  loss=0.086539
+  [epoch 15/20]  batch 30/31  loss=0.098107
+------------------------------------------------------------
+Epoch  15/20  train=0.105469  val=0.085993  gap=-0.019477  time=438s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/crn_h322/checkpoints/checkpoint_epoch15.pt
+
+Epoch 16/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 16/20]  batch 10/31  loss=0.095498
+  [epoch 16/20]  batch 20/31  loss=0.105622
+  [epoch 16/20]  batch 30/31  loss=0.123624
+------------------------------------------------------------
+Epoch  16/20  train=0.104068  val=0.084449  gap=-0.019620  time=428s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+
+Epoch 17/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 17/20]  batch 10/31  loss=0.097084
+  [epoch 17/20]  batch 20/31  loss=0.085747
+  [epoch 17/20]  batch 30/31  loss=0.097426
+------------------------------------------------------------
+Epoch  17/20  train=0.103958  val=0.081792  gap=-0.022166  time=433s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+
+Epoch 18/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 18/20]  batch 10/31  loss=0.114722
+  [epoch 18/20]  batch 20/31  loss=0.105811
+  [epoch 18/20]  batch 30/31  loss=0.115246
+------------------------------------------------------------
+Epoch  18/20  train=0.107786  val=0.084820  gap=-0.022966  time=435s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+
+Epoch 19/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 19/20]  batch 10/31  loss=0.088539
+  [epoch 19/20]  batch 20/31  loss=0.093999
+  [epoch 19/20]  batch 30/31  loss=0.116520
+------------------------------------------------------------
+Epoch  19/20  train=0.099180  val=0.087086  gap=-0.012094  time=427s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+
+Epoch 20/20  lr=8.57e-04
+------------------------------------------------------------
+  [epoch 20/20]  batch 10/31  loss=0.132033
+  [epoch 20/20]  batch 20/31  loss=0.091272
+  [epoch 20/20]  batch 30/31  loss=0.123375
+------------------------------------------------------------
+Epoch  20/20  train=0.099105  val=0.093365  gap=-0.005741  time=427s  energy=0.00Wh  CO2=0.00g
+  No improvement. Best val=0.081625
+  Checkpoint saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/crn_h322/checkpoints/checkpoint_epoch20.pt
+
+======================================================================
+Training complete: CRN h=322
+======================================================================
+Total time     : 8466s  (2.35h)
+Best val loss  : 0.081625
+Total energy   : 717.7398 Wh
+GPU energy     : 626.9284 Wh
+CPU energy     : 45.4306 Wh
+RAM energy     : 45.3808 Wh
+Total CO2      : 299.0585 gCO2eq
+Avg GPU power  : 267.1 W
+Avg CPU power  : 20.0 W
+  Loss curves saved: /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500/crn_h322/loss_curves.png
+
+Final test evaluation using best model...
+Best model epoch : 12
+Train loss       : 0.103633
+Val loss         : 0.081625
+Test loss        : 0.080368
+
+
+======================================================================
+FINAL SUMMARY
+======================================================================
+Model                    Params    BestVal   TestLoss   Energy(Wh)     CO2(g)
+----------------------------------------------------------------------
+GRU h=322             1,196,391   0.080130   0.076637     657.1594   273.8166
+CRN h=322            13,702,871   0.081625   0.080368     717.7398   299.0585
+
+Total job time : 16628s  (4.62h)
+RUN_TYPE       : search
+Results saved  : /gpfs/helios/home/etais/hpc_bilal/nn_proj/runs/search/lr1em03_samp500
+
+Next steps:
+  Compare val losses across search runs.
+  Pick best lr and hidden sizes.
+  Submit full_train jobs with best config.
+
+========================================================================
+Block 3 search finished : Fri May 29 15:17:44 EEST 2026
+Job ID                  : 66139360
+========================================================================

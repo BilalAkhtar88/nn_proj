@@ -1,0 +1,154 @@
+========================================================================
+DNS Project — Block 1 (Data Loader) + Block 2 (Preprocessing)
+========================================================================
+Job ID       : 66120284
+Node         : ares16
+Started      : Thu May 28 21:35:41 EEST 2026
+Working dir  : /gpfs/helios/home/etais/hpc_bilal/nn_proj
+========================================================================
+
+Python       : /gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/bin/python
+Python ver   : Python 3.9.12
+
+/gpfs/helios/home/etais/hpc_bilal/nn_proj/venv_gpu/lib/python3.9/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+======================================================================
+DNS Project — Block 1 (Data Loader) + Block 2 (Preprocessing)
+======================================================================
+Project dir  : /gpfs/helios/home/etais/hpc_bilal/nn_proj
+Dataset root : /gpfs/helios/projects/neuralnet_course/track02/dataset
+Split base   : /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits
+Configs dir  : /gpfs/helios/home/etais/hpc_bilal/nn_proj/configs
+Eval dir     : /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset
+Val samples  : 2000
+Test samples : 2000
+Wav saved    : first 200 per split
+Split seed   : 42
+
+======================================================================
+Step 1 [Block 1]: Speaker-level split (80/10/10)
+======================================================================
+[Block 1] Running speaker-level split (80/10/10)...
+
+  Dataset: emotional_speech  (/gpfs/helios/projects/neuralnet_course/track02/dataset/clean_speech/emotional_speech)
+    train:  49 speakers  4007 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/emotional_speech/train
+    val  :   6 speakers   486 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/emotional_speech/val
+    test :   7 speakers   567 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/emotional_speech/test
+
+  Dataset: read_speech  (/gpfs/helios/projects/neuralnet_course/track02/dataset/clean_speech/read_speech)
+    train: 1558 speakers  155712 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/read_speech/train
+    val  : 194 speakers  20601 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/read_speech/val
+    test : 196 speakers  19731 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/read_speech/test
+
+  Dataset: vocalset  (/gpfs/helios/projects/neuralnet_course/track02/dataset/clean_speech/VocalSet_48kHz_mono)
+    train:  16 speakers  2888 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/vocalset/train
+    val  :   2 speakers   364 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/vocalset/val
+    test :   2 speakers   361 files  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/vocalset/test
+
+[Block 1] Speaker split complete.
+
+======================================================================
+Step 2 [Block 1]: Writing yaml configs to configs/
+======================================================================
+[Block 1] Written: /gpfs/helios/home/etais/hpc_bilal/nn_proj/configs/config_train.yaml
+[Block 1] Written: /gpfs/helios/home/etais/hpc_bilal/nn_proj/configs/config_val.yaml
+[Block 1] Written: /gpfs/helios/home/etais/hpc_bilal/nn_proj/configs/config_test.yaml
+[Block 1] All configs ready.
+
+======================================================================
+Step 3 [Block 1 + Block 2]: Generating val samples
+======================================================================
+[Block 1] [val] Generating 2000 samples...
+  pt_files  -> /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/pt_files
+  wav_files -> /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/wav_files  (first 200 only)
+
+  [val]  100/2000 samples saved  |  elapsed: 85s  |  ETA: 1623s  |  0.85s/sample
+  [val]  200/2000 samples saved  |  elapsed: 142s  |  ETA: 1278s  |  0.71s/sample
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.6525407357271777 1.0012555224389588
+lowcut, highcut, fs, order: 77.20065154003512 2413.8013340610287 16000 7
+  [val]  300/2000 samples saved  |  elapsed: 217s  |  ETA: 1232s  |  0.72s/sample
+  [val]  400/2000 samples saved  |  elapsed: 305s  |  ETA: 1220s  |  0.76s/sample
+Signal is not finite or has very high values after bandpass filtering, returning original data.
+Probably the order parameter is too high.
+Max value in bandpass augmented data (the augmentation is ignored), (xmax, ymax): 0.8516981351709366 1.079107121724698
+lowcut, highcut, fs, order: 43.66521794501713 3440.4309689522506 16000 7
+  [val]  500/2000 samples saved  |  elapsed: 391s  |  ETA: 1174s  |  0.78s/sample
+  [val]  600/2000 samples saved  |  elapsed: 500s  |  ETA: 1166s  |  0.83s/sample
+  [val]  700/2000 samples saved  |  elapsed: 608s  |  ETA: 1129s  |  0.87s/sample
+  [val]  800/2000 samples saved  |  elapsed: 662s  |  ETA: 993s  |  0.83s/sample
+  [val]  900/2000 samples saved  |  elapsed: 715s  |  ETA: 874s  |  0.79s/sample
+  [val] 1000/2000 samples saved  |  elapsed: 769s  |  ETA: 769s  |  0.77s/sample
+  [val] 1100/2000 samples saved  |  elapsed: 833s  |  ETA: 681s  |  0.76s/sample
+  [val] 1200/2000 samples saved  |  elapsed: 929s  |  ETA: 619s  |  0.77s/sample
+  [val] 1300/2000 samples saved  |  elapsed: 1028s  |  ETA: 553s  |  0.79s/sample
+  [val] 1400/2000 samples saved  |  elapsed: 1112s  |  ETA: 477s  |  0.79s/sample
+  [val] 1500/2000 samples saved  |  elapsed: 1162s  |  ETA: 387s  |  0.77s/sample
+  [val] 1600/2000 samples saved  |  elapsed: 1209s  |  ETA: 302s  |  0.76s/sample
+  [val] 1700/2000 samples saved  |  elapsed: 1258s  |  ETA: 222s  |  0.74s/sample
+  [val] 1800/2000 samples saved  |  elapsed: 1306s  |  ETA: 145s  |  0.73s/sample
+  [val] 1900/2000 samples saved  |  elapsed: 1352s  |  ETA: 71s  |  0.71s/sample
+  [val] 2000/2000 samples saved  |  elapsed: 1400s  |  ETA: 0s  |  0.70s/sample
+
+[Block 1+2] [val] Done.
+  .pt files saved : 2000   ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/pt_files
+  .wav pairs saved: 200  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/wav_files
+  Total time      : 1400s  (23.3 min)
+
+======================================================================
+Step 4 [Block 1 + Block 2]: Generating test samples
+======================================================================
+[Block 1] [test] Generating 2000 samples...
+  pt_files  -> /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/pt_files
+  wav_files -> /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/wav_files  (first 200 only)
+
+  [test]  100/2000 samples saved  |  elapsed: 52s  |  ETA: 982s  |  0.52s/sample
+  [test]  200/2000 samples saved  |  elapsed: 106s  |  ETA: 954s  |  0.53s/sample
+  [test]  300/2000 samples saved  |  elapsed: 163s  |  ETA: 924s  |  0.54s/sample
+  [test]  400/2000 samples saved  |  elapsed: 227s  |  ETA: 909s  |  0.57s/sample
+  [test]  500/2000 samples saved  |  elapsed: 332s  |  ETA: 995s  |  0.66s/sample
+  [test]  600/2000 samples saved  |  elapsed: 412s  |  ETA: 961s  |  0.69s/sample
+  [test]  700/2000 samples saved  |  elapsed: 516s  |  ETA: 958s  |  0.74s/sample
+  [test]  800/2000 samples saved  |  elapsed: 624s  |  ETA: 935s  |  0.78s/sample
+  [test]  900/2000 samples saved  |  elapsed: 700s  |  ETA: 856s  |  0.78s/sample
+  [test] 1000/2000 samples saved  |  elapsed: 754s  |  ETA: 754s  |  0.75s/sample
+  [test] 1100/2000 samples saved  |  elapsed: 804s  |  ETA: 657s  |  0.73s/sample
+  [test] 1200/2000 samples saved  |  elapsed: 853s  |  ETA: 569s  |  0.71s/sample
+  [test] 1300/2000 samples saved  |  elapsed: 906s  |  ETA: 488s  |  0.70s/sample
+  [test] 1400/2000 samples saved  |  elapsed: 989s  |  ETA: 424s  |  0.71s/sample
+  [test] 1500/2000 samples saved  |  elapsed: 1041s  |  ETA: 347s  |  0.69s/sample
+  [test] 1600/2000 samples saved  |  elapsed: 1094s  |  ETA: 274s  |  0.68s/sample
+  [test] 1700/2000 samples saved  |  elapsed: 1145s  |  ETA: 202s  |  0.67s/sample
+  [test] 1800/2000 samples saved  |  elapsed: 1195s  |  ETA: 133s  |  0.66s/sample
+  [test] 1900/2000 samples saved  |  elapsed: 1244s  |  ETA: 65s  |  0.65s/sample
+  [test] 2000/2000 samples saved  |  elapsed: 1294s  |  ETA: 0s  |  0.65s/sample
+
+[Block 1+2] [test] Done.
+  .pt files saved : 2000   ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/pt_files
+  .wav pairs saved: 200  ->  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/wav_files
+  Total time      : 1294s  (21.6 min)
+
+======================================================================
+Block 1 + Block 2 complete.
+======================================================================
+Total time : 2767s  (46.1 min)
+
+Folders created:
+  /gpfs/helios/home/etais/hpc_bilal/nn_proj/data_splits/
+  /gpfs/helios/home/etais/hpc_bilal/nn_proj/configs/
+  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/pt_files/
+  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/val/wav_files/
+  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/pt_files/
+  /gpfs/helios/home/etais/hpc_bilal/nn_proj/eval_dataset/test/wav_files/
+
+Reuse in block3.py:
+  from block1and2 import DNSDataset, EvalDataset
+  from block1and2 import CONFIGS_DIR, EVAL_DIR
+
+Next step: submit block3.sbatch to start training.
+
+========================================================================
+Block 1 + Block 2 finished : Thu May 28 22:22:08 EEST 2026
+Job ID                     : 66120284
+========================================================================
